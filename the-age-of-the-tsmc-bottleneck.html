@@ -1,0 +1,254 @@
+
+            <!DOCTYPE html>
+            <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Markdown Content</title>
+                <link rel="stylesheet" href="../../assets/css/essay-styles.css">
+            </head>
+            <body>
+                <main class="markdown-content">
+                <h1>The Age of the TSMC Bottleneck</h1>
+<h2>Can Samsung and Intel Foundry Seize the Moment?</h2>
+<p><strong>Apr 06, 2026</strong></p>
+<p><strong>Likes:</strong> 40</p>
+<p><a href="https://substackcdn.com/image/fetch/$s_!hzx3!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F586562d6-9ab9-41da-8325-008f4a975358_2848x1504.png"><img alt="" src="https://substackcdn.com/image/fetch/$s_!hzx3!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F586562d6-9ab9-41da-8325-008f4a975358_2848x1504.png" /></a></p>
+<p>In March 2026, Broadcom’s Natarajan Ramachandran stood in front of reporters and said something that would have been unthinkable a few years ago. </p>
+<p>“Not long ago, you could have called TSMC’s capacity practically unlimited. </p>
+<p>Today, in 2026, it’s the bottleneck choking the entire supply chain.”</p>
+<p>From unlimited to bottleneck. This shift happened in just two to three years, and it wasn’t an accident. Yes, the explosion in AI demand played a role. But if you understand the structure of this industry, you can see exactly why everything converges on TSMC, and why switching to another foundry is not simply a matter of picking up and moving.</p>
+<p>The TSMC bottleneck is an opportunity for Samsung and Intel. That part is true. </p>
+<p><em><strong>What most people get wrong is what kind of opportunity it actually is.</strong></em></p>
+<p>There’s a significant gap between what the market expects and what’s actually happening on the ground, and understanding that gap is what separates a good investment thesis from a bad one. This piece starts with how fabless companies and foundries actually work together, then moves to why customers can’t leave TSMC, where Samsung and Intel can realistically make money, and what conditions would have to hold for this dynamic to break.</p>
+<hr />
+<p><strong>In this piece:</strong></p>
+<ul>
+<li>
+<p><strong>How Chips Get Made: The Fabless-Foundry Relationship</strong></p>
+</li>
+<li>
+<p><strong>Why TSMC Is So Hard to Catch</strong></p>
+</li>
+<li>
+<p><strong>The Real Shape of the TSMC Bottleneck</strong></p>
+</li>
+<li>
+<p><strong>Samsung Foundry: Where Things Actually Stand</strong></p>
+<ul>
+<li>
+<p>What We Know and What We’re Estimating</p>
+</li>
+<li>
+<p>The Taylor Fab: A $44B Bet, Up Close</p>
+</li>
+<li>
+<p>What I’m Hearing on the Ground</p>
+</li>
+<li>
+<p>My Take (Speculation Warning)</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Intel Foundry: Where Things Actually Stand</strong></p>
+<ul>
+<li>
+<p>What We Know and What We’re Estimating</p>
+</li>
+<li>
+<p>Apple Is Coming Back to Intel</p>
+</li>
+<li>
+<p>NVIDIA’s Feynman and Intel</p>
+</li>
+<li>
+<p>The Risks Underneath the Good News</p>
+</li>
+<li>
+<p>Where Intel Foundry Can Start Making Money: EMIB and “Made in USA”</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>What Betting on the “Not TSMC” Market Actually Means</strong></p>
+</li>
+<li>
+<p><strong>Closing Thoughts</strong></p>
+</li>
+</ul>
+<hr />
+<p><strong>Disclaimer:</strong> <em>All content in this article is based on my personal analysis of publicly available materials, press reports, analyst research, and industry networks. It is not based on any NDA-protected information from my current or former employers. This is not investment advice.</em></p>
+<p>Damnang2’s Substack is a reader-supported publication. To receive new posts and support my work, consider becoming a free or paid subscriber.</p>
+<p>Subscribed</p>
+<h2>How Chips Get Made: The Fabless-Foundry Relationship</h2>
+<p>The most common misconception among investors new to semiconductors goes something like this: </p>
+<p><em>“If TSMC is too expensive, why not just switch to Samsung or Intel?”</em></p>
+<p>To answer that question, you first need to understand how a fabless company actually works with a foundry. The short answer is that switching foundries is not changing factories. It’s redesigning the chip from scratch.</p>
+<h3>Where Every Design Starts: The PDK</h3>
+<p>When a fabless company designs a chip, it does not start with a blank canvas. It starts on top of a PDK, or Process Design Kit, provided by the foundry.</p>
+<p><a href="https://substackcdn.com/image/fetch/$s_!0Re3!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fce6805c8-8e71-4969-b974-d0ad597ba538_2816x1536.png"><img alt="" src="https://substackcdn.com/image/fetch/$s_!0Re3!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fce6805c8-8e71-4969-b974-d0ad597ba538_2816x1536.png" /></a></p>
+<p>Let me explain concretely what a PDK contains. Every foundry runs a different process. The physical characteristics of transistors differ, the number and thickness of metal interconnect layers differ, the minimum spacing between devices differs. The PDK packages all of those differences into a form that a design team can actually use. Specifically, it includes the following.</p>
+<p>SPICE models are mathematical descriptions of how each individual transistor behaves electrically. When a designer runs circuit simulations, these models tell you: “At this foundry, on this process, if you apply 1V to this transistor, here’s how much current flows and here’s the switching speed.” Change the foundry, and the models change entirely. Draw the same circuit and you get a completely different set of electrical characteristics.</p>
+<p>DRC, or Design Rule Check, rules are physical constraints. Things like “minimum spacing between these two metal lines: X nanometers,” or “minimum via size: Y nanometers.” There are thousands of these rules. Violate them and you get shorts or opens in manufacturing. Every foundry uses different equipment and different lithography approaches, so every foundry has a different set of rules.</p>
+<p>LVS, or Layout vs. Schematic, verifies that the physical layout a designer drew actually matches the intended circuit. Standard cell libraries are pre-designed collections of basic digital building blocks, AND gates, OR gates, flip-flops, all optimized for the specific process characteristics of that foundry. Designers assemble chips by combining these cells like Lego bricks.</p>
+<p>Put it together and the PDK is everything you need to know to design a chip on that foundry’s process. Design teams operate entirely within the PDK. Step outside it and the chip either cannot be manufactured or will not work when it is.</p>
+<p>So if you spent two years designing a chip on TSMC’s PDK and want to move it to Samsung Foundry, you have to redesign it from scratch on Samsung’s PDK. Different SPICE models means all simulations get re-run. Different DRC rules means all layouts get redrawn. Different standard cells means synthesis has to be redone. It’s a new project, full stop.</p>
+<h3>DTCO: When Design and Process Get Tangled Together</h3>
+<p>There’s a more recent development that makes this even harder. It’s called DTCO, or Design-Technology Co-Optimization.</p>
+<p>For a long time, the sequence was: foundry develops the process, creates a PDK to match, hands it to the fabless customer, and the customer designs from there. Through 7nm and 5nm, that workflow mostly held.</p>
+<p>At 3nm, and especially below 2nm, that sequence broke down. The transistor architecture itself shifted from FinFET to GAA, or Gate-All-Around, nanosheet structures, and design freedom and process constraints became far more deeply intertwined. For example, a wider nanosheet channel carries more current but reduces device density. A narrower channel gives you better density but less performance. These kinds of tradeoffs now get decided jointly between the design team and the process team from the very beginning of a project.</p>
+<p>Metal stack configuration is the same story. An AI accelerator burning enormous amounts of power needs thick metal layers for efficient power delivery. A mobile AP prioritizes thin layers to shrink area. These choices get locked in at the start of the process, not at the end.</p>
+<p>The result is that at 2nm and below, the option to “switch foundries later” has become dramatically more constrained. The chip’s architecture gets shaped around a specific foundry’s process characteristics early in the design phase. Moving to another foundry later means unwinding far more than it ever did in previous generations.</p>
+<p>Subscribed</p>
+<h3>Tapeout: The $100M Decision You Cannot Take Back</h3>
+<p><a href="https://substackcdn.com/image/fetch/$s_!F2lO!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F924d90bf-967b-48f5-9cac-ad87b53ed9db_2816x1536.png"><img alt="" src="https://substackcdn.com/image/fetch/$s_!F2lO!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F924d90bf-967b-48f5-9cac-ad87b53ed9db_2816x1536.png" /></a></p>
+<p>When a design is complete, it goes through tapeout. The finished design data, in GDSII format, gets handed to the foundry, which uses it to manufacture photomasks, the plates used to print circuit patterns onto silicon wafers. Once a mask is made, it cannot be modified. Change the design and you need new masks.</p>
+<p>Mask costs scale dramatically with each new node. By IBS estimates, a mask set at 28nm runs about $2M. At 7nm it’s $15M. At 5nm, $40 to $50M. At 3nm, over $100M. The raw mask count tells the story: roughly 40 masks at 28nm, over 80 at 7nm. The increase comes from EUV lithography and multi-patterning, where printing finer features requires more process steps and therefore more masks.</p>
+<p>Before tapeout, a design has to pass DRC, LVS, simulation across process corners (fast, slow, typical), power integrity verification, and thermal analysis. And even then, first silicon rarely goes straight to volume production. Most designs go through one or two re-spins, each costing tens of millions of dollars.</p>
+<p>When a single tapeout at 3nm costs over $100M in masks alone, saying “I don’t like this foundry, let’s switch” means “let’s write off everything we’ve invested in design and masks and start over.” That is the real texture of switching costs.</p>
+<h3>Dual-Vendor Strategy: What I Saw Firsthand at Qualcomm</h3>
+<p>The natural follow-up question is: Why not run both foundries simultaneously? </p>
+<p>Companies do. </p>
+<p>When I was at Qualcomm, we ran Samsung and TSMC at the same time.</p>
+<p>But what that actually involves is not what most people imagine. It is not “get quotes from two foundries and go with the cheaper one.” The process starts two to three years before launch, with parallel design work on both PDKs. Separate design teams are assigned to each, running simulations to compare PPA, which stands for Power, Performance, and Area, across both processes. You want to know which process delivers better numbers, and how timing margins differ when you run the same design through each.</p>
+<p>Then you fabricate test chips at both foundries independently. When those come back, you measure silicon performance. Which foundry shows better model-to-hardware correlation? What are the yields? How many chips fall outside spec at certain process corners? This characterization work runs over two to three years, and only after enough data accumulates do you decide how to split the volume.</p>
+<p>The only companies that can do this are Qualcomm, Apple, NVIDIA, the large-scale fabless players. You need the engineering headcount to run parallel design programs on two PDKs for multiple years simultaneously. For a smaller fabless company, dual-sourcing is not a realistic option. Pick a foundry and you’re committed for two to three years.</p>
+<h3>TSMC’s OIP: Locking In the Entire Ecosystem</h3>
+<p>TSMC has a program called OIP, or Open Innovation Platform, that maximizes this lock-in. It integrates EDA vendors like Synopsys and Cadence, IP vendors like ARM, and TSMC’s own packaging technologies like CoWoS and SoIC into a unified reference flow.</p>
+<p>Why is this so powerful? The EDA tools a fabless company uses to design a chip need to be validated against the foundry’s PDK. Whether you’re using Synopsys Fusion Compiler for synthesis or Cadence Innovus for place-and-route, it only works well if a validated flow for that foundry’s PDK exists. TSMC works closely with major EDA vendors to release PDK-optimized reference flows first. IP vendors validate and release their IP on TSMC processes first.</p>
+<p>For a fabless company, designing on TSMC’s OIP means EDA compatibility, IP validation, and packaging integration all come as a bundle. Using a different foundry means verifying every piece of that stack separately. If a particular IP block hasn’t been validated on that process, you wait for the IP vendor to do it. Intel 18A ran into exactly this problem, where IP validation delays slowed customer adoption.</p>
+<p>Moving a chip designed within TSMC’s ecosystem to another foundry requires redesign work, IP re-validation, EDA flow reconstruction, and full timing re-verification. Technically possible. Practically, almost nobody does it. Switching foundries is not switching factories. It’s switching design infrastructure entirely. Once you’re on a PDK, two to three years of investment is locked in. That’s the first reason TSMC is hard to catch.</p>
+<p>Subscribed</p>
+<h2>Why TSMC Is So Hard to Catch</h2>
+<p>PDK lock-in is only the starting point. TSMC’s moat is not a single wall. It’s layers stacked on layers.</p>
+<p><a href="https://substackcdn.com/image/fetch/$s_!j0NN!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fff8a2242-de69-4e2e-87ad-b8721c7c6a32_2816x1536.png"><img alt="" src="https://substackcdn.com/image/fetch/$s_!j0NN!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fff8a2242-de69-4e2e-87ad-b8721c7c6a32_2816x1536.png" /></a></p>
+<h3>The Yield Flywheel: Forty Years in Motion</h3>
+<p>Morris Chang established a strategy during his time at TI that he carried into TSMC: stay ahead of the cost curve. Price below current cost to win volume, use that volume to improve yield, let yield improvement drive cost down, use lower costs to attract more customers. A flywheel.</p>
+<p>TSMC has been spinning that flywheel since its founding in 1987. As of Q3 2025, quarterly revenue was NT$989.92 billion (roughly $33.1B), up 30.3% year-over-year, with gross margin of 59.5% and operating margin of 50.6%. The 3nm node accounted for 23% of wafer revenue, 5nm 37%, and 7nm 14%. Advanced nodes below 7nm together represent 74% of total wafer revenue.</p>
+<p>What those numbers tell you is simple. TSMC is the only foundry that can make money on advanced nodes and reinvest it into the next generation at the same time.</p>
+<h3>The Capex Gap: Three Times Over</h3>
+<p>TSMC’s annual capex for 2026 is estimated at $52 to $56 billion. Intel’s is $16 billion. TSMC is building more than three Intels every year. Samsung Foundry’s capex runs even lower.</p>
+<p>On 3nm capacity alone, TSMC is targeting over 200,000 wafer starts per month by end of 2026, expanding toward 250,000 by 2027. Volume production on 2nm started at Fab 22 in Kaohsiung in Q4 2025, with additional phases under construction. In a capital-intensive industry, a capex gap is a capacity gap, and a capacity gap is a customer gap.</p>
+<h3>Advanced Packaging: The Second Moat</h3>
+<p>TSMC’s advanced packaging capabilities have emerged as another major competitive advantage. CoWoS capacity is projected to expand from roughly 35,000 panels per month at end of 2024 to between 110,000 and 125,000 by end of 2026, with some estimates reaching 170,000 by end of 2027. CoWoS-L, SoIC, and CoPoS slated for introduction after 2027 all point to TSMC maintaining its lead on the packaging roadmap as well.</p>
+<p>By analyst estimates, NVIDIA holds over 60% of CoWoS-L capacity, and Apple has locked in more than half of early 2nm allocation. When you factor in packaging, the exits from TSMC’s ecosystem shrink to almost nothing.</p>
+<h3>The Trust Moat: The Only Foundry That Doesn’t Compete With Its Customers</h3>
+<p>There’s one more structural advantage embedded in TSMC’s business model. It’s a pure-play foundry. TSMC designs no chips of its own. It never competes with its customers.</p>
+<p>Samsung is different. Samsung designs Exynos APs for its own Galaxy smartphones while simultaneously manufacturing Qualcomm’s Snapdragon. From a customer’s perspective, handing over critical IP to a direct competitor is a fundamentally uncomfortable arrangement. This structural conflict of interest is Samsung Foundry’s chronic trust problem.</p>
+<p>Intel faces the same issue. An IDM running its own CPUs while offering to manufacture chips for outside customers invites the obvious concern: won’t Intel prioritize its own chips over mine?</p>
+<h3>Talent and Culture: The Things You Cannot Buy</h3>
+<p>Morris Chang once said that American semiconductor manufacturing is “a very expensive exercise in futility.” It sounds harsh, but it’s not wrong. Taiwan has over thirty years of accumulated manufacturing talent. Suppliers, universities, shift workers, every layer of the stack is precisely calibrated around a single mission: manufacturing the best chips in the world. You can build a fab with money. You cannot buy the knowledge that lives inside it.</p>
+<p>There was substantial reporting on culture clashes at TSMC’s Arizona fab, where American engineers’ expectations around work-life balance ran headlong into the Taiwanese management culture of unconditional commitment. This is not just an HR problem. In manufacturing, culture becomes yield, and yield becomes money.</p>
+<p>TSMC’s moat is not a single technology. It’s the yield flywheel, the scale, the ecosystem, the packaging, the trust, and the culture, all stacked on top of each other. Catching up on any one of them does not mean much on its own.</p>
+<p><strong>And yet, in 2026, two variables have emerged that could actually move this dynamic.</strong></p>
+<p><strong>One is Samsung’s memory business.</strong></p>
+<p>Starting with HBM4, the base die at the bottom of the DRAM stack needs to be manufactured on an advanced foundry process. Samsung is the only company in the world that owns DRAM, logic foundry, and packaging all under one roof, and it is now actively turning that vertical integration into a foundry customer pitch. </p>
+<p><strong>The other is Intel’s EMIB.</strong></p>
+<p>With TSMC’s CoWoS in short supply, Intel’s advanced packaging technology is emerging as the only real alternative at scale. The reports that NVIDIA’s next-generation Feynman chip will use EMIB are a signal that the packaging competition is entering a new phase. </p>
+<p>How these two variables are creating real opportunities for Samsung and Intel in the TSMC bottleneck era, drawing on what I’m hearing on the ground, is what the rest of this piece covers.</p>
+<p>Subscribed</p>
+<h2>The Real Shape of the TSMC Bottleneck</h2>
+<p><a href="https://substackcdn.com/image/fetch/$s_!Bsi-!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F2f6ec084-3020-4d6f-87b7-89a63f21df98_2816x1536.png"><img alt="" src="https://substackcdn.com/image/fetch/$s_!Bsi-!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F2f6ec084-3020-4d6f-87b7-89a63f21df98_2816x1536.png" /></a></p>
+<p>TSMC’s advanced nodes are sold out through 2028. Securing 2nm capacity requires booking a year in advance. 3nm is no longer accepting new project inquiries; TSMC is steering customers toward 2nm instead. </p>
+<p>The bottleneck is not just wafers. CoWoS packaging remains tight. NVIDIA holds over 60% of CoWoS capacity, with the remainder split among AMD, Google, Amazon, and other CSPs. Shortages are spreading into PCBs and laser components. Broadcom’s Ramachandran pointed out that PCB manufacturers in Taiwan and China have also reached capacity limits.</p>
+<p>Then there’s the tariff variable. The Trump administration imposed 25% tariffs on specific AI chips, the NVIDIA H200 and AMD MI325X among them, in January 2026. Broader tariffs on semiconductors remain on the table. A US-Taiwan trade agreement established a 15% tariff on chips imported from Taiwan, with TSMC securing tariff relief in exchange for a commitment to invest over $165 billion in the United States. Companies building fabs in the US can import tariff-free up to 2.5 times the capacity of new planned facilities and 1.5 times the capacity of existing ones.</p>
+<p>There are exemptions worth noting. According to the White House announcement, chips imported to support expanded semiconductor supply chains inside the US, covering data center use, non-data-center consumer, industrial, and public sector applications, repair and replacement, and R&amp;D purposes, are exempt from tariffs. Because the scope of exemptions is tied to TSMC’s US investment level, the actual tariff burden will vary considerably by company and use case.</p>
+<p>The dynamics created by this tariff structure matter. Foundries making chips inside the US, Intel and Samsung’s Taylor fab specifically, face no tariff exposure. TSMC customers importing chips from Taiwan pay 15% if they don’t qualify for an exemption. The exemptions are broad, but the mere existence of a tariff structure raises the relative attractiveness of US-based manufacturing.</p>
+<p>The key point here is that this is not a wafer shortage story. Wafers, packaging, substrates, and optical components are all in short supply simultaneously, and now a new layer of cost has been added on top in the form of tariffs. The demand that created this bottleneck is structural, not cyclical. </p>
+<p>TSMC CEO C.C. Wei’s phrase for it is “structural AI-related demand.”</p>
+<p>So does this bottleneck create genuine opportunity for Samsung and Intel?</p>
+<p>The short answer is yes. But the shape of the opportunity is not what most of the market thinks it is. The market is reading this as “TSMC bottleneck means Samsung and Intel substitute for TSMC.” That framing is wrong. What’s actually happening is the structural expansion of a complementary market. Core compute dies stay at TSMC. What Samsung and Intel can capture is non-core dies, memory-plus-foundry bundles, advanced packaging, and geopolitically motivated hedge volumes tied to US manufacturing.</p>
+<h2>Samsung Foundry: Where Things Actually Stand</h2>
+<h3>What We Know and What We’re Estimating</h3>
+<p><a href="https://substackcdn.com/image/fetch/$s_!GPyU!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fc4d53a2e-8fb9-465e-9240-67b9d9ed2e56_2816x1536.png"><img alt="" src="https://substackcdn.com/image/fetch/$s_!GPyU!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fc4d53a2e-8fb9-465e-9240-67b9d9ed2e56_2816x1536.png" /></a></p>
+<p>Samsung’s 2nm GAA process, called SF2, is reported to have reached production-capable yield levels, with volume manufacturing targeted for the second half of 2026. The largest confirmed win is Tesla’s AI6 chip, a contract worth $16.5 billion running through 2033. On the AI startup side, DeepX (2nm), Charbright (4nm), and Anaplash (28nm) have also chosen Samsung Foundry.</p>
+<p>The Groq situation is worth examining. NVIDIA absorbed Groq’s technology and key personnel in a roughly $20B licensing deal in late 2024. The Groq 3 LPU chip being produced by Samsung on its 4nm SF4X process is the result. At GTC 2026, Jensen Huang confirmed directly: “Samsung is making Groq 3 for us.” Samsung is manufacturing NVIDIA-related silicon for the first time since the RTX 3000 series in 2020. Reported wafer volumes have grown from roughly 9,000 to 15,000 wafer starts per month, with shipments targeting second half 2026. It’s not a GPU compute die, but the fact that Samsung has re-entered the NVIDIA ecosystem matters.</p>
+<p>Samsung is projecting 2nm-related orders will grow more than 30% year over year in 2026, with some reports suggesting the internal target is 130% growth. The baseline PDK for SF2P (the second-generation 2nm node) is complete and being promoted to design solution partners. The 1.4nm node has been pushed from 2027 to 2029. Samsung is going all-in on 2nm for the next two to three years.</p>
+<p>On the Q4 2025 earnings call, Samsung stated that its foundry division is targeting double-digit revenue growth and improved profitability in 2026. The primary objective is returning to positive operating income, the first time since 2023, with a recent target of reaching profitability as early as Q4 2026, a year ahead of the original plan.</p>
+<h3>The Taylor Fab: A $44B Bet, Up Close</h3>
+<p>Taylor is the project that will define Samsung Foundry’s future. It’s worth a closer look.</p>
+<p>Originally planned to begin operations in 2024, the fab has been delayed twice. The first reason was a lack of customers. The original plan called for 4nm production, but 4nm demand was thin enough that Samsung had not even begun moving equipment in. A supply chain source quoted by Nikkei Asia put it plainly: “There’s no point bringing in equipment if there’s nothing to produce. There are no customers.” The second reason was a deliberate pivot from 4nm to 2nm, driven by where market demand is actually moving.</p>
+<p>When Tesla announced the $16.5B AI chip contract in July 2025, the situation shifted. With a major anchor customer secured, Samsung began moving equipment. ASML EUV tools reportedly achieved “first light,” their initial exposure milestone, at Taylor in March 2026. In February, Samsung received a temporary certificate of occupancy for roughly 88,000 square feet of Fab 1.</p>
+<p>The target capacity for Taylor is 50,000 wafer starts per month on the SF2/SF2P process. Whether that figure applies to Fab 1 alone or to two combined fab modules is not entirely clear, but it would represent the largest logic fab Samsung has ever operated, larger than Intel’s Fab 52 at 40,000 wafer starts per month and larger than a typical TSMC fab module at 20,000.</p>
+<p>One technical element that makes Taylor notable is Samsung’s decision to introduce EUV pellicles for the first time. A pellicle is a thin protective membrane that shields photomasks from contamination. EUV’s extreme energy levels have historically degraded pellicle materials, making them difficult to use. Samsung has contracted with Korean equipment company FST for a roughly 25 billion won EUV pellicle handling system covering mounting, removal, and inspection. This matters because a meaningful portion of Samsung Foundry’s historically inconsistent yield, the wafer-to-wafer and lot-to-lot variation that has frustrated customers, is believed to trace back to the absence of pellicles. Successful pellicle deployment at Taylor could meaningfully improve yield stability on large-die chips.</p>
+<p>That said, when Samsung says Taylor will be “operational” by end of 2026, that is not the same as volume manufacturing. Samsung itself clarified that “production-ready” means end of 2026, and actual volume ramp starts in early 2027. Tesla AI6 chip production at Taylor is expected to begin in 2027. There are also reports that planned foundry lines at Pyeongtaek have been partially converted to memory production to meet AI demand. Foundry capacity expansion and the memory business are competing for internal resources.</p>
+<h3>What I’m Hearing on the Ground</h3>
+<p>From what I’m picking up, Samsung Foundry’s business is actually running reasonably well. The 4nm, 5nm, 8nm, 14nm, and 17nm lines are generating steady revenue from legacy demand, and reported utilization as of Q1 2026 is above 80%, the highest in over a year.</p>
+<p>The Qualcomm situation is interesting. </p>
+<p>At CES 2026, Qualcomm CEO Cristiano Amon confirmed directly that Qualcomm had initiated discussions with Samsung on manufacturing using the latest 2nm process. He said the design work is complete and commercialization is near-term. The conversation involves manufacturing a future Snapdragon on SF2P, where TSMC is currently producing the equivalent chip at 3nm. There are also reports that the Galaxy Z Fold 8 or Z Flip 8 may carry a Samsung-manufactured Snapdragon, and the Galaxy S26 is reportedly using a dual-chip strategy with Exynos 2600 going into some models.</p>
+<p>The reason Qualcomm is looking back at Samsung is straightforward. TSMC’s advanced node pricing keeps rising and capacity is tight. Dual-sourcing is now a necessity on both cost and supply stability grounds. Qualcomm had been running parallel PDK development three years ahead of this moment. </p>
+<p>But moving actual volume is a separate question. Meaningful volume commitments follow only when Samsung’s 2nm yield reaches the level customers require.</p>
+<p>Beyond Qualcomm, there’s more movement. AMD is reportedly in discussions about producing its next-generation EPYC Venice CPU on SF2P. Samsung is said to be planning to prototype AMD chips through an MPW run soon, with a contract decision contingent on performance evaluation results. Samsung and AMD already have an IP partnership through the Exynos GPU and an HBM4 supply relationship, so the foundation for collaboration is there. Google’s TPU team is also reported to have visited Taylor to discuss production capacity. Google has begun selling TPUs externally to customers like Meta, which is driving production volume growth.</p>
+<h3>My Take</h3>
+<blockquote>
+<p>_ <strong>Disclaimer</strong> : The analysis and outlook in this section are based on my personal interpretation of publicly available information and industry networks, and do not constitute investment advice._</p>
+</blockquote>
+<p>Samsung Foundry’s problem is not that customers aren’t showing up. Tesla, Groq, Qualcomm, AMD, Google, the movement is real. The problem is that these customers are still in the exploration and small-volume phase. Why aren’t they converting into large-volume commitments? It’s not a yield number problem. When major customers evaluate a foundry, they assess SRAM maturity, IP validation coverage, PDK completeness, and model-to-hardware correlation together. Samsung is still building up that qualification depth across all of those dimensions.</p>
+<p>What’s filling the gap in the meantime is internal volume. With Samsung MX moving toward 2nm Exynos, Samsung System LSI has effectively become the first major customer of Samsung Foundry’s 2nm line. That helps utilization, but it’s a different story from an external customer actively choosing Samsung. For Samsung Foundry to move to the next level, what’s needed is a volume commitment from a large external customer, not internal allocation. Right now, Samsung is one step short of that.</p>
+<p>But Samsung holds one card no other foundry can play. </p>
+<p><em><strong>The turnkey bundling strategy, memory and foundry together.</strong></em></p>
+<p>HBM4 changed the situation. Through HBM3E, the base die at the bottom of the DRAM stack was simple enough that memory companies could handle it themselves. HBM4 raised the complexity of the base die significantly. Customers like NVIDIA and AMD are demanding higher performance and power efficiency, and meeting those requirements now requires manufacturing the base die on an advanced foundry process.</p>
+<p>SK Hynix handles this by sending the base die to TSMC. Memory from SK Hynix, logic from TSMC, packaging from somewhere else. The supply chain splits three ways. Samsung is different. HBM4 base dies go through Samsung’s own 4nm foundry process, the 1c DRAM stack gets assembled on top, and advanced packaging is handled in-house. TSMC does not make memory. SK Hynix does not have a logic foundry. <strong>This bundling is something only Samsung can do.</strong></p>
+<p>Samsung is leaning into this aggressively. More than half of the roughly 30,000 wafer starts per month at its Pyeongtaek foundry line have been allocated to HBM4 base die production. Samsung Vice Chairman Jun Young-hyun said directly that Samsung is “the only company in a position to offer turnkey HBM4, memory architecture, and advanced packaging as a single solution.” </p>
+<p>An MoU with AMD’s Lisa Su has been signed, and there are reports of a supply agreement to provide HBM4 for OpenAI’s internally developed AI chip, Titan.</p>
+<p>The core of this strategy is that HBM4 customers can become foundry customers. If AMD sources HBM4 from Samsung, manufacturing EPYC Venice on Samsung SF2P becomes a natural next step. There’s a flip side, though. Allocating Pyeongtaek lines to HBM4 base dies means less capacity available for external foundry customers. Foundry revenue growth and HBM4 profitability are now competing for the same internal resources.</p>
+<p>Samsung’s GAA experience accumulated since 3nm and this turnkey bundling are genuine strengths. But for those strengths to translate into actual volume, Taylor has to enter production on its 2027 schedule, and the customers currently in discussion have to convert into real commitments.</p>
+<h2>Intel Foundry: Where Things Actually Stand</h2>
+<h3>What We Know and What We’re Estimating</h3>
+<p><a href="https://substackcdn.com/image/fetch/$s_!uHuR!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F04b34778-65c7-4438-bcff-7e89719679ca_2816x1536.png"><img alt="" src="https://substackcdn.com/image/fetch/$s_!uHuR!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F04b34778-65c7-4438-bcff-7e89719679ca_2816x1536.png" /></a></p>
+<p>Intel 18A entered high-volume manufacturing in October 2025. The first products, Panther Lake client CPU and Clearwater Forest server CPU, are shipping. Reviewers have characterized Panther Lake as “Intel’s return to form.” It is also the first product designed, manufactured, and packaged entirely within the United States. Reports indicate that remaining 2026 Clearwater Forest Xeon allocation is already sold out.</p>
+<p>18A yield is reportedly improving steadily. Analysts suggest it has reached production-capable levels, but CFO Zinsner said on a recent call that reaching cost-target yield levels is “the earliest it gets there is end of 2026.” Commercial yield maturity still requires time.</p>
+<p>The largest news item is NVIDIA’s $5 billion investment in September 2025, acquiring roughly 4 to 5% of Intel at $23.28 per share. The collaboration includes co-development of a custom x86 CPU and an integrated PC SoC combining RTX GPU chiplets. Microsoft is manufacturing custom AI silicon at Intel, AWS is building AI Fabric chips there, and SoftBank has also joined as an investor.</p>
+<h3>Apple Is Coming Back to Intel</h3>
+<p>But there’s a bigger story than NVIDIA.</p>
+<p>According to analyst Ming-Chi Kuo, Apple has signed an NDA with Intel, received the 18A-P performance variant PDK, and is running internal simulations. Results are reportedly approaching expectations, and Apple is waiting on the formal PDK release before moving forward. If that trajectory holds, Intel could be manufacturing lower-end M-series processors for MacBook Air and iPad beginning in 2027.</p>
+<p>Annual shipment volumes for that chip tier run in the range of 15 to 20 million units by analyst estimates. Small relative to Apple’s total volume, but for Intel Foundry, the fact that Apple is a customer functions as a reference that pulls in other customers.</p>
+<p>Analyst Jeff Pu of GF Securities goes further. There are indications that Apple is evaluating Intel’s 14A process for non-Pro iPhone A-series chips starting in 2028. If that happens, a meaningful portion of Apple’s smartphone production shifts to Intel. Pro model chips are expected to remain at TSMC.</p>
+<p>If this deal materializes, Intel IFS moves from “internal foundry that also takes outside work” to “the foundry Apple validated.” That is a fundamentally different market position.</p>
+<h3>NVIDIA’s Feynman and Intel</h3>
+<p>The NVIDIA side is also getting more concrete. </p>
+<p>DigiTimes and other sources have reported that the I/O die for Feynman, expected in 2028, would be manufactured on Intel’s 14A or 18A process and packaged using EMIB. Some estimates suggest roughly 25% of total Feynman packaging could go to Intel. The GPU compute die is expected to remain on TSMC’s A16, which is the 1.6nm node. Jensen Huang himself drew a line around this: “This announcement is focused on custom CPU.” For NVIDIA, Intel is not a “main foundry.” It’s a supply chain hedge that also happens to serve as political insurance under the Trump administration’s “Made in America” pressure.</p>
+<h3>The Risks Underneath the Good News</h3>
+<p>The bright side alone makes Intel Foundry look like a clean turnaround. The risks deserve equal attention.</p>
+<p>Reuters reported in December 2025 that NVIDIA had sampled Intel 18A and stopped moving forward. A SemiWiki insider was blunt: “NVIDIA and AMD are so tightly bound to TSMC on big chips, CPU and GPU class designs, that it may simply never happen at Intel.”</p>
+<p>The 14A situation is more uncertain. Intel CFO David Zinsner said directly on a recent earnings call: “14A is tied to foundry customers. There’s no point making a major capacity investment before customers are secured.” Intel has disclosed that two potential customers are running test chips on 14A, and Intel hopes to receive firm commitments in the second half of 2026. But without significant 14A capacity investment, Intel cannot handle Apple iPhone volumes in 2028. The timing is tight.</p>
+<p>By SemiWiki insider counts, there are four confirmed external customers on Intel 18A. Apple is likely one of them. Their HVM targets are 2028 to 2030. IFS external revenue remains a tiny fraction of the total, and analysts broadly expect “IFS will be burning cash through at least 2027.”</p>
+<h3>Where Intel Foundry Can Start Making Money: EMIB and “Made in USA”</h3>
+<p>In my assessment, there are two areas where Intel Foundry can generate returns in the near term.</p>
+<p><strong>First, EMIB.</strong></p>
+<p>This is Intel’s advanced packaging technology for connecting multiple dies within a single package. It’s one of the very few credible alternatives to TSMC’s CoWoS at scale. If NVIDIA’s Feynman uses EMIB, Intel is not just a wafer fab. It’s a meaningful player in packaging. As long as CoWoS remains a bottleneck, EMIB’s strategic value goes up.</p>
+<p><strong>Second, the geopolitical asset of US-based manufacturing.</strong></p>
+<p>Within the tariff structure discussed earlier, Intel sits in the most favorable position. It has fabs in Arizona (Fab 52 and the future Fab 62), Oregon, and New Mexico, and a mega-site under construction in Ohio. It has secured $8.5 billion in CHIPS Act grants.</p>
+<p>EMIB combined with US-based manufacturing is exactly why Apple and NVIDIA are entering the Intel ecosystem right now. The combination of a packaging alternative and a favorable geographic position is creating a near-term monetization path in specific market segments, before the wafer business itself matures. That is the real story of Intel Foundry’s current moment.</p>
+<h2>What Betting on the “Not TSMC” Market Actually Means</h2>
+<p>The TSMC bottleneck is genuinely creating opportunity for Samsung and Intel. The movements described in this piece are real. But the size and character of the opportunity need to be read clearly.</p>
+<p>First, core chips stay at TSMC. Apple Pro and Max processors, NVIDIA GPU compute dies, AMD EPYC. This kind of critical silicon is not moving. What goes to Samsung is the Tesla AI chip. What goes to Intel is the lower-end M-series and the Feynman I/O die. That said, if Intel’s 14A expansion reaches iPhone A-series volumes by 2028, calling it “non-core” starts to become hard to justify.</p>
+<p>Second, tariffs have become a structural variable. The Trump administration’s semiconductor tariff policy has broad exemptions, but the mere existence of a tariff structure that could impose additional costs on non-US manufacturing raises the relative attractiveness of US-based fabs. This applies to both Intel and Samsung’s Taylor fab. You don’t need to beat TSMC technically if policy creates a competitive edge.</p>
+<p>Third, timing is everything. The companies currently evaluating PDKs and running test chips at Samsung and Intel are making decisions whose consequences show up as wafer volumes in 2028 to 2030. Samsung Taylor starts volume production in 2027. Intel’s Apple M-series manufacturing starts in 2027. Intel’s iPhone chip on 14A starts in 2028. Whether these timelines hold or slip is the only thing that matters. The impact on 2026 financials is near zero, but by 2027 and 2028 it becomes meaningful.</p>
+<p>My read is this. With structural AI demand and tariff policy reinforcing each other, the “Not TSMC” market is expanding in a structural way that prior cycles did not see. If the TSMC bottleneck persists for two to three years and tariffs hold, the volumes flowing to Samsung and Intel stop being cyclical overflow and start being structural market share.</p>
+<p>The specific indicators I’m watching:</p>
+<p><a href="https://substackcdn.com/image/fetch/$s_!ct04!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Feff2ad27-c802-4568-8593-87e4125dc170_2816x1536.png"><img alt="" src="https://substackcdn.com/image/fetch/$s_!ct04!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Feff2ad27-c802-4568-8593-87e4125dc170_2816x1536.png" /></a></p>
+<p><strong>For Samsung:</strong> whether the Taylor fab volume ramp hits its 2027 target, yield stability data after pellicle deployment, when foundry operating income turns positive, and whether Qualcomm, AMD, or Google convert discussions into actual volume commitments.</p>
+<p><strong>For Intel:</strong> whether Apple M-series volume production starts on the 2027 target, whether 14A receives firm customer commitments, EMIB adoption beyond NVIDIA, IFS external revenue share trends, and when 18A yield reaches cost targets.</p>
+<p><strong>For TSMC:</strong> whether 3nm and 2nm capacity expansion keeps pace with demand, when Arizona Fab 2 comes online, tariff exemption compliance, and whether customer allocation shifts between Apple and NVIDIA.</p>
+<p><strong>For policy:</strong> whether additional semiconductor tariffs materialize, whether the US-fab-linked tariff exemption structure holds, and the CHIPS Act disbursement schedule.</p>
+<h3>Three Scenarios Where This Thesis Breaks Down</h3>
+<p>First, TSMC resolves the packaging bottleneck faster than expected. If CoWoS capacity catches up to demand before mid-2027, the overflow volumes heading to Samsung and Intel shrink sharply. The $52 to $56 billion capex TSMC is deploying exists precisely for this purpose.</p>
+<p>Second, Samsung fails to land a second large external anchor customer beyond Tesla. Qualcomm, AMD, and Google are all “in discussions,” not “contract signed.” If Samsung runs its 2nm lines on internal Exynos volume and Tesla alone, the foundry business can return to profitability but falls short of structural growth.</p>
+<p>Third, Intel’s EMIB adoption stays at the test stage and never scales into volume production. Even if Feynman’s I/O die is manufactured at Intel, a one-time win doesn’t build a business. For EMIB to establish itself as a CoWoS alternative, customers beyond NVIDIA need to show up.</p>
+<p>The most important question is not “can Samsung or Intel beat TSMC?” Betting on that outcome remains unrealistic. The right question is </p>
+<p><strong>“is the Not TSMC market growing structurally?”</strong></p>
+<p>In the context of tariff policy and AI demand creating new dynamics, betting on that second question carries far more basis than it ever did before. And how large that market becomes depends on two variables: how long AI demand keeps exceeding TSMC’s capacity, and how long US tariff policy stays in place. On both counts, right now, the weight of the evidence points toward “a long time.”</p>
+<h2>Closing Thoughts</h2>
+<p>What’s unfolding here is not a simple supply shortage. AI demand, tariffs, and geopolitics are converging in a way that is reshaping the structure of the foundry industry itself.</p>
+<p>Samsung is betting on bundling memory and foundry together with a US manufacturing base. Intel is trying to establish itself in packaging and non-core markets first, using Apple and NVIDIA as references. The strategies are different, but they share one thing: neither is trying to beat TSMC head-on. Both are building positions in spaces TSMC cannot fully cover.</p>
+<p>Asked which is better positioned right now, my read is this. </p>
+<p>In the near term, through 2026 and 2027, Samsung has the edge. Legacy node revenue is stable, Taylor utilization is rising with Tesla and Groq, and HBM4 bundling is starting to show up in revenue. </p>
+<p>In the medium term, 2028 to 2030, Intel carries more upside. If Apple iPhone volumes actually move to 14A, the scale of IFS changes entirely. But Intel has to keep burning cash to get there. If 14A customer commitments and yield improvement don’t come together simultaneously, that upside doesn’t materialize. </p>
+<p>The risk is proportional to the reward.</p>
+<p>2026 and 2027 are when all of this gets decided. What Samsung and Intel prove during this window will determine the shape of the foundry industry for the next decade.</p>
+                </main>
+            </body>
+            </html>
+        

@@ -1,0 +1,296 @@
+
+            <!DOCTYPE html>
+            <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Markdown Content</title>
+                <link rel="stylesheet" href="../../assets/css/essay-styles.css">
+            </head>
+            <body>
+                <main class="markdown-content">
+                <h1>The Real Bottleneck in the Optical Interconnect Cycle Is InP</h1>
+<h2>AI infrastructure's next round, and what the market hasn't priced in yet</h2>
+<p><strong>Apr 22, 2026</strong></p>
+<p><strong>Likes:</strong> 75</p>
+<p><a href="https://substackcdn.com/image/fetch/$s_!Maiy!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F31c3177e-4bd1-47c7-a8a0-d2307a2dad69_2848x1504.png"><img alt="" src="https://substackcdn.com/image/fetch/$s_!Maiy!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F31c3177e-4bd1-47c7-a8a0-d2307a2dad69_2848x1504.png" /></a></p>
+<p>The Optical Investment Map I published last time drew more response than I expected. It was an article written from the perspective of an optical investor, laying out the full picture of the optics space and sharing my own take on where the next round of investment should go now that the obvious optical names have already run hard. Readers who had already been deep in the optics space gave me positive feedback that this single piece gave them a lot of insight.</p>
+<p>But I still got a lot of follow-up questions, because optics is a very wide domain. With seven layers and dozens of vendors inside each layer, the most common questions were “where do I start” and “what do I actually buy.” I felt strongly that I needed to do follow-up work on which company inside the optical stack gets re-rated first, which weaknesses get resolved and when, and what the specific trigger is.</p>
+<p>Starting with this article, each installment will pick one theme the market hasn’t yet fully reflected in price and analyze it in detail. If you haven’t read my Optical Investment Map yet, I strongly recommend going through that first before continuing here.</p>
+<p><strong>Today’s theme is InP.</strong></p>
+<p>Three things to unpack. </p>
+<p>First, technically, why InP is the real bottleneck in optical Interconnect that nothing else can replace. </p>
+<p>Second, why InP is structurally going to stay short on both demand and supply over the next three to five years. </p>
+<p>Third, a quantitative comparison of the six companies sitting in that real bottleneck section of the cycle, across five investment factors, with each company’s attractiveness, risk, and my own investment take.</p>
+<p><strong>Disclaimer</strong></p>
+<p><em>Every company analysis in this piece is a thinking framework for information purposes, not a buy or sell recommendation. The per-company scores reflect my analytical criteria; they are not universal answers. You need to decide based on your own portfolio context, risk tolerance, and additional research.</em></p>
+<p>Damnang’s Substack is a reader-supported publication. To receive new posts and support my work, consider becoming a free or paid subscriber.</p>
+<p>Subscribed</p>
+<hr />
+<h2>1. Why InP, why now</h2>
+<h3>Why nothing else works</h3>
+<p>Optical Interconnects, at the end of the day, is the process of converting an electrical signal into light, then converting that light back into an electrical signal on the other side. Optical fiber sits in between. The structure looks simple, but the hardest part in practice is generating that light stably.</p>
+<p>The core device that generates the light is the laser. </p>
+<p>For the high-speed 1310nm and 1550nm optical modules used in AI data centers, the EMLs and the many CW lasers that serve as the light source are effectively built on the InP platform. More precisely, the devices are fabricated by growing an epitaxial layer on top of an InP substrate. </p>
+<p>On the receive side, certain InGaAs-based photodetectors and specific long-reach, high-performance receiver structures also depend on the InP ecosystem. In silicon photonics transceivers, Ge-on-Si photodiodes are the commercially deployed platform. But on the transmit side, where light actually has to be generated, InP sits in a structural bottleneck position.</p>
+<p>Moving into the CPO era makes the dependency on InP one level stronger. CPO brings the optical engine right next to the ASIC to improve power efficiency. The problem is that location is very hot. Lasers are temperature sensitive, so putting them directly inside that environment is difficult. In practice, this means pulling the laser outside the package and running it as a separate ELS, or External Laser Source. And the core of that ELS is again an InP-based CW laser.</p>
+<p>This is where the concept of lanes becomes important. In the previous pluggable optics era, the number of lasers needed per module was relatively limited. But in a CPO structure, a single switch ASIC has multiple optical engines attached to it, and each optical engine contains multiple lanes. Laser demand no longer scales with module count. It scales with lane count. The implication is big. A market that used to be sized by counting modules is now a market that has to be sized by counting lanes. InP laser demand isn’t just increasing. The unit of measurement for the market itself is changing.</p>
+<hr />
+<h2>2. The demand case</h2>
+<p><a href="https://substackcdn.com/image/fetch/$s_!L6F3!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ffebec613-cf15-4391-94e5-9beb41a059bd_2816x1536.png"><img alt="" src="https://substackcdn.com/image/fetch/$s_!L6F3!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ffebec613-cf15-4391-94e5-9beb41a059bd_2816x1536.png" /></a></p>
+<h3>A market that shifts by an order of magnitude</h3>
+<p>The question now isn’t why InP is needed. It’s how fast that need is going to grow from here.</p>
+<p>The core of the story, the way I see it, is that this is more than simple growth. It isn’t that the optical components market is getting bigger. It’s that the weight of optical components inside AI infrastructure itself is shifting.</p>
+<p>AI data centers move from GB200 and GB300 through Vera Rubin to Rubin Ultra, and with each generation the number and value of optical components per rack goes up together. By Goldman Sachs’ estimates, combined scale-up and scale-out optical component TAM grows close to tenfold going from GB300 NVL72 to Rubin Ultra NVL576. This isn’t just market expansion. It means the importance and dollar content of the optical components needed to build a single rack are moving to a level completely different from the previous generation.</p>
+<p>The shift happens on two axes simultaneously.</p>
+<p>The first is speed. Transmission rates move from 800G to 1.6T, then to 3.2T. Even if the number of links stays the same, each link demands higher component performance and commands a higher price. A 1.6T module carries a meaningfully higher ASP than 800G. Link count can stay flat and the market still grows.</p>
+<p>The second axis is connection density. As clusters scale and network topology gets more complex, the number of optical modules attached per GPU goes up. The industry tracks this as attach rate. Goldman Sachs’ estimates put GPU-to-optical-module ratios at around two to three in the GB200 and GB300 era, moving to four to six starting from Vera Rubin. GPU port speeds are climbing, and larger clusters need denser interconnect. AI infrastructure isn’t just demanding faster links. It’s demanding more optical connectivity at the same time.</p>
+<h3>Silicon photonics penetration</h3>
+<p>This demand expansion connects to a structural change in module architecture. In the datacom optical module market, the transition from EML-centric structures to silicon photonics based structures is moving fast. Public market data shows silicon photonics share has already climbed to meaningful levels, with some forecasts calling for it to reach roughly half the market within a few years.</p>
+<p>The key point is that even as the architecture shifts, the need for InP does not disappear. If anything, the more complex the module architecture gets, the more strategically important external laser supply becomes. Silicon photonics proliferation doesn’t eliminate the slot where InP is needed. The market structure changes, but InP stays in its core position.</p>
+<h3>Demand beyond AI infrastructure</h3>
+<p>On top of that, InP demand isn’t fully explained by AI data centers alone. AI infrastructure is the biggest growth engine, but the list of areas that need InP is wide.</p>
+<p>High-speed InP-based devices are important for high-frequency signal processing in AI RAN and 6G fronthaul. In quantum computing, InP-based devices are core candidates on both the single photon source and detector sides. In autonomous driving LiDAR, 1550nm eye-safe lasers matter, and InP-based devices are strong in that window. Beyond these, there are smaller but high-barrier markets in medical diagnostics, space communications, and military IR sensors.</p>
+<p>The key point is that these niche markets don’t run on supply chains that are cleanly separated from optical Interconnect. They compete for the same substrates, the same epi lines, similar equipment and materials. When optical Interconnects demand rips, niche capacity gets squeezed too. And when niche demand runs stronger than expected, optical Interconnects capacity gets tighter. InP looks more like a single resource that multiple industries share at once. In that kind of structure, whichever market grows fastest drives the tension in the entire supply chain.</p>
+<p>Subscribed</p>
+<hr />
+<h2>3. The supply case</h2>
+<h3>Why adding capacity doesn’t actually catch up</h3>
+<p><a href="https://substackcdn.com/image/fetch/$s_!XDzG!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Feed6e65d-c3ee-404f-ab15-b63ec80691e3_2816x1536.png"><img alt="" src="https://substackcdn.com/image/fetch/$s_!XDzG!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Feed6e65d-c3ee-404f-ab15-b63ec80691e3_2816x1536.png" /></a></p>
+<p>If demand is rising this fast and supply keeps pace, the bottleneck thesis weakens. But this is exactly where InP differs from a normal semiconductor. There are plenty of capacity announcements, but there are several structural reasons InP supply can’t <strong>ramp quickly.</strong></p>
+<p><strong>The first is the qualification cycle.</strong></p>
+<p>Optical components go through a long and strict customer qualification process. From the moment a new epi line or device line is built to the point where it receives production approval from an actual hyperscaler customer, it typically takes twelve to twenty-four months. The announcement can come fast, but the lag until that announcement converts to real revenue is long.</p>
+<p><strong>The second is equipment lead time.</strong></p>
+<p>Ordering an MOCVD tool doesn’t mean production starts. The tool has to be received, installed, the process has to be stabilized, and yield has to be ramped. Today’s order is a signal about future supply, not a solution to today’s shortage.</p>
+<p><strong>The third is that manufacturing know-how itself is a barrier to entry.</strong></p>
+<p>With InP, bringing in the equipment doesn’t automatically produce stable yield. Aligning crystal growth, wafer uniformity, epi quality, and laser performance consistently takes years of accumulated experience. At 6-inch the difficulty goes up another notch. New entrants can put up capacity numbers, but that doesn’t mean real supply capability follows at the same pace.</p>
+<p><strong>The fourth is raw material and geopolitical risk.</strong></p>
+<p>The InP supply chain isn’t just about wafers and tools. Indium, the key raw material, has a high concentration of supply in China and is exposed to policy variables like export controls. Those risks don’t stop at the raw material layer. They propagate down to substrate, epi, and device stages. The narrower the supply chain, the more small shocks get amplified.</p>
+<p><strong>The fifth is that the shortage spreads across the entire supply chain.</strong></p>
+<p>Major device makers are aggressively expanding their own capacity, but AI data center demand is likely to grow faster. </p>
+<p><em>In the field, word is that a few of the major optical component IDMs are moving very aggressively to ramp their own InP capacity.</em></p>
+<p>When that happens, the limited pool of substrate and equipment resources gets allocated to them first, and device makers without their own fabs get pushed to external epi foundries. External foundry capacity then tightens fast. The spillover dynamic is exactly what the market hasn’t fully priced in yet.</p>
+<p>Which is why the numbers say supply is expanding, but people in the market keep feeling that it’s still short. The fact that the words you actually hear on the ground are “InP epi capacity,” “MOCVD lead time,” and “substrate supplier diversification” tells you something. Before the market confirms it in numbers, the people inside the supply chain already sense where things are clogging.</p>
+<p>The core of it is simple. Demand isn’t just rising, it’s structurally re-accelerating. Supply is rising too, but neither the pace nor the quality of that expansion is keeping up. The gap between the two is the InP cycle.</p>
+<hr />
+<p>The optical map splits into seven layers, but each layer splits again into multiple steps. The InP theme inside Layer 1 is the same. Substrate, MOCVD tools, epi foundry, device, IDM. The steps are different, and the timing of earnings impact is different in each step. Inside the same InP theme, some companies have already run hard and some the market hasn’t fully looked at yet.</p>
+<p>I've covered why InP matters and why this cycle is structural. Behind the paywall, I narrow it down to the six companies with the purest InP exposure in the supply chain and run a quantitative analysis across five investment factors. Why these six, what each one's investment case and risks look like, and how I view them.</p>
+<p><a href="https://substackcdn.com/image/fetch/$s_!Ebtb!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1319c26d-a23d-4b94-84b6-6f5f3b61e861_1360x752.jpeg"><img alt="" src="https://substackcdn.com/image/fetch/$s_!Ebtb!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1319c26d-a23d-4b94-84b6-6f5f3b61e861_1360x752.jpeg" /></a></p>
+<p>Subscribed</p>
+<h2>4. The 5-factor framework</h2>
+<p>Five cycle-specific factors. </p>
+<p>Each scored 1 to 10, multiplied by its weight, then averaged.</p>
+<h3>The five factors defined</h3>
+<p><strong>F1. Cycle EPS Leverage (25%)</strong></p>
+<p>How strongly InP shortage actually converts into EPS. This measures both earnings sensitivity (InP exposure as a share of revenue) and operating leverage through the upcycle. Equipment names tend to score higher than epi or device makers. This is the axis where quarterly earnings surprises translate into share price moves most quickly.</p>
+<p><strong>F2. Supply Expansion &amp; Timing (20%)</strong></p>
+<p>Capacity expansion readiness combined with actual timing of EPS impact. Is the expansion just announced, is it funded, is it ramping? And where does the company sit in the cycle layer-wise? MOCVD equipment leads, followed by substrate, then epi. Execution commitment and cycle position combine here.</p>
+<p><strong>F3. Structural Moat &amp; Customer Lock-in (20%)</strong></p>
+<p>Technology moat plus customer qualification inertia. 6-inch crystal growth know-how, MOCVD process IP, technical barriers like laser facet coating, combined with preferred vendor status at hyperscalers or major device makers, plus long-term contract coverage. This axis measures structural position strength.</p>
+<p><strong>F4. Geopolitical Resilience (20%)</strong></p>
+<p>Supply chain geopolitical stability. China manufacturing exposure, export control risk, production site stability, whether the structure is one a hyperscaler can comfortably allocate volume to. The more AI infrastructure gets built around the US and Japan, the more Chinese manufacturing exposure becomes a depressant, and the more US, European, and Japanese onshore becomes a premium.</p>
+<p><strong>F5. Valuation Asymmetry (15%)</strong></p>
+<p>How much the current price already reflects the next two to three years of cycle earnings. Not simple forward P/E, but multiple on cycle peak EPS. Names that have already run hard score low. Names where cycle earnings aren’t fully priced in score high.</p>
+<p>Total 100%. Max score 10.</p>
+<h3>The logic behind the weightings</h3>
+<p>F1 (Cycle EPS Leverage) gets the highest weight at 25%. The starting point of every analysis is the strength with which cycle alpha converts into EPS. Even if other factors look good, weak EPS conversion means the stock doesn’t move.</p>
+<p>F2, F3, and F4 each get 20% and form the three axes of differentiation. Execution readiness and cycle position (F2), technology moat and customer lock-in (F3), geopolitical stability (F4). These three determine which companies look attractive within the same layer.</p>
+<p>F5 (Valuation) gets 15% as the adjustment axis after the fact. It captures what the market has already priced in, which helps fine-tune entry timing. It doesn’t actually break the cycle thesis, so its weight sits a notch below the three differentiation axes.</p>
+<h3>Caveats and disclaimers</h3>
+<p>This analysis frames things through <strong>the InP shortage and capacity expansion cycle</strong>. Full company fundamentals, technology roadmap details, macro environment, FX, rates, sector rotation, those are not reflected here. Apply a different analytical frame to the same company and the scores and rankings will shift.</p>
+<p>Each company’s score is a thinking framework built on publicly available material plus insight flowing in through my Silicon Valley network. It is not an absolute rating. </p>
+<p><strong>The top composite score is not the top buy priority.</strong></p>
+<p>Even names at the top of the matrix can have a different entry timing because of valuation pressure, qualification timing, or short-term stock volatility. A low score is not a sell signal. A name with a weakness that resolves on a known catalyst can actually be the biggest alpha window.</p>
+<p>All valuation numbers, prices, market caps, P/E ratios, and 52-week returns are <strong>as of the April 20, 2026 close</strong>. Events like NVIDIA investments, hyperscaler contracts, and China export permits move quickly, so anything that changes after publication gets revisited in quarterly updates.</p>
+<p><strong>Every company analysis in this piece is for information purposes and is not a buy or sell recommendation. You need to decide based on your own portfolio context, risk tolerance, and additional research.</strong></p>
+<p><a href="https://damnang2.substack.com/p/the-real-bottleneck-in-the-optical-886?utm_source=substack&amp;utm_medium=email&amp;utm_content=share&amp;action=share&amp;token=eyJ1c2VyX2lkIjoyMzg3ODIwNzYsInBvc3RfaWQiOjE5NTAwMTQ0MywiaWF0IjoxNzc4NjEwMDkxLCJleHAiOjE3ODEyMDIwOTEsImlzcyI6InB1Yi00NTg3MDcwIiwic3ViIjoicG9zdC1yZWFjdGlvbiJ9.NeGsbP_RPk8197EF8pjW953t-Rei8CsXIdLUGNiWy5Y"> Share</a></p>
+<h2>5. Why these six</h2>
+<p>Lay out the InP supply chain from MOCVD tools down to device, and the exact spots where the supply bottleneck sits are fixed. It doesn’t matter which device maker wins or which transceiver vendor gains share. These spots have to be passed through.</p>
+<p>This article pulls the <strong>six companies with the purest InP exposure</strong> out of that map. Japanese conglomerates where InP gets diluted and vertically integrated device makers with heavy industrial laser exposure are not in this list. The reason is that even with the same cycle tailwind, EPS conversion strength and share price reaction speed are different.</p>
+<p>The six split into two groups.</p>
+<p><strong>Group 1. The MOCVD duopoly: Aixtron, Veeco</strong></p>
+<p>MOCVD is the mandatory tool for InP production. Whoever adds capacity, the orders flow to one of these two. This is the earliest layer in the cycle, and order wins convert into revenue directly. Unless the cycle thesis breaks outright, this slot is the safest.</p>
+<p><strong>Group 2. InP pure-play: AXT, LandMark, VPEC, IQE</strong></p>
+<p>Substrate pure-play (AXT), epi pure-play (LandMark), III-V epi foundry (VPEC), and the III-V epi name with a strategic review catalyst (IQE). These four have InP exposure that dominates their revenue mix. Each occupies a different layer and different geopolitical position, and they don’t substitute for each other.</p>
+<p>These six are the analysis set for this piece.</p>
+<p>A few candidates got cut from the list. Quick reasons below.</p>
+<ul>
+<li>
+<p><strong>Sumitomo Electric, Mitsubishi, Furukawa</strong> : Japanese conglomerates. InP exposure exists but gets buried under automotive wire harness, non-ferrous metals, and other electronic businesses. Big EPS dilution. Same cycle tailwind, but the share price response is slower, so they’re out of this pure-play centered analysis.</p>
+</li>
+<li>
+<p><strong>Coherent, Lumentum</strong> : Vertically integrated device makers. They have InP fabs, but the mix includes industrial laser, VCSEL, 3D sensing, and more. Pure InP exposure is smaller than a pure-play.</p>
+</li>
+<li>
+<p><strong>AAOI</strong> : Transceiver maker. Vertical integration is attractive, but post-CPO transition they look closer to a competitor from the ASIC maker’s perspective. Outside the bottleneck zone.</p>
+</li>
+<li>
+<p><strong>JX Advanced Metals</strong> : Japan-listed substrate vendor. Has InP exposure but the three-segment conglomerate structure dilutes it with sputtering targets, rolled copper foil, and so on. As an AXT substitute, only AXT makes the cut this round.</p>
+</li>
+</ul>
+<p>These have InP exposure too, but they fall outside this article’s thesis, which is specifically the section of the supply chain that prints most directly and purely on earnings when InP capacity expansion has to move by an order of magnitude beyond current deliverable supply.</p>
+<hr />
+<h2>6. Company-by-company</h2>
+<p><a href="https://substackcdn.com/image/fetch/$s_!yMT1!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F21bd30e8-61bf-4d55-aea7-c30df7e79c76_2816x1536.png"><img alt="" src="https://substackcdn.com/image/fetch/$s_!yMT1!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F21bd30e8-61bf-4d55-aea7-c30df7e79c76_2816x1536.png" /></a></p>
+<h3>Aixtron (AIXA, Germany) · MOCVD equipment</h3>
+<p>Headquartered in Herzogenrath. One of the two global MOCVD vendors. </p>
+<p>The G10-AsP has locked in its status as the tool of record for InP laser production. Nokia’s order of G10-AsP for 6-inch InP wafer production is the representative case, and SMART Photonics uses the same tool. </p>
+<p>Of the Q1 2026 order intake of €171m, more than 65% came from optoelectronics, and on the back of that the company raised its 2026 revenue guidance from €520m ±€30m to €560m ±€30m.</p>
+<p><strong>F1. Cycle EPS Leverage (8/10)</strong> The company also builds SiC and GaN power tools, but with 65% of current orders coming from opto, corporate earnings are almost moving in sync with the optical Interconnects cycle. MOCVD tools carry a high ASP, so each order contributes meaningfully to revenue. With gross margins in the 35 to 45% range, operating leverage works hard on large orders. Quarterly earnings react sensitively to order intake strength.</p>
+<p><strong>F2. Supply Expansion &amp; Timing (10/10)</strong> The core isn’t in-house capacity. It’s order visibility. When orders come in, lead time runs six to twelve months and the backlog flows into revenue recognition directly. This is the earliest layer of the cycle. The moment a device maker decides to expand capacity, this is the first name that moves. The 2026 guidance raise shows this in real time.</p>
+<p><strong>F3. Structural Moat &amp; Customer Lock-in (9/10)</strong> MOCVD is effectively a duopoly. Alongside the second axis Veeco, Aixtron owns the tool ecosystem. Industry view is that G10-AsP’s wafer uniformity and throughput are a generation ahead. Fabs that stabilize their process on Aixtron tools are very likely to pick Aixtron again in the next generation. Qualification inertia operates at the tool level.</p>
+<p><strong>F4. Geopolitical Resilience (8/10)</strong> Germany headquartered, so relatively neutral in US-China friction. The variable is that China revenue exposure was meaningfully high at one point. Current opto order growth is coming out of non-China bases, which is rebalancing that ratio. If US, European, and Japanese onshore orders stay the main driver, there’s room for this score to improve.</p>
+<p><strong>F5. Valuation Asymmetry (6/10)</strong> Forward P/E on 2026 guidance already sits in the mid-30s. Partly sold out. If order strength keeps pushing guidance up, multiple compression may proceed at a slower pace. The longer the cycle runs, the better.</p>
+<p><strong>Composite 8.30 / 10</strong></p>
+<h4>Investment case</h4>
+<p>The cleanest bet on this cycle. Whoever builds whatever, capacity expansion starts with MOCVD orders. As long as AI infrastructure direction holds, orders keep flowing, so there’s no specific customer concentration. Macro sensitivity is relatively low too. A pattern has formed where quarterly order announcements get absorbed into the price naturally.</p>
+<h4>Risks</h4>
+<p>First, valuation sellout. At a mid-30s multiple, if guidance raise pace slows, multiple compression becomes a concern.</p>
+<p>Second, China exposure. Past Chinese optical Interconnects capex exposure was high, so orders could be delayed if US-China friction intensifies.</p>
+<p>Third, Veeco’s technical catch-up. Whether the next-generation tool after G10-AsP lands on schedule is the key to moat preservation.</p>
+<hr />
+<h3>Veeco (VECO, US) · MOCVD + IBD</h3>
+<p>Headquartered in Plainview, NY. The other axis of MOCVD. </p>
+<p>The differentiator is supplying the Lumina TurboDisc line and Spector IBD (Ion Beam Deposition) facet coating tools together. In March 2026, Veeco received a multi-system order from a global optical Interconnects leader, which locks in forward revenue visibility. Gross margin sits in the low 40s.</p>
+<p><strong>F1. Cycle EPS Leverage (8/10)</strong> The portfolio also spans lithography, ion beam, and single-wafer etch, but opto orders flow straight to revenue and EPS. The mix is slightly more diversified than Aixtron’s, but Spector IBD bundles with MOCVD on the same order, creating bundle effect. Cycle leverage remains strong.</p>
+<p><strong>F2. Supply Expansion &amp; Timing (9/10)</strong> Cycle lead position alongside Aixtron. The multi-system order announcement significantly boosts revenue visibility over the next one to two years. Order size is smaller than Aixtron’s, but the pace is similar.</p>
+<p><strong>F3. Structural Moat &amp; Customer Lock-in (8/10)</strong> Duopoly with Aixtron. Lumina TurboDisc supports 8-inch wafers, and Spector IBD is the industry standard for laser facet coating. When both tools ship together, lock-in extends from tool-level to fab-level. Veeco runs slightly behind Aixtron, but the 2nd source position itself, the role Veeco plays when Aixtron runs at full capacity, is a line of defense.</p>
+<p><strong>F4. Geopolitical Resilience (9/10)</strong> US headquartered. The structure hyperscalers are most comfortable allocating volume to. China revenue exposure is also lower than Aixtron’s, which reduces export control risk. Among equipment names, the one most aligned with AI infrastructure onshore in the US.</p>
+<p><strong>F5. Valuation Asymmetry (7/10)</strong> Forward P/E around 25. Slightly lower multiple than Aixtron, and room for further re-rating if opto mix rises. But the business mix is more diversified than Aixtron’s, so the multiple ceiling for a pure cycle play is more capped.</p>
+<p><strong>Composite 8.25 / 10</strong></p>
+<h4>Investment case</h4>
+<p>Duopoly bet alongside Aixtron, with a US onshore premium on top. There’s a timing lag where orders tend to show up slightly after Aixtron’s, which lets you read order waves by watching both names in parallel. When IBD tools get bundled in, the size of a single order gets large.</p>
+<h4>Risks</h4>
+<p>First, lower opto order share than Aixtron means slightly diluted cycle exposure.</p>
+<p>Second, the industry view is that Aixtron sits a generation ahead in the MOCVD race with G10-AsP. If Veeco can’t catch up on the next-gen tool roadmap, the 2nd source position itself can wobble.</p>
+<p>Third, the diversified business mix means EPS dilution if segments outside optical Interconnects (data storage, semiconductor lithography) enter a down cycle at the same time.</p>
+<hr />
+<h3>IQE plc (IQE.L, UK) · III-V epi + strategic review catalyst</h3>
+<p>Headquartered in Cardiff. A global III-V epi supplier. </p>
+<p>Multi-site operations across Cardiff (UK), Taunton MA, Greensboro NC, Spokane WA, and Taiwan. 6-inch InP laser epi platform in place. A strategic review tied to IQE Taiwan was disclosed in September 2025, and subsequent Reuters reporting has put a potential company-level transaction on the market’s radar. 2025 H2 photonics revenue came in above guidance. US defense revenue also represents a meaningful share.</p>
+<p><strong>F1. Cycle EPS Leverage (7/10)</strong> Full III-V epi scope with opto share rising quickly. 2025 H2 photonics revenue beat guidance, confirming the ramp. But because of the accumulated loss history, operating leverage hasn’t fully materialized yet. EBITDA turn to positive is in progress as capacity utilization climbs.</p>
+<p><strong>F2. Supply Expansion &amp; Timing (7/10)</strong> The 6-inch InP platform exists, but the company’s capex capacity is constrained. Epi stage, the middle layer between substrate and device. If an acquirer steps in, the picture changes, with capital injection accelerating capacity expansion. As things stand, capital constraints limit the pace.</p>
+<p><strong>F3. Structural Moat &amp; Customer Lock-in (7/10)</strong> Multi-site setup across Cardiff, Taunton MA, Greensboro NC, Spokane WA, and Taiwan. 6-inch production know-how. A global III-V epi supplier position with a customer base distributed across regions. Optical Interconnects qualification is in place. But while the strategic review is in motion, there’s uncertainty over whether that qualification status sticks. If an acquirer enters, the customer base is maintained or expanded. If the business gets broken up, there’s risk of contraction.</p>
+<p><strong>F4. Geopolitical Resilience (8/10)</strong> UK headquartered. The Greensboro NC fab ties to US defense revenue (there’s a CHIPS Act based $305m expansion plan announcement). Geopolitically neutral to mildly positive. The Taiwan site adds some exposure, so it’s not fully US or European, but overall the geopolitical stability is higher than a Taiwan smallcap.</p>
+<p><strong>F5. Valuation Asymmetry (8/10)</strong> Small market cap (reasonable P/S around 1x), which leaves significant room for an M&amp;A premium. <strong>How the strategic review resolves will drive a bimodal return distribution.</strong> The most attractive valuation slot among the six.</p>
+<p><strong>Composite 7.35 / 10</strong></p>
+<h4>Investment case</h4>
+<p>The differentiation here is that it isn’t a general cycle bet. It’s a <strong>single catalyst bet</strong>. The moment the strategic review resolves, the return profile gets determined non-linearly. Acquirer emergence means M&amp;A premium driven short-term upside. A breakup or carve-out brings the thesis back to a cycle bet that recovers slowly. High beta, high reward. Low correlation with general cycle names makes it useful for portfolio diversification.</p>
+<h4>Risks</h4>
+<p>First, if the strategic review results in “nothing,” multiple compression is swift. The M&amp;A premium portion of current valuation comes out.</p>
+<p>Second, the accumulated loss history means that if the EBITDA turn doesn’t track guidance, investor confidence weakens.</p>
+<p>Third, uncertainty tied to the Taiwan site. If that piece gets carved out or sold, some of the 6-inch photonics capacity falls out of scope.</p>
+<hr />
+<h3>LandMark Optoelectronics (3081.TWO, Taiwan) · InP/GaAs epi pure-play</h3>
+<p>Headquartered in Tainan. Near-complete pure-play on InP and GaAs epi wafers. </p>
+<p>A full line for optical Interconnects epi including DFB Epiwafer, EML Epiwafer, APD Epiwafer, FP Epiwafer, and PIN PD Epiwafer. Q3 2025 revenue of 552.8M TWD (+71% YoY), TTM revenue of 1.85B TWD. EBITDA margin 37%. </p>
+<p>A 52-week return of +895%, in the middle of a dramatic re-rating.</p>
+<p><strong>F1. Cycle EPS Leverage (9/10)</strong> Near-total revenue exposure to optical Interconnects InP and GaAs epi. The structure where shortage tailwind converts directly to EPS. In the margin structure of an epi pure-play, the operating leverage during capacity utilization ramps is very large. The cleanest pure-play exposure in this cycle.</p>
+<p><strong>F2. Supply Expansion &amp; Timing (9/10)</strong> Meaningful capacity expansion committed for 2026. Epi-stage spillover tailwind puts this name in the second wave of the cycle. When device maker in-house fabs run short, the orders flow directly to LandMark. Qualification is already complete, so revenue recognition speed is very fast.</p>
+<p><strong>F3. Structural Moat &amp; Customer Lock-in (8/10)</strong> High yield on EML and CW laser epi. Preferred supplier status in the division of labor with Taiwanese device makers (LuxNet, TrueLight). But customer geography is concentrated in Taiwan, so there’s no direct hyperscaler lock-in.</p>
+<p><strong>F4. Geopolitical Resilience (6/10)</strong> Taiwanese company, so directly exposed to US-China friction. Strength when cross-strait tensions are calm, risk when they escalate. Mildly negative on the US-onshore AI infrastructure theme.</p>
+<p><strong>F5. Valuation Asymmetry (3/10)</strong> <strong>52-week return of +890% or more, market cap around TWD 214B against TTM revenue of TWD 1.85B, a P/S multiple north of 100.</strong> Even with cycle peak EPS estimates, justifying the valuation is very difficult. The biggest valuation headwind among the six companies in this analysis.</p>
+<p><strong>Composite 7.30 / 10</strong></p>
+<h4>Investment case</h4>
+<p>For InP purity, the most pure among the six. F1 near-perfect at 9, F2 also at 9. On fundamentals alone, this is the company at the peak of cycle tailwind. Industry view is that among Taiwanese epi foundries, LandMark has the highest EML epi yield. The Taiwan device maker centric customer base creates qualification inertia, so near-term share loss isn’t a big risk.</p>
+<h4>Risks</h4>
+<p>First, valuation is the biggest weakness among the six. After a 52-week +890% move, even cycle peak earnings may not justify the multiple. For new entries, it’s a cycle-peak hold for current holders rather than a fresh entry.</p>
+<p>Second, Taiwan smallcap liquidity is limited, and speculative premium matters. Short-term share volatility is higher than the other names.</p>
+<p>Third, the Taiwan-centered customer base means that if hyperscaler direct qualification moves forward and the middleman device makers get bypassed, LandMark’s position weakens.</p>
+<hr />
+<h3>AXT (AXTI, US) · InP substrate pure-play</h3>
+<p>Headquartered in Fremont, CA. A pure-play on InP and GaAs substrates. </p>
+<p>Nearly all revenue from compound semiconductor substrates. Owns a subsidiary plant in Tongmei (Beijing). Plans to double InP substrate capacity by the end of 2026 are explicit. Brownfield expansion with capex around $30M, so it’s efficient. Q4 2025 took a direct revenue hit from China export permit delays, and the stock reflects that.</p>
+<p><strong>F1. Cycle EPS Leverage (8/10)</strong> Near-total revenue from InP and GaAs substrates. Shortage tailwind converts to EPS directly. But 2025 GAAP gross margin is pressured by the export permit delay, so current operating leverage is compressed. Once permits normalize, margin recovery opens room for this score to move higher.</p>
+<p><strong>F2. Supply Expansion &amp; Timing (9/10)</strong> Plan to double capacity by end of 2026 is explicit. Brownfield means capex burden is low and execution speed is fast. In the substrate cycle stage, which is right after the equipment names, earnings recognition comes next. Permit normalization is the timing trigger.</p>
+<p><strong>F3. Structural Moat &amp; Customer Lock-in (7/10)</strong> 6-inch VGF crystal growth know-how makes new entry difficult. One of the global InP substrate suppliers. But because of the China export permit issue, supply to some customers (especially US and EU) has been unstable, weakening qualification inertia. Customers looking for stable supply are migrating to Japanese vendors.</p>
+<p><strong>F4. Geopolitical Resilience (4/10)</strong> The biggest weakness. The Tongmei plant is in China, so the export license delay directly hit Q4 2025 revenue. The most exposed company if US-China friction escalates. The biggest depressant under US and Japan centered AI infrastructure direction.</p>
+<p><strong>F5. Valuation Asymmetry (7/10)</strong> Market cap to revenue ratio looks reasonable. The geopolitical risk discount is already reflected enough in the stock. Permit normalization as a short-term trigger could unlock multiple recovery.</p>
+<p><strong>Composite 7.05 / 10</strong></p>
+<h4>Investment case</h4>
+<p>Essentially the only way to get US-listed pure-play substrate exposure. If the capacity doubling pairs with ASP increases, the revenue jump could be meaningful. Geopolitical risk is already in valuation, which gives this an asymmetric-bet character centered on one trigger: permit normalization. Looking long-term, as a core name in the InP substrate supply chain, a full disappearance scenario is low probability.</p>
+<h4>Risks</h4>
+<p>First, if the China export permit situation drags, multiple recovery takes a long time.</p>
+<p>Second, further US-China escalation could effectively block the Tongmei plant’s exports to the US and Europe. In that scenario the cycle thesis doesn’t flip to tailwind, and customers migrate permanently to Japanese vendors.</p>
+<p>Third, smallcap characteristics mean high quarterly EPS volatility, and the stock swings sharply around permit-related news.</p>
+<hr />
+<h3>VPEC / Visual Photonics Epitaxy (2455.TW, Taiwan) · III-V epi foundry</h3>
+<p>Headquartered in Taoyuan. A III-V epi foundry supplying a full line across </p>
+<p>InP HBT/HEMT, DFB/EML/VCSEL, and InGaAs PD/APD epi. A large installed base of Aixtron tools supports stable yield. Plans to add InP MOCVD tools in 2H 2026. Up more than 310% over the past 52 weeks, so a significant portion is already reflected in price.</p>
+<p><strong>F1. Cycle EPS Leverage (8/10)</strong> Full III-V epi scope, so the mix includes InP, GaAs, and VCSEL. Opto share is rising quickly. With epi foundry margins in the 30 to 40% range, capacity utilization ramp produces strong leverage. Slightly more diversified than LandMark, but still firmly in the pure-play category.</p>
+<p><strong>F2. Supply Expansion &amp; Timing (8/10)</strong> MOCVD expansion in progress. According to sources in my Taiwan network, VPEC plans to raise InP MOCVD tool count from 60 to 64 in 2H 2026 (not an official IR disclosure). The most direct beneficiary of the epi stage spillover dynamic. When device maker in-house fabs run short, orders flow to VPEC.</p>
+<p><strong>F3. Structural Moat &amp; Customer Lock-in (7/10)</strong> Large Aixtron tool base supports yield stability. A broad customer base across Taiwanese and Japanese device makers. Stable position inside the Taiwan optical Interconnects ecosystem. But like LandMark, access to hyperscalers runs indirectly through middleman device makers rather than through direct contracts.</p>
+<p><strong>F4. Geopolitical Resilience (6/10)</strong> Taiwanese company. Cross-strait variable. Same position as LandMark, so the same pressure applies if US-China friction escalates.</p>
+<p><strong>F5. Valuation Asymmetry (5/10)</strong> Already up more than 310% over 52 weeks. Partially reflected. Less priced in than LandMark, so there’s room for further re-rating as more external validation arrives. Upside still exists even under cycle peak EPS assumptions.</p>
+<p><strong>Composite 6.95 / 10</strong></p>
+<h4>Investment case</h4>
+<p>The most direct beneficiary of the spillover thesis. Once the structure where external device makers can’t close the gap with their own fabs starts flowing into VPEC, further re-rating becomes available. Inside the Taiwan ecosystem, VPEC forms a duopoly with LandMark in InP epi foundry, so overflow from one flows to the other. The relative attractiveness in this analysis is that the valuation burden is lighter than LandMark’s.</p>
+<h4>Risks</h4>
+<p>First, Taiwan smallcap liquidity constraints. Local listing, not an ADR, so accessibility for overseas investors is limited.</p>
+<p>Second, the VPEC expansion information isn’t an official disclosure. It came through my network. Variables can shift before it becomes official.</p>
+<p>Third, the entire Taiwan optical Interconnects ecosystem carries correlation risk that moves together if US-China friction escalates. Holding LandMark and VPEC together means geopolitical risk overlaps.</p>
+<hr />
+<h2>7. Composite matrix and interpretation</h2>
+<h3>Composite scores across the six</h3>
+<p><a href="https://substackcdn.com/image/fetch/$s_!yaVh!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F0832dca0-483a-4ad3-bd3e-cc3fef46ce2e_2752x1536.png"><img alt="" src="https://substackcdn.com/image/fetch/$s_!yaVh!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F0832dca0-483a-4ad3-bd3e-cc3fef46ce2e_2752x1536.png" /></a></p>
+<h3>Three things the matrix shows</h3>
+<p><strong>First, the MOCVD duopoly taking Tier S in the 8-point range is a function of the position itself.</strong></p>
+<p>Aixtron at 8.30 in first, Veeco at 8.25 in second. A 0.05 gap is effectively a tie. That isn’t coincidence. It’s the position advantage of the earliest cycle layer. Whoever expands capacity, orders flow to one of these two. The fact that F2 Supply &amp; Timing scores 9 to 10, near maximum, reflects that. Aixtron runs a step ahead technically, and Veeco has the US onshore premium, so the character differs slightly, but both take damage only if the cycle thesis itself breaks. That makes downside most limited here.</p>
+<p><strong>Second, Tier A’s IQE (7.35) and LandMark (7.30) sit at a virtual tie but have opposite profiles.</strong></p>
+<p>IQE’s F5 Valuation is 8 with the M&amp;A catalyst lifting the score, while F1 Cycle EPS Leverage stays at 7. LandMark runs F1 near perfect at 9 as a pure-play, but F5 Valuation at 3 drags it down hard. At the same score level, <strong>IQE is a catalyst bet and LandMark is a pure-play bet with valuation risk</strong>. Completely different profiles, so portfolio roles differ too.</p>
+<p><strong>Third, Tier B’s AXT (7.05) and VPEC (6.95) are both pure-plays dragged down by geopolitical risk.</strong></p>
+<p>AXT scores F4 Geopolitical at 4 (China), VPEC at 6 (Taiwan). Without that factor, both would be Tier A names. How you balance the pure-play attractiveness against the geopolitical risk is what determines position sizing. AXT has stronger asymmetric bet character on a single trigger (permit normalization), and VPEC is more of a cycle play with heavier exposure to spillover dynamics.</p>
+<p><a href="https://damnang2.substack.com/p/the-real-bottleneck-in-the-optical-886?utm_source=substack&amp;utm_medium=email&amp;utm_content=share&amp;action=share&amp;token=eyJ1c2VyX2lkIjoyMzg3ODIwNzYsInBvc3RfaWQiOjE5NTAwMTQ0MywiaWF0IjoxNzc4NjEwMDkxLCJleHAiOjE3ODEyMDIwOTEsImlzcyI6InB1Yi00NTg3MDcwIiwic3ViIjoicG9zdC1yZWFjdGlvbiJ9.NeGsbP_RPk8197EF8pjW953t-Rei8CsXIdLUGNiWy5Y">Share</a></p>
+<hr />
+<h2>8. My take on these six</h2>
+<p><a href="https://substackcdn.com/image/fetch/$s_!MLH9!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F8af1cbea-7a14-4bfc-9af5-71806268086c_2816x1536.png"><img alt="" src="https://substackcdn.com/image/fetch/$s_!MLH9!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F8af1cbea-7a14-4bfc-9af5-71806268086c_2816x1536.png" /></a></p>
+<p><strong>Aixtron and Veeco: the sturdiest structure.</strong></p>
+<p>The MOCVD duopoly only takes damage if the cycle thesis breaks. Until signals of weakening quarterly order intake come through, this slot is the safest. Picking only one of the two concentrates risk. A 0.05 gap is meaningless, and the profile difference, US onshore premium (Veeco) against opto pure exposure (Aixtron), lets you diversify naturally. Order announcement timing differs too, so you catch catalysts in alternating quarters.</p>
+<p><strong>LandMark: the purest exposure, the biggest valuation burden.</strong></p>
+<p>For InP purity, this is number one of the six. A textbook F1 9 pure-play. The problem is that a 52-week +890% move puts valuation in extreme territory. For new entries, valuation correction has to come first. For existing holders, the profile is hold-to-cycle-peak. The name most likely to wobble before the two Tier S names.</p>
+<p><strong>VPEC: the LandMark alternative.</strong></p>
+<p>Fundamentally similar to LandMark’s epi foundry structure, but with a much lighter valuation burden. Partially reflected at +310% over 52 weeks, but a long way from LandMark’s P/S of 100. Swapping LandMark for VPEC gets you the pure-play exposure with reduced valuation risk. The moat runs slightly shallower than LandMark’s, and the Taiwan geopolitical risk is shared.</p>
+<p><strong>AXT: a geopolitical asymmetric bet.</strong></p>
+<p>The China export permit issue has valuation heavily suppressed. Permit normalization brings near-term upside. A prolonged delay means further valuation compression. This is closer to a geopolitical resolution bet than a cycle bet. Low correlation with general cycle names gives it a unique slot in a portfolio.</p>
+<p><strong>IQE: a catalyst bet.</strong></p>
+<p>The moment the strategic review resolves, returns get determined non-linearly. M&amp;A premium coming in means short-term upside. A scale-back pushes it back to a cycle bet. Low correlation with general cycle names helps portfolio diversification. The catalyst timing is uncertain, so it fits event-driven positioning more than long-term hold.</p>
+<p><strong>What I’m actually most aggressive on right now is upstream.</strong></p>
+<p>The MOCVD equipment duopoly (Aixtron, Veeco). These two axes are where the cycle tailwind from AI infrastructure buildout exceeding the order-of-magnitude deliverable supply lands most directly and repeatedly. InP pure-plays (LandMark, VPEC, AXT, IQE) benefit at the substrate and epi layers, but each has a clear weakness in either geopolitics or valuation, so none carries the same decisiveness as Tier S. What the market is focused on is device makers and transceivers. What I’m focused on is equipment and epi/substrate pure-plays. That gap itself is the alpha of this article.</p>
+<h3>Triggers that resolve each name’s weakness</h3>
+<ul>
+<li>
+<p><strong>Aixtron and Veeco valuation pressure</strong> : Resolves automatically if quarterly orders keep pushing guidance up. Likely to hold through 2026.</p>
+</li>
+<li>
+<p><strong>LandMark’s extreme P/S</strong> : Hard to resolve in the short term. Nothing short of a market correction naturally resolves it. The base case is a gradual P/S normalization as 2027 and 2028 cycle peak earnings come in.</p>
+</li>
+<li>
+<p><strong>AXT’s geopolitical risk</strong> : China export permit normalization is the single trigger. Second half of 2026 is plausible but not guaranteed.</p>
+</li>
+<li>
+<p><strong>VPEC’s price burden</strong> : Scenario where quarterly results beat estimates and EPS catches up to price. The official expansion announcement is the trigger.</p>
+</li>
+<li>
+<p><strong>IQE’s catalyst uncertainty</strong> : The strategic review resolution disclosure is the single trigger. Likely to resolve sometime in 2026.</p>
+</li>
+</ul>
+<hr />
+<h2>9. Scenarios where the thesis breaks</h2>
+<p><strong>Scenario 1. CPO transition runs slower than expected.</strong></p>
+<p>If pluggable optics holds mainstream position into 2027 and 2028, ELS demand growth slows and pressure on InP capacity expansion gets pushed back a generation. Weaker MOCVD order intake hits the equipment names first with multiple compression. A 20 to 30% correction in Aixtron and Veeco is possible under this scenario. But CPO transition is driven by hyperscaler data center power constraints, so it’s a timing question rather than a directional change. Probability of the direction actually reversing is low.</p>
+<p><strong>Scenario 2. Silicon photonics replaces InP more than expected.</strong></p>
+<p>If external laser share declines in SiPh transceivers, or integrated silicon lasers become commercially viable, InP demand growth decelerates. But the CW laser based ELS structure is likely to persist even in the CPO era, so full replacement scenarios run low probability in the short term. A 5 to 10 year scenario has to consider it, but the impact inside a 2 to 3 year cycle is limited.</p>
+<p><strong>Scenario 3. US-China friction escalation discounts the entire Taiwan ecosystem.</strong></p>
+<p>Both LandMark and VPEC are Taiwanese companies. Cross-strait escalation pressures both simultaneously. In that scenario AXT takes a hit too, as Tongmei exports get further blocked. Three out of four InP pure-plays end up exposed to the geopolitical depressant. IQE is the only one with geopolitical stability, but as a catalyst bet it doesn’t respond cleanly to cycle conditions. In this scenario only the MOCVD duopoly (Aixtron, Veeco) stays relatively safe.</p>
+<hr />
+<h2>10. Wrap</h2>
+<p>The InP cycle thesis is straightforward. </p>
+<p>AI infrastructure buildout is moving at a speed that exceeds the order-of-magnitude deliverable capacity of current optical Interconnect, and responding to that speed requires structural capacity expansion of several to several dozen times. The first button on that expansion is MOCVD equipment orders. The second button is substrate capacity. The third is epi foundry capacity.</p>
+<p>The six companies in this article are positioned exactly across those three stages. </p>
+<p>The MOCVD equipment duopoly (Aixtron, Veeco), the InP substrate pure-play (AXT), the InP and GaAs epi pure-plays (LandMark, VPEC), and the III-V epi with a catalyst (IQE). These are structures with pure InP exposure, without conglomerate dilution or heavy industrial laser mix. No matter which device maker wins or which transceiver vendor captures share, these six layers have to be passed through.</p>
+<p>The InP bottleneck isn’t going to clear in one quarter. </p>
+<p>As long as AI infrastructure is structurally re-accelerating, the cycle thesis across these six holds. What separates the returns from here is when, and through what trigger, each name’s specific weakness resolves.</p>
+                </main>
+            </body>
+            </html>
+        

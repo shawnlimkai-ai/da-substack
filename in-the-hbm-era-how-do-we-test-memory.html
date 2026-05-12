@@ -1,0 +1,97 @@
+
+            <!DOCTYPE html>
+            <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Markdown Content</title>
+                <link rel="stylesheet" href="../../assets/css/essay-styles.css">
+            </head>
+            <body>
+                <main class="markdown-content">
+                <h1>In the HBM Era, How Do We Test Memory Semiconductors?</h1>
+<p><strong>Mar 20, 2026</strong></p>
+<p><strong>Likes:</strong> 16</p>
+<p><a href="https://substackcdn.com/image/fetch/$s_!puCc!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F5a9ef711-5324-4623-86f1-1d890878d261_900x360.jpeg"><img alt="이미지" src="https://substackcdn.com/image/fetch/$s_!puCc!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F5a9ef711-5324-4623-86f1-1d890878d261_900x360.jpeg" /></a></p>
+<h2><strong>Introduction</strong></h2>
+<p>As we enter the AI era, the importance of memory, led by HBM (High Bandwidth Memory), has never been greater. AI semiconductors from NVIDIA, AMD, and others cannot achieve their full performance without HBM. So how exactly do we test this memory?</p>
+<p>My doctoral research lab focused on Design for Test (DFT) for semiconductor testing and was one of the world’s most renowned research groups in memory testing and repair. Today, I’ll explain the fundamentals of memory testing methodology from my doctoral research and industry experience in a way that even non-specialists can understand.</p>
+<hr />
+<p>Substack is currently in a trial phase, so all premium quality articles are available for free for now. Once paid subscriptions are introduced, pricing will be set at a level comparable to professional tech writers on Substack. Early supporters will have the benefit of locking in their current pledge price for future paid access.</p>
+<p>Subscribed</p>
+<h2><strong>1. What is Memory Testing?</strong></h2>
+<p><a href="https://substackcdn.com/image/fetch/$s_!3lbO!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fb3d9c68c-3e96-40d8-97a1-dea670f95619_900x491.jpeg"><img alt="이미지" src="https://substackcdn.com/image/fetch/$s_!3lbO!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fb3d9c68c-3e96-40d8-97a1-dea670f95619_900x491.jpeg" /></a></p>
+<p><strong>Basic Principle: Write and Read</strong></p>
+<p>The most fundamental principle of memory testing is simple. Write a value to a specific address, read it back, and verify that the read value matches what was written. If the written and read values differ, the bit cell is determined to have a fault.</p>
+<p>For example, if you write ‘1’ to address 0x1000 and read back ‘0’, that cell has a Stuck-at-0 fault. Conversely, if you write ‘0’ but read ‘1’, it’s a Stuck-at-1 fault.</p>
+<p><strong>Memory Test Algorithms</strong></p>
+<p>However, simply writing 0s and 1s to all cells and reading them back cannot detect all faults. Systematic algorithms are needed to detect interactions between memory cells, known as Coupling Faults.</p>
+<p>March algorithms are the representative family of memory test algorithms. Various variants exist such as March C-, March LR, and March SS, each capable of detecting different fault types. The basic structure of March algorithms is as follows:</p>
+<ul>
+<li>
+<p>⇑ (Ascending): Perform operations while incrementing addresses from 0 to the end</p>
+</li>
+<li>
+<p>⇓ (Descending): Perform operations while decrementing addresses from end to 0</p>
+</li>
+<li>
+<p>⇕ (Either): Perform operations in either direction</p>
+</li>
+</ul>
+<p>For example, the March C- algorithm consists of 6 elements: {⇕(w0); ⇑(r0,w1); ⇑(r1,w0); ⇓(r0,w1); ⇓(r1,w0); ⇕(r0)}, capable of detecting Stuck-at Faults, Transition Faults, and some Coupling Faults.</p>
+<p><strong>Process-Specific Test Algorithm Implementation</strong></p>
+<p>Beyond standard March algorithms, specialized tests exist that consider memory characteristics. A representative example is VDR (Voltage Drop Retention) testing. This method tests retention characteristics while intentionally lowering the operating voltage, filtering out weak cells with insufficient voltage margins. Marginal defects that pass at normal voltage but fail at lower voltage are often the culprits behind intermittent field failures.</p>
+<p>In actual production environments, defects often concentrate at specific locations or conditions depending on process characteristics, leading to the development of process-tailored test patterns. Ultimately, how deeply each company understands its process’s defect characteristics and possesses optimized custom algorithms determines its yield competitiveness.</p>
+<h2><strong>2. Why is MBIST Necessary?</strong></h2>
+<p><a href="https://substackcdn.com/image/fetch/$s_!WHdU!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F81ff2c21-11ab-4b23-94fb-8bc19e8ffd34_900x491.jpeg"><img alt="이미지" src="https://substackcdn.com/image/fetch/$s_!WHdU!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F81ff2c21-11ab-4b23-94fb-8bc19e8ffd34_900x491.jpeg" /></a></p>
+<p>Memory Built-In Self-Test (MBIST) embeds memory test circuitry inside the chip, enabling self-testing of memory with minimal ATE usage. So why do we design MBIST instead of directly testing memory with ATE?</p>
+<p>First, speed. When testing memory through ATE, the interface speed between the ATE and chip becomes a bottleneck. Modern SoC embedded SRAM operates at GHz speeds, which external testers cannot match. MBIST enables At-Speed testing inside the chip.</p>
+<p>Second, accessibility. Modern SoCs contain hundreds of memory blocks. Directly accessing all these memories through external pins is physically impossible. MBIST can access all memories through internal test structures such as IJTAG or IEEE 1500.</p>
+<p>Third, cost. Reducing usage time of expensive ATE equipment lowers test costs. MBIST can test multiple memories simultaneously in parallel, also shortening test time.</p>
+<h2><strong>3. What is Memory Repair?</strong></h2>
+<p><a href="https://substackcdn.com/image/fetch/$s_!JyDL!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1661508b-b2cd-4362-a325-d67a11f91205_900x491.jpeg"><img alt="이미지" src="https://substackcdn.com/image/fetch/$s_!JyDL!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1661508b-b2cd-4362-a325-d67a11f91205_900x491.jpeg" /></a></p>
+<p>Unlike logic, memory can improve yield through repair. Memory repair is a technology that replaces defective rows or columns with spare rows/columns. It’s similar to installing backup elevators in a building and switching to backup when the main elevator breaks down.</p>
+<p><strong>Redundancy Analysis (RA)</strong></p>
+<p>RA is the algorithm that determines which spare row/column should replace which defective row/column. Rather than simply replacing with spares whenever a defect is found, optimization is needed to cover as many defects as possible with limited spare resources. For example, if multiple defects exist in the same column, column repair may be more efficient than row repair.</p>
+<p><strong>BIRA and BISR</strong></p>
+<p>BIRA (Built-In Redundancy Analysis) is an on-chip algorithm that analyzes defect information to find optimal repair solutions. It collects defect addresses found during testing and determines spare row/column allocation.</p>
+<p>BISR (Built-In Self-Repair) is the stage that actually applies the repair information determined by BIRA. Typically, fuses are programmed so that accessing a defective address automatically redirects to spare rows/columns. Recently, eFuse or OTP (One-Time Programmable) memory is also used.</p>
+<h2><strong>4. Difference Between ECC and Memory Repair</strong></h2>
+<p>ECC (Error Correction Code) and memory repair both address memory defects, but differ in application timing and purpose.</p>
+<p>Memory repair physically replaces defects occurring during manufacturing. Once repaired, it operates like a normal cell with no runtime overhead.</p>
+<p>ECC detects and corrects transient errors (Soft Errors) occurring at runtime. It addresses temporary phenomena like bit flips caused by cosmic rays or alpha particles. SECDED (Single Error Correction, Double Error Detection) is representative, correcting 1-bit errors and detecting 2-bit errors.</p>
+<p>In practice, HBM and GDDR6 use both technologies together. Repair removes Hard Faults during manufacturing, while ECC handles Soft Errors during operation. From HBM3 onward, On-Die ECC became a mandatory specification to address additional defects that can occur in stacked structures.</p>
+<h2><strong>5. Actual Test Flow: From GO/NO-GO to Bitmap</strong></h2>
+<p><a href="https://substackcdn.com/image/fetch/$s_!i_wv!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fcfebd8a2-9462-4025-ac12-ff74cc1e1edb_900x491.jpeg"><img alt="이미지" src="https://substackcdn.com/image/fetch/$s_!i_wv!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fcfebd8a2-9462-4025-ac12-ff74cc1e1edb_900x491.jpeg" /></a></p>
+<p>In actual production environments, memory testing proceeds in stages. Multiple memory blocks are tested simultaneously in parallel through MBIST, with test depth varying by purpose.</p>
+<p><strong>GO/NO-GO Testing</strong></p>
+<p>The first stage is GO/NO-GO testing. It quickly determines whether memory is basically functional, simply whether it’s alive or dead. Writing 0s and 1s to all bits and reading them confirms only Pass/Fail. This stage can determine whether memory defects occur in the chip, but cannot identify exactly which memory or which memory cell is defective.</p>
+<p><strong>Bitmap Testing and Its Limitations</strong></p>
+<p>When GO/NO-GO fails, Bitmap testing is performed to precisely identify which bit cells are defective. It records Pass/Fail information individually for every bit position.</p>
+<p>Bitmap testing is a powerful diagnostic tool but has a critical drawback. Since defective cell information for each memory must be stored sequentially, parallel testing is impossible, and test time increases exponentially for large-capacity memory. Therefore, it’s used only for Failure Analysis (FA), not production lines.</p>
+<p>Bitmap results play a key role in identifying defect causes. If defects concentrate in specific rows or columns, Row/Column Decoder problems can be suspected. If they appear in cluster patterns, process particle contamination is likely. Based on such analysis results, new test algorithms may be developed for yield ramp-up stages. Ultimately, production uses a two-track strategy: quick screening with GO/NO-GO, with separate Bitmap analysis only for problematic chips.</p>
+<p><strong>Why Memory Testing Follows Logic Testing</strong></p>
+<p>Memory testing is generally performed after logic testing (Scan Test). This isn’t simply a matter of sequence but has technical and strategic reasons.</p>
+<p>First, the MBIST controller is part of the logic. Testing memory requires the MBIST controller to function properly, but this controller itself is logic circuitry. If the logic has faults, MBIST won’t operate correctly, making memory test results unreliable.</p>
+<p>Second, clarity in test result interpretation. If memory testing fails without knowing whether logic is normal, it’s impossible to distinguish between actual memory defects and MBIST controller faults. Logic must first be confirmed normal through Scan Test before memory test results can be trusted.</p>
+<p>Third, yield strategy. Memory can be repaired through spare rows/columns, but logic faults cannot be repaired. Therefore, from a yield improvement perspective, it’s more efficient to first secure unrepairable logic yield, then proceed with memory testing and repair.</p>
+<h2><strong>6. HBM Testing: Challenges of 3D Memory Structure</strong></h2>
+<p><a href="https://substackcdn.com/image/fetch/$s_!MmIc!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F5cfcfa6c-468b-44b1-b864-1f37f8e4b109_900x491.jpeg"><img alt="이미지" src="https://substackcdn.com/image/fetch/$s_!MmIc!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F5cfcfa6c-468b-44b1-b864-1f37f8e4b109_900x491.jpeg" /></a></p>
+<p>HBM is a 3D structure where multiple DRAM dies are vertically stacked and connected via TSV (Through-Silicon Via). This structure is the fundamental reason why improving HBM yield is difficult. Unlike conventional single-die memory, yield multiplies at each stage.</p>
+<p><strong>Stage 1: Individual DRAM Die Testing (Known Good Die)</strong></p>
+<p>Before stacking, each DRAM die is individually tested to select Known Good Die (KGD). For example, with 12-layer stacked HBM3E, even if individual die yield is 95%, simple calculation gives 0.95 to the 12th power, approximately 54%. If even one defective die is included, the entire HBM becomes defective, so KGD selection accuracy determines final yield.</p>
+<p>Two test access approaches exist. The HBM JEDEC specification adopts IEEE 1500 standard-based test wrappers, enabling standardized test access. Additionally, before stacking, each die’s memory can be directly accessed and tested through DA (Direct Access) pins.</p>
+<p><strong>Stage 2: Post-Stacking Testing</strong></p>
+<p>Once dies are stacked, DA pins on memory dies can no longer be used. Testing is now only possible through the Base Die, with test structures implemented in the Base Die accessing upper dies’ memory through TSV.</p>
+<p>The problem is that the stacking process itself creates new defects. TSV connection defects, micro bump bonding defects, and defects from thermal stress during bonding can occur. Even dies selected as KGD can become defective after stacking, making retesting essential. Considering stacking process yield, final yield drops further.</p>
+<p><strong>Stage 3: Post-System Integration Testing</strong></p>
+<p>After HBM is connected to host chips like GPUs or AI accelerators through interposers, final memory testing is performed at the system level. The entire memory path including interposer connections is tested through the host chip’s memory controller.</p>
+<p>Yield loss occurs again at this stage. Interposer bonding defects, HBM-host interface timing issues, and signal integrity problems may be newly detected. Ultimately, final yield equals KGD yield × stacking process yield × system integration yield. This is the structural reason why HBM prices are high.</p>
+<h2><strong>Conclusion</strong></h2>
+<p>Memory testing and repair technologies are core technologies determining semiconductor yield. On top of the seemingly simple principle of “write and read,” various technologies are layered: March algorithms, MBIST, BIRA/BISR, and ECC.</p>
+<p>As we enter the HBM era, test complexity continues to increase. 3D stacked structures create new defect possibilities at each stage, and test strategies must evolve accordingly. The importance of KGD selection, necessity of post-stacking retesting, and multi-stage test systems extending to system-level integration testing guarantee HBM quality.</p>
+<p>As the AI semiconductor market grows, the role of memory test engineers becomes increasingly important. Faster, more accurate, and more efficient test technologies will enable the next generation of AI accelerators.</p>
+                </main>
+            </body>
+            </html>
+        
