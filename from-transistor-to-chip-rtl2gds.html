@@ -1,0 +1,303 @@
+
+            <!DOCTYPE html>
+            <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Markdown Content</title>
+                <link rel="stylesheet" href="assets/css/essay-styles.css">
+            </head>
+            <body>
+                <main class="markdown-content">
+                <h1>From Transistor to Chip: RTL2GDS</h1>
+<h2>A Beginner's Guide to Semiconductor Design</h2>
+<p><strong>Mar 21, 2026</strong></p>
+<p><strong>Likes:</strong> 16</p>
+<p><a href="https://substackcdn.com/image/fetch/$s_!b17c!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fc0bae44e-bc59-4bae-a581-68bf51857a38_900x360.jpeg"><img alt="이미지" src="https://substackcdn.com/image/fetch/$s_!b17c!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fc0bae44e-bc59-4bae-a581-68bf51857a38_900x360.jpeg" /></a></p>
+<p>Semiconductor design might sound like an intimidating, highly specialized field, and honestly, it is. It’s not easy to approach without an electrical engineering background.</p>
+<p>In this article, I’ll walk you through the entire process of how a chip is made, from transistors to the final design file (GDS). This is what we call RTL2GDS in the industry. My goal is to explain it in a way that even non-engineers can follow. After reading this, I hope you’ll have a better understanding of the big picture of semiconductor design and be able to make more sense of semiconductor news in the future.</p>
+<hr />
+<p><em>Substack is currently in a trial phase, so all premium quality articles are available for free for now. Once paid subscriptions are introduced, pricing will be set at a level comparable to professional tech writers on Substack. Early supporters will have the benefit of locking in their current pledge price for future paid access.</em></p>
+<p>Subscribed</p>
+<h2><strong>1. Transistor</strong></h2>
+<p><strong>What is a Semiconductor?</strong></p>
+<p>Let’s start with the name itself. A conductor is a material that conducts electricity well, and an insulator doesn’t conduct at all. A semiconductor is somewhere in between—it normally doesn’t conduct electricity, but under certain conditions, it can.</p>
+<p>Silicon is the most common semiconductor material. Pure silicon doesn’t conduct electricity well, but when you add impurities (a process called doping), its electrical properties change. This is the principle behind the transistor.</p>
+<p>The structure of a transistor is incredibly complex, but here’s all you need to understand: A transistor is a switch that controls the flow of current using electrical signals.</p>
+<ul>
+<li>
+<p>Apply voltage to the Gate → Switch ON (current flows)</p>
+</li>
+<li>
+<p>No voltage at the Gate → Switch OFF (current blocked)</p>
+</li>
+</ul>
+<p>Billions of these tiny switches packed together create the CPUs and GPUs we use every day. (Of course, there’s much more inside a chip than just transistors.)</p>
+<p><strong>Why Digital Uses 0s and 1s</strong></p>
+<p>Once you understand that a transistor is a switch, it becomes clear why digital circuits use binary (0 and 1). A switch has only two states: ON or OFF. Represented as numbers, that’s 1 and 0.</p>
+<p>Using a transistor in some “half-on” state would make it susceptible to noise and unstable. So we stick to definite ON/OFF states. In other words, the 0s and 1s in digital circuits aren’t a philosophical choice—they naturally emerge from the physical characteristics of transistors.</p>
+<p><strong>What Do 3nm and 5nm Mean?</strong></p>
+<p>You’ve probably heard news about “Samsung’s 3nm process” or “TSMC 5nm.” These numbers roughly indicate the size of transistors. Smaller numbers mean smaller transistors, which means more transistors can fit in the same area. More transistors enable more complex computations, and smaller transistors consume less power.</p>
+<p>(Note: Recently, numbers like 3nm and 5nm don’t represent exact physical dimensions—they’re more like generation names for each company’s process technology.)</p>
+<p><strong>Evolution of Transistor Structures: FinFET and GAA</strong></p>
+<p>You may have also heard terms like FinFET and GAA in the news. These are all types of transistors, just with different structures. While the technology behind them is complex, here’s the simple takeaway:</p>
+<blockquote>
+<p>Transistors evolved from Planar → FinFET → GAA, enabling precise current control even at smaller sizes.</p>
+</blockquote>
+<p>See Appendix A below for a brief explanation of transistor structures.</p>
+<h2><strong>2. Gate: Building Logic from Transistors</strong></h2>
+<p>I mentioned that transistors are switches that can represent 0 and 1. By combining multiple transistor switches, we can create circuits that perform logical operations. We call these <strong>Gates</strong>.</p>
+<p><strong>Basic Gates</strong></p>
+<ul>
+<li>
+<p><strong>NOT (Inverter)</strong> : Flips the input.</p>
+</li>
+<li>
+<p><strong>AND</strong> : Outputs 1 only when both inputs are 1.</p>
+</li>
+<li>
+<p><strong>OR</strong> : Outputs 1 when at least one input is 1.</p>
+</li>
+</ul>
+<p>By combining these three, we can create other gates like XOR (outputs 1 when inputs differ), NAND (opposite of AND), and NOR (opposite of OR).</p>
+<p><strong>Building an Adder with Gates: 1-bit Half Adder</strong></p>
+<p>“What can you actually do with AND and OR?” you might ask. Let’s look at a simple example: the 1-bit Half Adder.</p>
+<p>It takes two 1-bit inputs (A and B) and outputs their Sum (S) and Carry (C).</p>
+<p><a href="https://substackcdn.com/image/fetch/$s_!ATJe!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F9cfc5689-e74c-4610-980e-11f2fd51b6b9_578x210.png"><img alt="이미지" src="https://substackcdn.com/image/fetch/$s_!ATJe!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F9cfc5689-e74c-4610-980e-11f2fd51b6b9_578x210.png" /></a>captiohttps://circuitstoday.com/half-adder</p>
+<p>Finding the gate combinations that satisfy this truth table:</p>
+<ul>
+<li>
+<p><strong>S</strong> : Outputs 1 when A and B differ → XOR characteristic → <strong>A XOR B</strong></p>
+</li>
+<li>
+<p><strong>C</strong> : Outputs 1 only when both A and B are 1 → AND characteristic → <strong>A AND B</strong></p>
+</li>
+</ul>
+<p>Using the properties of logic gates, we can implement virtually any computation.</p>
+<p>PDK and Standard Cell Library</p>
+<p>Here are some important concepts:</p>
+<p><strong>PDK (Process Design Kit)</strong> : A package of process information provided by the foundry. It contains information about how to build transistors in a specific process (e.g., TSMC N3).</p>
+<p><strong>Standard Cell Library</strong> : A library of pre-designed gates built on the PDK. It includes cells like AND, OR, NOT, XOR, and Flip-Flops, along with their timing, power, and area characteristics.</p>
+<blockquote>
+<p>Here’s the key point: Design companies must decide which foundry’s PDK to use before starting the design. If you start designing with TSMC 3nm PDK, that design can only be manufactured in TSMC’s 3nm process. Switching foundries mid-design means different PDKs, libraries, and design rules, resulting in massive redesign and re-verification costs.</p>
+<p>This is why foundry selection is a critical strategic decision that must be made early in the design process. Some companies use a dual-vendor strategy, designing for both foundries simultaneously with different PDKs.</p>
+</blockquote>
+<h2><strong>3. Flip-Flop and Clock: Memory and Synchronization</strong></h2>
+<p>Gates alone have limitations. Combinational logic like AND and OR produces outputs that change immediately when inputs change. In other words, they can’t store values.</p>
+<p>Why do we need to store values? Consider calculating (3 + 5) × 2:</p>
+<ol>
+<li>
+<p>Calculate 3 + 5 = 8</p>
+</li>
+<li>
+<p>Store 8 somewhere</p>
+</li>
+<li>
+<p>Calculate stored 8 × 2 = 16</p>
+</li>
+</ol>
+<p>Without step 2, sequential calculations would be impossible. The component that temporarily stores values is called a register, and the basic unit of a register is the Flip-Flop.</p>
+<p><strong>Flip-Flop (FF): A Circuit that Remembers 1 Bit</strong></p>
+<p>A FF is a 1-bit storage circuit made by combining gates. The most commonly used D Flip-Flop includes clock synchronization logic and is typically built from several NAND gates.</p>
+<p><strong>Clock: The Signal that Tells FFs When to Store</strong></p>
+<p>A clock is a signal that regularly alternates between 0 and 1. FFs capture and store input values when the clock transitions from 0 to 1 (or 1 to 0). All FFs across the entire chip are synchronized to the same clock.</p>
+<p>When you buy a computer, you see specs like “3.5GHz” or “5GHz”—that’s the clock speed. 1GHz means the clock ticks 1 billion times per second. Each tick, FFs store values and move to the next operation. Faster clocks mean more operations in the same time. This is why “higher CPU clock = better performance.”</p>
+<p>(Of course, these days performance doesn’t scale linearly with clock speed alone, but it remains a key performance metric.)</p>
+<h2><strong>4. Architecture: What Kind of Chip to Build</strong></h2>
+<p>Now that we understand transistors, gates, and FFs, let’s talk about actual chip design.</p>
+<p>The first decision is: <strong>“What kind of chip are we building?”</strong> A CPU? GPU? An AI accelerator ASIC? This is called <strong>Architecture</strong> design.</p>
+<p>The same transistors and gates can produce completely different chips depending on how they’re arranged and connected.</p>
+<p><strong>IP (Intellectual Property)</strong></p>
+<p>In modern chip design, almost nothing is built from scratch. Commonly used circuit blocks are licensed from proven designs. We call these IP (Intellectual Property).</p>
+<p><strong>Major IP Companies:</strong></p>
+<ul>
+<li>
+<p><strong>ARM</strong> : Dominant in CPU architecture. Most smartphone chips are ARM-based.</p>
+</li>
+<li>
+<p><strong>Synopsys</strong> : Full lineup including USB, PCIe, CXL, DDR, HBM, die-to-die.</p>
+</li>
+<li>
+<p><strong>Cadence</strong> : Strong in PCIe/CXL PHY, USB, DDR IP.</p>
+</li>
+<li>
+<p><strong>Rambus</strong> : HBM, DDR, GDDR, PCIe, and CXL.</p>
+</li>
+<li>
+<p><strong>Alphawave Semi</strong> : High-speed SerDes, PCIe, CXL, UCIe.</p>
+</li>
+<li>
+<p><strong>SiFive</strong> : Commercial RISC-V core IP.</p>
+</li>
+</ul>
+<h2><strong>5. RTL Design: Describing Circuits in Human-Readable Language</strong></h2>
+<p>Once the architecture and specs are defined and necessary IPs are secured, actual design begins.</p>
+<p><strong>Why RTL Design Instead of Gate Design?</strong></p>
+<p>The 1-bit adder only needed 2 gates. But modern CPUs contain hundreds of millions of gates. It’s impossible for humans to design at the gate level.</p>
+<p>So we design at a higher abstraction level called <strong>RTL (Register Transfer Level)</strong>. Instead of individual gates, we describe “how data moves and transforms between registers.”</p>
+<p>RTL design uses HDLs (Hardware Description Languages) like <strong>Verilog</strong> or <strong>VHDL</strong>. They look similar to software code but actually describe circuits.</p>
+<p>Here’s a simple example—a 4-bit counter that cycles 0→1→2→...→15→0 with each clock tick:</p>
+<pre><code>verilog
+module counter_4bit (
+    input        clk,
+    input        reset,
+    output reg [3:0] count
+);
+
+    always @(posedge clk) begin
+        if (reset)
+            count &lt;= 4'b0000;
+        else
+            count &lt;= count + 1;
+    end
+
+endmodule
+</code></pre>
+<p>count &lt;= count + 1: Add 1 to the current value and store it.</p>
+<p>This single line describes: “Every clock tick, the FF stores the value and adds 1.” We didn’t specify which gates to use or how to connect the FFs. That’s determined in the next step: synthesis.</p>
+<h2><strong>6. Synthesis: Converting RTL Code to Gates</strong></h2>
+<p>Synthesis transforms RTL code into actual gate connections (netlist). It’s similar to how a compiler converts source code to machine code.</p>
+<p><strong>What the synthesis tool does:</strong></p>
+<ol>
+<li>
+<p>Parse Verilog code to extract logic expressions</p>
+</li>
+<li>
+<p>Optimize the logic (fewer gates, faster speed)</p>
+</li>
+<li>
+<p>Map to actual gate cells from the Standard Cell Library</p>
+</li>
+</ol>
+<p>Once you describe the circuit specs at the RTL level, the synthesis tool automatically constructs the circuit using verified cells from the library. This makes complex design manageable.</p>
+<p>The output of synthesis is a netlist, a text file describing how gates are connected:</p>
+<pre><code>verilog
+DFFX1  count_reg_0 (.D(n1), .CK(clk), .Q(count[0]));
+DFFX1  count_reg_1 (.D(n2), .CK(clk), .Q(count[1]));
+XOR2X1 U1 (.A(count[0]), .B(count[1]), .Y(n3));
+AND2X1 U2 (.A(count[0]), .B(count[1]), .Y(n4));
+</code></pre>
+<h2><strong>7. Physical Design: Placing on the Actual Chip</strong></h2>
+<p>From a chip design perspective, the netlist still only contains “logical connection” information. The process of physically implementing this on an actual chip is Physical Design. Everything before this is typically called front-end design, while Physical Design onwards is called back-end design.</p>
+<p>Physical Design consists of several stages:</p>
+<p><strong>Floorplan</strong></p>
+<p>Just like deciding where to put furniture when decorating a room, chip design starts with Floorplan. This stage determines the overall chip size and where major blocks will be placed.</p>
+<ul>
+<li>
+<p>Determine total chip area and shape</p>
+</li>
+<li>
+<p>Decide I/O pin locations</p>
+</li>
+<li>
+<p>Place macros (memory, analog blocks, etc.)</p>
+</li>
+<li>
+<p>Design power (VDD, GND) grid</p>
+</li>
+</ul>
+<p><strong>Placement</strong></p>
+<p>After Floorplan, the Placement stage positions the synthesized gates on the chip. This optimizes where to place millions to billions of cells.</p>
+<ul>
+<li>
+<p>Place highly connected cells close together</p>
+</li>
+<li>
+<p>Minimize distance for timing-critical paths</p>
+</li>
+<li>
+<p>Balance density—not too dense, not too sparse</p>
+</li>
+</ul>
+<p>Congestion management is critical here. If too many cells cluster in one area, there won’t be enough space for routing later. Placement must predict congestion and distribute cells appropriately.</p>
+<p><strong>CTS (Clock Tree Synthesis)</strong></p>
+<p>This is a crucial stage. Modern chips have tens of millions of FFs, all connected to the clock. But clock signals take time to travel through wires. If FFs on opposite ends of the chip receive the clock at different times, the circuit can malfunction.</p>
+<p>CTS designs the clock routing so that clock signals arrive at all FFs on time as originally intended.</p>
+<ul>
+<li>
+<p>Add buffers to maintain signal strength</p>
+</li>
+<li>
+<p>Adjust wire lengths to match delay times</p>
+</li>
+<li>
+<p>Distribute via tree structure to minimize <strong>clock skew</strong> (arrival time differences)</p>
+</li>
+</ul>
+<p>The clock is the chip’s heartbeat—if CTS fails, nothing works. It’s one of the most challenging stages in Physical Design.</p>
+<p><strong>Routing</strong></p>
+<p>Finally, the Routing stage connects gates with metal wires.</p>
+<ul>
+<li>
+<p>Use multiple metal layers to route without overlap</p>
+</li>
+<li>
+<p>Minimize signal interference (crosstalk)</p>
+</li>
+<li>
+<p>Meet timing requirements</p>
+</li>
+<li>
+<p>Find alternate paths around congested areas</p>
+</li>
+</ul>
+<p>Modern chips use more than 10 metal layers. 3D routing is necessary to handle billions of connections.</p>
+<blockquote>
+<p><strong>What About Analog/Custom Design?</strong> The flow described above is for digital design. But chips also contain analog circuits—PLLs (Phase-Locked Loops), ADC/DACs, SerDes analog frontends. These analog circuits can’t be auto-synthesized with Standard Cells; designers must manually place each transistor. <strong>Cadence Virtuoso</strong> is the de facto industry standard for this custom layout work. If you are interested with ‘analog design’, please refer to the below article.</p>
+</blockquote>
+<p>[<img alt="X avatar for @NuttyCLD" src="https://substackcdn.com/image/fetch/$s_!h9yd!,w_40,h_40,c_fill,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fpbs.substack.com%2Fprofile_images%2F2014623825103867904%2FKeN1Ibkm.jpg" />Nutty@NuttyCLDhttps://t.co/IB4fwOeswz6:39 AM · Jan 23, 2026 · 40.1K Views</p>
+<hr />
+<p>10 Replies · 24 Reposts · 180 Likes](https://x.com/NuttyCLD/status/2014588682511188407?s=20)</p>
+<p><strong>GDS: The Final Output</strong></p>
+<p>When all these processes are complete, a <strong>GDS (Graphic Data System)</strong> file is produced. This is the final design file containing all layer information for the chip.</p>
+<p>The design company sends this GDS file to the foundry (fab) to manufacture the actual chip according to the process specifications. Delivering the final design file to the foundry is called Tape-out. When a semiconductor company announces “Tape-out complete,” it means design is finished and manufacturing has begun.</p>
+<h2><strong>8. EDA: Essential Design Tools</strong></h2>
+<p>All the processes described above require specialized software. These are called EDA (Electronic Design Automation) tools.</p>
+<p><strong>The Big Three:</strong></p>
+<ul>
+<li>
+<p><strong>Synopsys</strong> : Industry leader. Design Compiler (synthesis), ICC2 (PnR), VCS (simulation), PrimeTime (timing analysis), etc.</p>
+</li>
+<li>
+<p><strong>Cadence</strong> : #2. Genus (synthesis), Innovus (PnR), Xcelium (simulation), Virtuoso (analog design), etc.</p>
+</li>
+<li>
+<p><strong>Siemens EDA</strong> (formerly Mentor Graphics): Questa (simulation), Calibre (verification), Tessent (DFT), etc.</p>
+</li>
+</ul>
+<p>These three companies virtually monopolize the semiconductor design tool market. EDA tool licenses can cost tens of millions of dollars annually, which is one reason small startups struggle to enter chip design.</p>
+<h2><strong>9. Foundry and Manufacturing Process</strong></h2>
+<p>When the foundry receives the GDS, it goes through complex semiconductor manufacturing processes to produce the chip:</p>
+<ol>
+<li>
+<p>Photomask creation (glass plates with circuit patterns)</p>
+</li>
+<li>
+<p>Lithography on wafer (transferring patterns with light)</p>
+</li>
+<li>
+<p>Hundreds of etching, deposition, and other process steps</p>
+</li>
+<li>
+<p>Dicing the completed wafer (cutting into individual chips)</p>
+</li>
+<li>
+<p>Packaging (protecting the chip and creating external connections)</p>
+</li>
+<li>
+<p>Testing and shipment</p>
+</li>
+</ol>
+<h2><strong>Summary and Conclusion</strong></h2>
+<p>This article explained the entire semiconductor design process from transistors to GDS. In the industry, we call this process <strong>RTL2GDS</strong>.</p>
+<p>The actual process is far more complex than what I’ve described, but I hope this gives non-engineers a general understanding of the semiconductor design flow. If there’s an opportunity, I’d like to cover specific design technologies, manufacturing processes, or packaging in future articles.</p>
+<p>Thank you for reading.</p>
+<h2><strong>Appendix A: Transistor Structures</strong></h2>
+<p><strong>Planar FET (Field-Effect Transistor)</strong> : As transistors kept shrinking, problems emerged. Traditional planar transistors below 20nm suffer from severe current leakage and Short Channel Effects where the Gate can’t properly control the channel.</p>
+<p><strong>FinFET (Fin Field-Effect Transistor)</strong> : First commercialized by Intel at 22nm in 2011. The channel is raised into a vertical “fin” shape, with the Gate wrapping around three sides of the fin. More gate coverage means better current control and reduced leakage. FinFET has been used down to 5nm.</p>
+<p><strong>GAA (Gate-All-Around)</strong> : FinFET hits its limits below 3nm. As fins get too thin, resistance increases, and the bottom of the fin—where the Gate doesn’t reach—still causes leakage. GAA uses horizontally stacked nanosheets as channels, with the Gate completely surrounding all four sides. Samsung introduced GAA at 3nm, and TSMC and Intel are transitioning to GAA at 2nm.</p>
+<p><a href="https://substackcdn.com/image/fetch/$s_!W93X!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F008343ba-f00b-49aa-b6d6-cc19e838f73d_900x273.jpeg"><img alt="이미지" src="https://substackcdn.com/image/fetch/$s_!W93X!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F008343ba-f00b-49aa-b6d6-cc19e838f73d_900x273.jpeg" /></a>https://semiconductor.samsung.com/support/tools-resources/dictionary/gaa-transistors-a-next-generation-process-for-next-generation-semiconductors/</p>
+                </main>
+            </body>
+            </html>
+        

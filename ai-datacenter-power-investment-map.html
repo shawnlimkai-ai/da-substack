@@ -1,0 +1,234 @@
+
+            <!DOCTYPE html>
+            <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Markdown Content</title>
+                <link rel="stylesheet" href="assets/css/essay-styles.css">
+            </head>
+            <body>
+                <main class="markdown-content">
+                <h1>AI Datacenter Power Investment Map: From 765kV to 0.65V</h1>
+<h2>Where Along the Chain Is the Real Opportunity?</h2>
+<p><strong>May 06, 2026</strong></p>
+<p><strong>Likes:</strong> 109</p>
+<p><a href="https://substackcdn.com/image/fetch/$s_!oFQm!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fa17de0e1-7c95-4edb-8be5-8b49e1c8ec15_1744x902.png"><img alt="" src="https://substackcdn.com/image/fetch/$s_!oFQm!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fa17de0e1-7c95-4edb-8be5-8b49e1c8ec15_1744x902.png" /></a></p>
+<p>Everyone says power matters for AI. </p>
+<p>They’re right. </p>
+<p>Global datacenter power demand is projected to more than double from roughly 59GW in 2023 to over 122GW by 2030.</p>
+<p>_ <strong>But knowing that and knowing where to invest are entirely different problems.</strong>_</p>
+<p>Sell-side reports lump Eaton, Schneider, Vertiv, and MPS together as “power infrastructure plays.” This is no different from grouping NVIDIA and Applied Materials under “semiconductor stocks.” </p>
+<p>A 765kV substation transformer that Eaton builds and a sub-1V GPU VRM that MPS designs just happen to share the word “power.” Peel back the surface and the technology, competitive dynamics, margin structure, and investment thesis are completely different businesses.</p>
+<p>Power is not a single theme. </p>
+<p>It is a chain with at least ten conversion stages from the power plant to the GPU die, and each stage has its own moat characteristics, competitive intensity, and growth curve. </p>
+<p>This article breaks down the entire chain, maps 24 public companies onto each segment, and tracks where the largest value shifts are happening from an investor’s perspective.</p>
+<p>_ <strong>Disclaimer</strong>_</p>
+<p>This article does not constitute a recommendation to buy or sell any specific security. All content is based on publicly available information and is intended solely to help readers better understand the AI datacenter power chain. Investment decisions should be made independently based on your own research, risk tolerance, and investment horizon. This article is designed to help you build your own investment principles and strategy.</p>
+<p>Damnang’s Substack is a reader-supported publication. To receive new posts and support my work, consider becoming a free or paid subscriber.</p>
+<p>Subscribed</p>
+<hr />
+<h2>The Structure of the Power Chain: Three Voltage Tiers, Ten Layers</h2>
+<p>The most intuitive way to divide this chain for investment purposes is by <strong>voltage</strong>. Electricity leaving a power plant passes through three major voltage tiers before it reaches the GPU.</p>
+<p><a href="https://substackcdn.com/image/fetch/$s_!AQ6h!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F6e00b1aa-77bb-46e9-8702-33f974f084fc_2816x1536.png"><img alt="" src="https://substackcdn.com/image/fetch/$s_!AQ6h!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F6e00b1aa-77bb-46e9-8702-33f974f084fc_2816x1536.png" /></a></p>
+<p><strong>High-voltage tier (765kV → 13.8kV)</strong></p>
+<p>This is where power is sourced and delivered to the datacenter. Power plants, transmission lines, and substations live here. Once installed, this physical infrastructure runs for 20 to 30 years, and lead times of 2 to 7 years make it the slowest bottleneck in the chain.</p>
+<p><strong>Medium-voltage tier (13.8kV → 48V)</strong></p>
+<p>This is where sourced power is distributed inside the datacenter building to the servers, while simultaneously removing heat. Switchgear, UPS (uninterruptible power supply), PDU (power distribution unit), server PSU (power supply unit), and cooling systems all belong here. This tier is also where the largest architectural shifts (800V DC, 48V direct-to-load) are underway.</p>
+<p><strong>Low-voltage tier (48V → 0.65V)</strong></p>
+<p>The “last 1cm,” where voltage undergoes its final conversion right next to the GPU. GPU core voltage varies between 0.65V and 0.85V depending on operating conditions; this article uses 0.65V as the reference point to illustrate the full conversion range of the power chain. VRMs (voltage regulator modules), next-gen power semiconductors (GaN/SiC), passive components like MLCCs (multilayer ceramic capacitors), and power connectors all belong here. Growth rates are the highest but moat durability is the lowest.</p>
+<p>How each tier’s moat, growth rate, and margin structure differ is laid out layer by layer below.</p>
+<hr />
+<h3>High-Voltage Tier: The Layers That Secure Power</h3>
+<p><a href="https://substackcdn.com/image/fetch/$s_!67tT!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fc86d613d-6206-444b-bb6f-74609ac74f04_2816x1536.png"><img alt="" src="https://substackcdn.com/image/fetch/$s_!67tT!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fc86d613d-6206-444b-bb6f-74609ac74f04_2816x1536.png" /></a></p>
+<h3>① Generation / Grid</h3>
+<p>The starting point of power. For AI datacenters to secure GW-scale electricity, the fight begins with long-term power purchase agreements (PPAs) with generators. In key regions like Virginia, applying for grid interconnection and actually receiving power takes 4 to 7 years. Three distinct businesses are mixed inside this layer.</p>
+<p>First, <strong>grid generation and PPA contracts</strong>. Constellation Energy closed its acquisition of Calpine in January 2026, becoming the largest private power producer in the US (55GW). Vistra has signed a 20-year PPA with AWS (up to 1,200MW) and a 2,600+MW PPA with Meta from its Comanche Peak nuclear plant. 2026 EBITDA guidance: $6.8 to 7.6B. Talen Energy signed a 1,920MW PPA with Amazon (through 2042) from its Susquehanna nuclear facility.</p>
+<p>Second, <strong>grid infrastructure construction</strong>. Quanta Services is the key contractor that builds transmission lines and substations. Q1 2026 revenue $7.87B (up 26% YoY), backlog $48.5B.</p>
+<p>Third, <strong>on-site generation</strong>. Bloom Energy uses SOFC (solid oxide fuel cells) to generate power directly at the datacenter site. This is a head-on bypass of grid interconnection queues. Oracle Project Jupiter up to 2.45GW, Brookfield $5B partnership. Q1 2026 revenue $751M (up 130% YoY), annual guidance $3.4 to 3.8B. Total backlog approximately $20B per company IR.</p>
+<p><a href="https://nuttycld.substack.com/p/the-next-bloom-energy?utm_source=substack&amp;utm_campaign=post_embed&amp;utm_medium=web"><img alt="" src="https://substackcdn.com/image/fetch/$s_!ZgqR!,w_56,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F797011fe-c9d0-4c58-821a-5acadd18fd11_400x400.png" />NuttyThe Next Bloom Energy?The four-part AI Power Crisis series is now complete…Read more11 days ago · 50 likes · 2 comments · Nutty</a></p>
+<h3>② Substation / High-Voltage Conversion (765kV → 13.8kV)</h3>
+<p>The first step-down, converting high-voltage transmission power (345 to 765kV in the US) to levels the datacenter can use. Transformers and high-voltage switchgear are the core equipment. Lead times of 2 to 3 years make this the physically slowest bottleneck.</p>
+<p>Eaton holds the dominant installed base in North American datacenters. </p>
+<p>Q1 2026 results announced May 2026: revenue $7.45B (up 17% YoY), datacenter orders up 240% YoY, datacenter revenue up 50%, backlog $22.8B. </p>
+<p>That said, earnings growth (+2%) lagged significantly behind revenue growth (+17%). Capacity expansion costs are pressuring margins in this phase. </p>
+<p>Expanding into a full power-plus-cooling stack through the Fibrebond ($1.45B) and Boyd Thermal ($9.5B) acquisitions.</p>
+<p>GE Vernova is a full-stack player spanning layers ①②③, from gas turbines (generation) to transformers/switchgear (grid) to 800V DC architecture. Q1 2026 datacenter Electrification orders $2.4B (already exceeding full-year 2025). Company-wide revenue guidance $44.5 to 45.5B, backlog $163B.</p>
+<p>ABB announced a collaboration with NVIDIA on 800V DC power architecture and 1MW server rack support, positioning itself across layers ②③④.</p>
+<p>Powell Industries specializes in datacenter medium-voltage switchgear (5 to 38kV). Q2 FY2026 backlog $1.8B, $400M+ datacenter mega-order booked.</p>
+<p>Subscribed</p>
+<hr />
+<h3>Medium-Voltage Tier: The Layers That Distribute Power and Remove Heat</h3>
+<p><a href="https://substackcdn.com/image/fetch/$s_!0WEl!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F536caeb4-c4b1-4208-9518-e486af2fd42f_2816x1536.png"><img alt="" src="https://substackcdn.com/image/fetch/$s_!0WEl!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F536caeb4-c4b1-4208-9518-e486af2fd42f_2816x1536.png" /></a></p>
+<h3>③ Medium-Voltage Distribution (13.8kV → 480V AC)</h3>
+<p>The distribution segment inside the building. Medium-voltage switchgear and distribution panels are the key equipment. Because specifications are locked in at the datacenter design stage, switching vendors after selection is extremely difficult. Eaton and ABB compete in this segment as well, but the most differentiated position belongs to Schneider Electric.</p>
+<p>Schneider’s strength lies in EcoStruxure, a DCIM (datacenter infrastructure management) software platform, combined with <strong>digital twin</strong> technology that virtually simulates datacenter power and cooling without physical prototypes. It is a software moat that captures design decisions inside the Schneider platform.</p>
+<h3>④ AC-DC Conversion / UPS (480V AC → 48V to 800V DC)</h3>
+<p>The critical conversion point from AC to DC. UPS (devices that maintain server power during outages), PDU (devices that distribute power to multiple servers), and rectifiers (AC-to-DC converters) are the core equipment. Conversion efficiency at this layer directly determines the datacenter’s overall energy efficiency (PUE).</p>
+<p>Schneider leads through design lock-in. Vertiv has differentiated on fast delivery and grown rapidly. Revenue guidance $13.5 to 14.0B, Q1 2026 revenue $2.65B (up 30% YoY), order backlog roughly $9.5B. What makes Vertiv unique is that it is the only large company covering both power (UPS/PDU) and cooling simultaneously. Delta Electronics is expanding on cost competitiveness.</p>
+<p>Legrand positions across layers ④⑩ with Raritan/Server Technology-based intelligent rack PDUs and busway systems.</p>
+<p>The 800V DC power architecture ecosystem that NVIDIA first introduced at GTC 2025 and expanded in 2026 includes ABB, Eaton, Schneider, Vertiv, Infineon, STM, and Navitas. If 800V DC gains traction, this layer becomes the <strong>intersection where equipment companies and power semiconductor companies meet</strong>.</p>
+<h3>⑤ Rack / Server PSU (48V ↔ 12V)</h3>
+<p>The PSU layer that feeds power to servers. 48V direct-to-load and 800V DC have the potential to reshape this layer. This is the first contact point where architectural transitions reach actual datacenter designs.</p>
+<p>Delta Electronics holds a dominant position on cost competitiveness. Advanced Energy is targeting 12V/48V output power solutions.</p>
+<h3>⑥ Cooling</h3>
+<p>Every voltage conversion generates heat. With GPU TDP (thermal design power, the maximum power consumption and heat output during peak GPU operation) reaching 1,400W according to supply chain reports, air cooling has hit its limits. The latest GPUs (B300/GB300) require liquid cooling.</p>
+<p>Vertiv covers both power and cooling. </p>
+<p>nVent specializes in rack-level thermal management. </p>
+<p>Eaton entered cooling through the $9.5B Boyd Thermal acquisition. </p>
+<p>Cooling is not technically a layer on the voltage conversion chain, but CDUs (coolant distribution units) sit alongside UPS equipment and cold plates share space with PSUs inside server racks, so it moves in lockstep with the medium-voltage tier’s infrastructure.</p>
+<p>Subscribed</p>
+<hr />
+<h3>Low-Voltage Tier: The Layers That Perform Final Conversion</h3>
+<p><a href="https://substackcdn.com/image/fetch/$s_!PunC!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F37a4126d-7c70-4dfb-a26c-2c6984f02c9b_2816x1536.png"><img alt="" src="https://substackcdn.com/image/fetch/$s_!PunC!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F37a4126d-7c70-4dfb-a26c-2c6984f02c9b_2816x1536.png" /></a></p>
+<h3>⑦ VRM / Power Stage (12V/48V → 0.65V)</h3>
+<p>The “last 1cm,” converting voltage right next to the GPU. A VRM (voltage regulator module) steps down 12V or 48V to GPU core voltage (0.65 to 0.85V).</p>
+<p>GPU TDP rose from 700W on H100 to 1,000W on B200, and supply chain reports estimate B300 will reach 1,400W. Industry estimates suggest converting this to sub-1V requires handling over 2,000A of current, and assuming 60 to 70A per phase, more than 30 VRM phases must be arranged around the GPU. That said, advanced power stages (90A+ per phase) that reduce the phase count are also under parallel development.</p>
+<p><a href="https://photoncap.net/p/p-ir-the-one-line-equation-shaping?utm_source=substack&amp;utm_campaign=post_embed&amp;utm_medium=web"><img alt="" src="https://substackcdn.com/image/fetch/$s_!FG3y!,w_56,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F3201360a-f898-4593-8267-8cfc0766cc04_1280x1280.png" />PhotonCapP = I²R: The One-Line Equation Shaping AI Infrastructure and Vicor's ($VICR) VPDNote. As mentioned in an earlier X post, I first came across $VICR in November 2025 thanks to @butchertrader, studied and bought the stock, then sold my entire position in January 2026 after concluding I hadn't done enough homework. This piece is the study material I put together to get ready to buy it again…Read more21 days ago · 21 likes · 7 comments · PhotonCap</a></p>
+<p>MPS has established itself as the most prominent GPU VRM supplier with clear design wins in the H100/B200 generation. 2025 revenue $2.8B (up 26.4% YoY). </p>
+<p>Vicor takes a different approach with its proprietary FPA (Factorized Power Architecture) and VPD (Vertical Power Delivery, a technology that places power components vertically directly beneath the GPU). Q1 2026 backlog $300.6M (up 70% QoQ), revenue guidance ~$570M.</p>
+<p>Infineon raised its AI DC revenue target to €1.5B for FY2026. </p>
+<p>STMicroelectronics co-announced the 800V DC-to-6V architecture with NVIDIA.</p>
+<p>In parts of the supply chain, there are signs that NVIDIA is diversifying power component sourcing for its next-generation GPU platform.</p>
+<h3>⑧ Next-Gen Power Semiconductors (GaN/SiC)</h3>
+<p>The mainstream Si MOSFETs used in today’s VRMs generate more heat and power loss as switching speed increases. </p>
+<p>GaN handles the same power while being smaller, faster, and cooler. </p>
+<p>SiC excels in high-voltage segments, while GaN is strongest in medium-to-low voltage, high-frequency segments like server VRMs. GaN adoption is a likely direction, but other paths including advanced Si-based designs are also being explored.</p>
+<p>Navitas unveiled an 800V-to-6V board aligned with NVIDIA’s 800V DC direction at GTC 2026. 2025 revenue $46M, AI pipeline $165M. Infineon acquired GaN Systems to secure its GaN portfolio. STM straddles both SiC and 800V DC.</p>
+<h3>⑨ Passive Components (MLCC, Inductors)</h3>
+<p>Industry estimates indicate AI servers consume 10 to 15 times more passive components than standard servers. Supply chain reports suggest Murata maintains a share lead in high-spec AI server MLCCs. </p>
+<p>Samsung Electro-Mechanics ranks second, with TDK also a major supplier. Lead times for high-spec MLCCs have stretched to 24 weeks per supply chain reports.</p>
+<h3>⑩ Power Connectors / Cables / Busbar</h3>
+<p>Everything that physically connects power belongs in this layer. As GPU power rises, connectors must handle higher currents. As server density increases, cable and busbar quantities and specifications scale alongside. </p>
+<p>Because connectors go into servers, networking, and power infrastructure everywhere, this layer has leverage on the entire chain’s growth.</p>
+<p>Amphenol is showing explosive growth in this space. 2025 revenue $23.1B (up 52% YoY), IT Datacom segment alone $8.3B (up 128%), Communications Solutions OPM 32.7%.</p>
+<p>Subscribed</p>
+<hr />
+<h2>Four Architectural Transitions Underway on This Chain</h2>
+<p>Once you understand the ten layers, you need to recognize the four structural transitions simultaneously unfolding across them. These transitions are reshaping each layer’s competitive dynamics and demand structure.</p>
+<p><a href="https://substackcdn.com/image/fetch/$s_!w7D3!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F7adb0400-9917-4ae4-948e-98459ce8cc83_2816x1536.png"><img alt="" src="https://substackcdn.com/image/fetch/$s_!w7D3!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F7adb0400-9917-4ae4-948e-98459ce8cc83_2816x1536.png" /></a></p>
+<p><strong>48V direct-to-load.</strong> Most server internal power currently travels at 12V. 48V direct-to-load skips this 12V step, delivering power from 48V straight to the GPU side. Removing one conversion stage improves efficiency and reduces component count. If this transition accelerates, layer ⑤ (PSU) designs change fundamentally, and layer ⑦ (VRM) architectures are affected as well.</p>
+<p><strong>GaN (gallium nitride) material transition.</strong> Covered in detail at layer ⑧, the key point is that a material has emerged that pushes past the physical limits of traditional Si-based power semiconductors. As GPU TDP exceeds 1,400W per supply chain reports, Si-based VRMs are running out of physical board space for placement. GaN handles the same power in a smaller footprint, solving this problem.</p>
+<p><strong>800V DC distribution.</strong> Today’s datacenter interiors receive 480V AC and convert it to DC through multiple stages. 800V DC changes this by supplying 800V direct current into the building from the start. Fewer AC-to-DC conversion stages improve efficiency and reduce copper cable usage. First introduced by NVIDIA at GTC 2025, this architecture has the potential to fundamentally alter layer ④ (UPS/PDU) design. Equipment companies like ABB, Schneider, and Vertiv are positioning for this transition alongside power semiconductor companies like Infineon and STM.</p>
+<p><strong>On-site generation.</strong> Instead of pulling power from the grid, this approach generates it directly at the datacenter site. Bloom Energy’s SOFC is the leading example. As a solution that bypasses the 4 to 7 year grid interconnection bottleneck, it operates independently of the other three transitions while potentially reshaping the relationship between layer ① (generation) and layer ④ (UPS).</p>
+<p>These four transitions are unfolding simultaneously across different layers, and the speed of each transition will determine each layer’s winners and losers.</p>
+<hr />
+<p><a href="https://substackcdn.com/image/fetch/$s_!R8kO!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F39b63998-d519-42e0-898b-e538abab2471_941x1672.png"><img alt="" src="https://substackcdn.com/image/fetch/$s_!R8kO!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F39b63998-d519-42e0-898b-e538abab2471_941x1672.png" /></a></p>
+<p>That covers the topography of the power chain: how 24 companies are positioned across ten layers and how the investment characteristics of the three tiers differ.</p>
+<p>From here on, I aim to answer the following questions in greater depth. “What framework should be used to evaluate these 24 companies?” “At this point in the cycle, which tier is most favorable?” And “if I were buying this chain, how would I structure the portfolio?”</p>
+<p>For anyone just starting to invest in AI datacenter power, I am confident this will serve as an excellent foundation for building your own investment strategy.</p>
+<p>Subscribed</p>
+<p><a href="https://substackcdn.com/image/fetch/$s_!FJrc!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F691e94ce-a5aa-4e4d-a0f1-1a3c8a90c3a5_1086x1448.png"><img alt="" src="https://substackcdn.com/image/fetch/$s_!FJrc!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F691e94ce-a5aa-4e4d-a0f1-1a3c8a90c3a5_1086x1448.png" /></a></p>
+<h2>This Chain Has a Time Lag</h2>
+<p>Before diving into the paid section, one core observation of this article needs to be established first.</p>
+<p>When GPU specs are announced, orders in the low-voltage tier (VRMs, passive components, connectors) move within 6 to 12 months. </p>
+<p>The medium-voltage tier (UPS, PSU, cooling) moves over 6 to 18 months once server designs are finalized. The high-voltage tier (substations, generation, grid) reaches order books 12 to 24 months after datacenter construction decisions are made. </p>
+<p>The same root cause, rising GPU TDP, drives all of it, but the low-voltage response is fast and sharp while the high-voltage response is slow but long-lasting.</p>
+<p>This time lag is showing up in stock prices right now. </p>
+<p>Over the past year, Vicor (a low-voltage bellwether) is up +558%, Navitas +778%. High-voltage bellwether Eaton is up +38%, Schneider +28%. </p>
+<p><strong>Eaton’s datacenter orders are up 240% YoY, yet its stock has moved only 38%.</strong></p>
+<p>Whether this gap represents information not yet priced in or the structural valuation ceiling (multiple cap) inherent to industrials is one of the central questions of this article. </p>
+<p>To make sense of this time lag, we first need a framework to evaluate all 24 companies on the same criteria.</p>
+<hr />
+<h2>Power Investment Map: 5 Factors</h2>
+<p>The 24 companies covered above span different voltage tiers and different business models. Eaton’s moat comes from transformer lifespans of 20 to 30 years. MPS’s moat comes from GPU VRM design wins. These are fundamentally different kinds of companies. But place them on the same axes and you start to see what kind of investment each one represents. That is the purpose of the 5 Factor framework.</p>
+<p>Scoring across five factors reveals the combination of strengths and weaknesses for each company. A company scoring evenly at 3 to 4 across all factors has few weaknesses but limited explosive upside. A company scoring 5 on one or two factors but 1 on others will deliver outsized returns if the thesis is right, but unravel quickly if it’s wrong. A high total score does not mean “best stock.” It means “position with the fewest weaknesses.”</p>
+<p><a href="https://substackcdn.com/image/fetch/$s_!r_bj!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F34a4e4e4-53be-4455-bfb9-b0d0517fcb20_1122x1402.png"><img alt="" src="https://substackcdn.com/image/fetch/$s_!r_bj!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F34a4e4e4-53be-4455-bfb9-b0d0517fcb20_1122x1402.png" /></a></p>
+<p><strong>Factor ① AI DC Exposure</strong> : How directly tied is this company to AI datacenter demand? This considers both the share of revenue from AI DCs and how much revenue attaches when a datacenter is built. High exposure means the stock rises fast in an upturn but gets hit first when the cycle turns.</p>
+<p><strong>Factor ② Moat Durability</strong> : How long can the position be maintained? Eaton/ABB transformers last 20 to 30 years (5 points). Schneider’s DCIM plus digital twin lock-in (5 points). MPS design wins can reset with each GPU generation change (2 points).</p>
+<p><strong>Factor ③ Architectural Transition Upside</strong> : Does the company benefit or suffer from structural transitions like 48V, GaN, 800V DC, and on-site generation?</p>
+<p><strong>Factor ④ Margin</strong> : This considers both the current gross margin (GM) or operating margin (OPM) level and whether margins improve as AI revenue share grows. Companies with high margins amplify the same revenue growth into greater earnings growth.</p>
+<p><strong>Factor ⑤ Valuation Headroom</strong> : Based on trailing 1-year stock price return. Below 50% = 4 points, 50 to 200% = 3 points, 200 to 400% = 2 points, above 400% = 1 point.</p>
+<hr />
+<h2>Full Company Scorecard</h2>
+<p><a href="https://substackcdn.com/image/fetch/$s_!BXZ1!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fac924e01-9cff-4be7-bf66-181b8ba117bb_1086x1448.png"><img alt="" src="https://substackcdn.com/image/fetch/$s_!BXZ1!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fac924e01-9cff-4be7-bf66-181b8ba117bb_1086x1448.png" /></a></p>
+<p><em>This scorecard is not a buy/sell recommendation for any specific company. Scores reflect qualitative judgment at the current point in time and must be recalibrated as conditions change.</em></p>
+<p><em>Sorting by total is meant to surface risk-adjusted positioning, not a “buy order.” Companies with evenly high scores and few weaknesses rank at the top. For concentrated bets and high growth, see the 4-Bucket classification below.</em></p>
+<hr />
+<h2>4-Bucket Investment Classification</h2>
+<p><a href="https://substackcdn.com/image/fetch/$s_!h0Wz!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F17828b39-1f23-4da2-bb4b-94338e2eabde_2816x1536.png"><img alt="" src="https://substackcdn.com/image/fetch/$s_!h0Wz!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F17828b39-1f23-4da2-bb4b-94338e2eabde_2816x1536.png" /></a></p>
+<h3>Core: Companies That Survive Across Multiple Paths</h3>
+<p><strong>Amphenol (18 points)</strong> : Connectors go into servers, networking, and power infrastructure everywhere. Regardless of which architecture wins, content value rises as datacenter density increases. OPM 32.7%, 1Y +71%. </p>
+<p>Risk: AI connector growth may already be priced into the networking capex cycle.</p>
+<p><strong>Eaton (19 points)</strong> : Datacenter orders up +240% while the stock is up only +38%. Whether this gap is caused by the high-voltage cascade time lag or by an industrial-sector structural multiple cap requires judgment (revisited later). Substation backlog provides cycle defense on top of Core positioning. </p>
+<p>Risk: Capacity expansion costs may keep earnings from catching up with revenue for a while. Whether the +240% order growth reflects cascade demand or hyperscaler long-lead parallel ordering changes the cycle-position interpretation.</p>
+<p><strong>Murata (6981.T, 19 points)</strong> : If GaN accelerates, the spec shift to high-frequency, low-ESL MLCCs deepens Murata’s moat. If GaN is slow, general-purpose demand sustains it. A derivative position on GaN. </p>
+<p>Risk: The MLCC pricing cycle turns sooner than expected, or Samsung Electro-Mechanics closes the technology gap faster.</p>
+<h3>Transition Option: Companies That Win Big If the Architecture Shift Plays Out</h3>
+<p><strong>MPS (17 points)</strong> : The supplier with the clearest current design wins in GPU VRMs. But moat durability scores only 2. The 48V transition is accelerating and NVIDIA sourcing diversification is in motion simultaneously.</p>
+<p><strong>Vicor (17 points)</strong> : The most direct architectural bet on 48V plus VPD. Backlog of $300.6M confirms directionality. However, the +558% run has priced in a significant share of the 48V future scenario. </p>
+<p>At this point, Vicor is not a bet on “will 48V be adopted?” but on “will 48V be adopted on the timeline implied by guidance?” If the timeline slips, the multiple unwinds first.</p>
+<p><strong>Infineon (15 points), STM (15 points)</strong> : Large-cap options on the 800V DC/GaN/SiC transition. Low AI purity limits downside risk. The market has not yet given their power chain positioning sufficient attention.</p>
+<h3>Crowded but Powerful: Not a Wrong Thesis, Just One That Already Worked</h3>
+<p>Bloom +1,709%, Navitas +778%, Samsung Electro-Mechanics +676%, Delta +503%. The thesis behind each of these companies was not wrong. </p>
+<p>The problem is that the thesis worked so well the stock got there first. Making additional money from here requires earnings to keep beating expectations that are already elevated.</p>
+<p><strong>Bloom (17 points)</strong> : The on-site generation thesis is coherent. The service backlog of $14B in recurring revenue may be an underappreciated element. </p>
+<p>But at a P/E of 119x (GAAP forward), one quarter of earnings miss triggers rapid valuation compression. Natural gas supply dependency, SOFC stack replacement costs, and Oracle backlog concentration are also monitoring items.</p>
+<p><strong>Navitas (12 points)</strong> : The purest GaN option, but revenue is $46M with ongoing losses. The lowest total score among all 24 companies. As discussed later, coupling it with Murata can structurally reduce the risk.</p>
+<p><strong>Delta (12 points)</strong> : The server PSU incumbent, but the 48V transition structurally threatens its 12V PSU business. The current thesis drove the rally, but under the next thesis (48V), Delta could become a casualty.</p>
+<p><strong>Samsung Electro-Mechanics (009150.KS, 13 points)</strong> : As the number-two MLCC maker, it benefits from price increases. But after a +676% run, much of the valuation discount versus Murata has been consumed.</p>
+<h3>Defensive: Companies That Stand Last When the Cycle Turns</h3>
+<p><strong>GE Vernova (18 points)</strong> : $163B backlog, gas turbine service contracts that recur for decades. </p>
+<p><strong>ABB (17 points)</strong> : 800V DC collaboration provides both defense and offense. </p>
+<p><strong>Schneider (16 points)</strong> : DCIM/digital twin generates recurring revenue regardless of cycle. </p>
+<p><strong>Vertiv (16 points)</strong> : The only large player covering both power (④) and cooling (⑥). Essential DC infrastructure, but +260% appreciation limits valuation headroom (⑤ = 2 points). </p>
+<p>Eaton is simultaneously Core and Defensive. The remaining names, Constellation, Vistra, Talen, and Quanta, are defensive positions in the high-voltage tier.</p>
+<h3>Watch List</h3>
+<p><strong>The first name to highlight here is AEIS (13 points).</strong></p>
+<p>It holds both 12V and 48V solutions, positioning it to emerge as a Delta alternative if the 48V PSU transition gains momentum. If the transition is slow, it rides 12V. If fast, it pivots to 48V.</p>
+<p><strong>Legrand (14 points)</strong> is directly tied to new datacenter construction through Raritan/Server Technology intelligent rack PDUs. When the 800V DC transition reaches actual datacenter designs, rack-level power distribution architecture changes, and Legrand sits at that intersection.</p>
+<p><strong>nVent (15 points)</strong> is a direct beneficiary of liquid cooling adoption. Beyond simply selling cooling equipment, cooling unlocks thermal constraints, which raises component density in the low-voltage tier, which in turn drives more passive component and connector demand. nVent plays an enabling role in that feedback loop.</p>
+<p><strong>Powell (14 points)</strong> is a small-cap growth stock specializing in datacenter switchgear, with AI DC revenue share rising faster than at Eaton or ABB. Valuation pressure after a +360% run is a consideration.</p>
+<p><strong>TDK (14 points)</strong> holds both inductors and MLCCs, making it complementary to Murata’s MLCC position. A useful name alongside Murata for broad exposure to the passive component segment.</p>
+<hr />
+<h2>The Hidden Connections on This Map</h2>
+<p>These 24 companies do not exist in isolation. Relationships run between layers and within the same layer, and these relationships are variables that must be factored into portfolio construction. The relationships below are not statistical correlation-based hedges but logical connections grounded in technical structure.</p>
+<p><a href="https://substackcdn.com/image/fetch/$s_!SKV7!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F62b754a9-d595-4f1c-8b0f-e1bcab95255b_2816x1536.png"><img alt="" src="https://substackcdn.com/image/fetch/$s_!SKV7!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F62b754a9-d595-4f1c-8b0f-e1bcab95255b_2816x1536.png" /></a></p>
+<p><strong>If you’re buying Navitas, you should look at Murata alongside it.</strong></p>
+<p>When GaN switches faster than Si, the frequency of voltage ripple rises too. Filtering this high-frequency ripple requires MLCCs with low parasitic inductance (ESL), because at high frequencies, ESL dominates impedance. </p>
+<p>So when GaN adoption accelerates, MLCC demand shifts from “high capacitance” to “low ESL / high-frequency characteristics,” and the company furthest ahead in high-spec MLCC production is Murata. Navitas is the direct bet on GaN. Murata is a derivative bet on the same transition. If GaN is fast, both go up. Even if it’s slow, GPU TDP itself keeps rising, so MLCC volumes increase in staircase fashion even in Si-based VRMs. Murata’s volume is secured regardless of whether the spec changes.</p>
+<p><strong>Holding MPS and Vicor at equal weight dilutes your directional bet.</strong></p>
+<p>Within the same VRM layer, MPS is the incumbent on the current 12V architecture and Vicor is the challenger on the 48V architecture. It is not a perfect zero-sum. MPS is also developing 48V solutions, and Vicor has markets beyond 12V. But because the core thesis of each points in a different direction, holding both at the same weight cancels out your directional bet on the technology fork.</p>
+<p><strong>Holding both Bloom and Vertiv at full weight requires caution.</strong></p>
+<p>The fundamental reason UPS exists is to bridge the gap (typically 10 to 30 seconds) between a grid power failure and backup generators coming online. If Bloom’s on-site generation runs continuously, that gap shrinks and UPS battery capacity can be reduced. But millisecond-level instantaneous power quality issues still need to be handled by UPS. UPS does not “disappear.” It “can get smaller.” Furthermore, Vertiv does not sell only UPS. It also sells cooling. Cooling demand is driven by GPU TDP, independent of Bloom. What Bloom threatens is not Vertiv as a whole but Vertiv’s UPS business specifically.</p>
+<p><strong>Eaton’s vertical integration provides natural diversification against the failure of any specific technology path.</strong></p>
+<p>It is expanding from substations to cooling, Boyd Thermal. Even if one layer’s thesis fails (say, the 48V transition impacts substation demand), revenue is sustained from another layer (cooling). Spanning multiple layers is itself a form of defensibility. This is why Eaton is simultaneously Core and Defensive.</p>
+<p><strong>ABB and Infineon/STM express the same 800V DC thesis through different risk profiles.</strong></p>
+<p>ABB approaches 800V DC through an infrastructure path of transformers and switchgear. Its risk is large-project execution and competition with Eaton/Schneider. Infineon/STM approach through a semiconductor path of power ICs. Their risk is the 800V DC adoption timeline slipping. If 800V DC is slow, ABB continues with its existing business, but Infineon/STM’s AI power revenue contribution may remain insignificant for longer. Holding both diversifies the same directional thesis across different risk types.</p>
+<p><strong>Amphenol is a single stock with leverage on the entire power chain’s growth.</strong></p>
+<p>Every electrical connection requires a connector: inside servers, between servers, between racks, in power distribution, in cooling systems. Whichever of the other 23 companies grows, that growth involves connectors. But if the entire chain decelerates, Amphenol decelerates too. Its risk is not diversified. It is linked to the entire chain.</p>
+<hr />
+<h2>My View</h2>
+<p><em>This section reflects the author’s personal perspective and does not constitute a buy/sell recommendation for any specific company. Investment decisions should be made independently, based on your own research, risk tolerance, and time horizon.</em></p>
+<p><a href="https://substackcdn.com/image/fetch/$s_!2S9k!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F7bce8fd2-f57e-4968-97fc-0c08229d2103_2816x1536.png"><img alt="" src="https://substackcdn.com/image/fetch/$s_!2S9k!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F7bce8fd2-f57e-4968-97fc-0c08229d2103_2816x1536.png" /></a></p>
+<h3>Where Are We in the Cycle?</h3>
+<p>I assign the highest probability to the scenario where the cascade driven by NVIDIA’s rising GPU TDP is operating at peak intensity right now, persists through 2026 to 2027, and then gradually transitions into an efficiency-competition phase. </p>
+<p>As GPU TDP rises, demand in the low-voltage tier (VRMs, passive components, connectors) explodes first, then cascades with a 6 to 18 month lag to the medium-voltage tier (UPS, PSU, cooling), and with a 12 to 24 month lag to the high-voltage tier (substations, generation, grid).</p>
+<p>How you interpret Eaton’s +240% datacenter order growth within this cascade matters. Two readings are possible. </p>
+<p>One: demand originating from GPU TDP increases traveled sequentially from servers to datacenters to substations, arriving at the high-voltage tier with a 12 to 24 month lag. Under this reading, the high-voltage tier is in the early innings. </p>
+<p>The other: hyperscalers did not wait for the cascade but placed parallel orders for long-lead equipment preemptively. Under this reading, the order peak may already be close. </p>
+<p>I lean toward the first interpretation, but the signal that separates the two will emerge from whether order momentum sustains over the next 2 to 3 quarters.</p>
+<p>The factor driving returns in this phase is <strong>① DC Exposure</strong>. </p>
+<p>Once capex growth rates begin to decelerate, <strong>③ Architectural Transition</strong> and <strong>④ Margin</strong> move to the foreground. </p>
+<p>The critical point is that it is ultimately NVIDIA’s decisions that shift the weighting of these factors. NVIDIA’s 800V DC push creates the basis for ③ transition scores. </p>
+<p>NVIDIA’s power component sourcing diversification threatens MPS’s ② moat. NVIDIA’s 48V adoption pace determines Vicor’s thesis. </p>
+<p>I built a scorecard for these 24 companies, but nearly every score on it is linked to NVIDIA’s roadmap. <em><strong>Investing in this chain is also an indirect bet on NVIDIA’s direction.</strong></em></p>
+<p>When the cycle turns, only <strong>② Moat</strong> and <strong>⑤ Valuation</strong> remain. Multiple compression will likely be most severe among companies scoring ⑤ = 1 (Bloom, Vicor, Navitas, Delta, Samsung Electro-Mechanics).</p>
+<p>This thesis has its limits, though. The observation that “cascade lag creates valuation lag” is a single-cycle observation. </p>
+<p><em>Whether the price gap between low-voltage (Vicor +558%) and high-voltage (Eaton +38%) represents “information not yet priced in” or “a structural multiple differential between growth stocks and industrials” needs to be distinguished.</em></p>
+<p>The most direct way to test this hypothesis is to watch whether Eaton and ABB datacenter orders continue to grow over the next 2 to 3 quarters. Sustained growth strengthens the cascade hypothesis. </p>
+<p>Plateauing or declining orders signal parallel ordering. Simultaneously, whether Eaton’s order-to-revenue conversion drives multiple expansion will be the proving ground for the time-lag thesis.</p>
+<h3>On a Time-Horizon Basis</h3>
+<p><strong>Delivering numbers now</strong> : </p>
+<p>Amphenol (IT Datacom +128%), Vertiv (revenue +30%), MPS (Enterprise Data +50% target), Murata (early innings of a price-hike cycle).</p>
+<p><strong>Orders/earnings building over the next 12 months</strong> : </p>
+<p>Eaton (DC orders +240% entering the revenue conversion window), ABB (800V DC order expansion), GE Vernova (Electrification orders of $2.4B converting to revenue), Schneider (new DC design lock-in).</p>
+<p><strong>Transition options for 2028 and beyond</strong> : </p>
+<p>Vicor (if 48V adoption reaches scale), Infineon/STM (800V DC reaching the P&amp;L), Navitas (GaN at volume production), AEIS (48V PSU transition materializing).</p>
+<h3>Conclusion</h3>
+<p>The timeline of power infrastructure is fundamentally different from semiconductors or software. A transformer takes 2 to 3 years from order to installation, then runs for 20 to 30 years. Power plant PPAs are signed in 20-year increments. Transmission line permits alone take years. Attention on AI datacenters cycles quarter to quarter alongside GPU generation changes, but the bulk of the power chain moves on annual and decadal timescales.</p>
+<p>This timeline mismatch creates the cascade’s time lag and the asymmetry between investment opportunity and risk. Building a portfolio is not about picking one stock. It is about how you divide this chain’s time differentials across your holdings.</p>
+                </main>
+            </body>
+            </html>
+        

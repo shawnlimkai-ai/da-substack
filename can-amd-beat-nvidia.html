@@ -1,0 +1,262 @@
+
+            <!DOCTYPE html>
+            <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Markdown Content</title>
+                <link rel="stylesheet" href="assets/css/essay-styles.css">
+            </head>
+            <body>
+                <main class="markdown-content">
+                <h1>Can AMD Beat NVIDIA?</h1>
+<h2>The Question Lisa Su Won't Answer</h2>
+<p><strong>Apr 17, 2026</strong></p>
+<p><strong>Likes:</strong> 35</p>
+<p><a href="https://substackcdn.com/image/fetch/$s_!7xpZ!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F57d8e5b5-fdee-49f4-adf7-194482573b77_2848x1504.png"><img alt="" src="https://substackcdn.com/image/fetch/$s_!7xpZ!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F57d8e5b5-fdee-49f4-adf7-194482573b77_2848x1504.png" /></a></p>
+<h3><strong>“Can AMD beat NVIDIA?”</strong></h3>
+<p>It’s the question people around me keep asking. </p>
+<p>The day the OpenAI 6GW deal was announced, <em>“AMD Finally Catches NVIDIA”</em> was plastered everywhere. </p>
+<p>The day the Meta deal broke, <em>“The End of the AI Chip Monopoly”</em> led the front pages. </p>
+<p>When Helios was unveiled at CES 2026, <em>“NVIDIA NVL72 Killer”</em> stories poured in. </p>
+<p>The stock swung ±7% on a single headline, and analysts revised their price targets weekly. </p>
+<p>Yet after reading all those headlines, the question people around me ask me hasn’t changed. “So can AMD beat NVIDIA or not?”</p>
+<p>Whenever I hear this question, a line from my favorite Korean film “Oldboy” comes to mind.</p>
+<p>“You keep asking the wrong question, so of course you’ll never get the right answer.”</p>
+<p><a href="https://substackcdn.com/image/fetch/$s_!eGnX!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F78b8c53b-9760-4991-af28-90a95c834ea6_1382x2048.jpeg"><img alt="" src="https://substackcdn.com/image/fetch/$s_!eGnX!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F78b8c53b-9760-4991-af28-90a95c834ea6_1382x2048.jpeg" /></a></p>
+<p>In this article, I want to walk through how to actually look at AMD to see the real picture. </p>
+<p>Why Lisa Su never puts the word “beat” in her mouth, what strategy sits in that empty space, and how an investor should read that strategy. </p>
+<p><em><strong>The 12GW supply contract, the 20% warrant equity, the Helios rack, Zen 6 Venice.</strong></em></p>
+<p>The news that’s poured out over the past six months is actually pieces of one picture, and this article lays out what that picture is.</p>
+<hr />
+<h2>Table of Contents</h2>
+<ol>
+<li>
+<p>What’s happened over the past six months</p>
+</li>
+<li>
+<p>The tech stack: how far has AMD caught up</p>
+</li>
+<li>
+<p>Rumors and open questions in the market</p>
+</li>
+<li>
+<p>What the 20% warrant really means: not a discount, a joint investment</p>
+</li>
+<li>
+<p>The real market Helios is aiming at</p>
+</li>
+<li>
+<p>ROCm: not trying to beat CUDA</p>
+</li>
+<li>
+<p>The CPU bottleneck in the agentic AI era: a rare card AMD holds</p>
+</li>
+<li>
+<p>If this reading is right: why I like Lisa Su’s strategy</p>
+</li>
+<li>
+<p>Structural risks, and getting back to the real question</p>
+</li>
+</ol>
+<hr />
+<h2>Disclaimer</h2>
+<p><em>This article is based on publicly available information and my own interpretation. It does not draw on confidential information, customer data, internal documents, design materials, roadmaps, pricing terms, or supply contracts obtained from past or current employment, and I have not shared any information at a level that could identify specific companies or individuals in violation of NDAs or trade secret obligations.</em></p>
+<p><em>This article is also not investment advice, a buy or sell recommendation, or a price target. Views on companies, products, and market outlooks reflect my observations and interpretation at the time of writing, may differ from the facts, and can easily change depending on future circumstances. Investment decisions are entirely your own responsibility, and you should check official filings and professional advice separately.</em></p>
+<hr />
+<p>Damnang’s Substack is a reader-supported publication. To receive new posts and support my work, consider becoming a free or paid subscriber.</p>
+<p>Subscribed</p>
+<h2>1. What’s Happened Over the Past Six Months</h2>
+<p>Let me lay out the news flow up to the point of this article.</p>
+<p><a href="https://substackcdn.com/image/fetch/$s_!W9Ia!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F5d21171d-8db4-4d7a-89e7-2494f31f3a9a_2816x1536.png"><img alt="" src="https://substackcdn.com/image/fetch/$s_!W9Ia!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F5d21171d-8db4-4d7a-89e7-2494f31f3a9a_2816x1536.png" /></a></p>
+<p><strong>October 6, 2025: OpenAI 6GW deal</strong></p>
+<p>AMD and OpenAI signed a 6GW GPU supply contract. The first 1GW ships in 2H 2026 on MI450. AMD granted OpenAI warrants for 160 million shares at an exercise price of $0.01. Vesting is tied to shipment milestones and AMD stock price thresholds, with the final tranche at $600.</p>
+<p><strong>October 14, 2025: Oracle 50K MI450 deal</strong></p>
+<p>Oracle announced it would deploy 50,000 MI450 units starting Q3 2026. It’s the industry’s first publicly accessible AI supercluster of its kind, built on Helios racks with Venice CPUs and Vulcano NICs.</p>
+<p><strong>December 2, 2025: HPE adopts Helios</strong></p>
+<p>HPE officially announced it would adopt AMD’s Helios rack-scale architecture for its 2026 AI systems. It’s the first major OEM vendor reference for Helios.</p>
+<p><strong>January 5, 2026: CES 2026</strong></p>
+<p>At her keynote, Lisa Su unveiled the full MI400 series lineup. MI455X (flagship), MI440X (enterprise 8-GPU), MI430X (sovereign/HPC). The Helios rack was revealed (72 GPUs, 31TB of HBM4, 43 TB/s scale-out, 260 TB/s UALink, 3 AI ExaFLOPS per rack). AMD also previewed the MI500 series (CDNA 6, TSMC 2nm, HBM4e, targeting 2027).</p>
+<p><strong>February 24, 2026: Meta deal</strong></p>
+<p>Almost identical structure to the OpenAI deal. 6GW, five-year multi-year contract. AMD CFO Jean Hu said on the earnings call that revenue would be in the “double-digit billions of dollars per gigawatt” range, and the WSJ reported the total deal could reach up to $100B. Lisa Su declined to disclose the specific total. Meta received warrants for 160 million shares at $0.01. Meta is the lead customer for EPYC Venice (6th gen) and Verano (next-gen). On the announcement day, AMD was up 7% while NVDA stayed roughly flat. BofA estimates revenue of $17.5B to $20B per gigawatt based on the OpenAI deal.</p>
+<p><strong>March to April 2026</strong></p>
+<p>In MLPerf Inference 6.0, MI355X tied B200 on Llama 2 70B Offline, came in at 119% on Interactive, and even beat B200 on GPT-OSS-120B. Bernstein SocGen and Erste Group raised their price targets. Q1 2026 earnings are due May 5, and the company has already guided +32% YoY.</p>
+<p><strong>April 16, 2026: France government partnership and 12-day stock rally</strong></p>
+<p>AMD and the French government officially signed a multi-year letter of intent (LOI). It covers support for France’s national AI strategy, participation in the Alice Recoque exascale supercomputer, and building out the AI innovation ecosystem. On the same day, TSMC posted a record Q1 2026 profit, and AMD rallied for 12 straight days (its longest streak since May 2005). The close was $277.77 (+7.6%), putting market cap at roughly $420B. The cumulative gain over those 12 days came to about 32%.</p>
+<p>Tie these headlines together in one line, and you get “AMD is starting to take share from NVIDIA.” Is that actually true?</p>
+<p>Subscribed</p>
+<hr />
+<h2>2. The Tech Stack: How Far Has AMD Caught Up</h2>
+<p><a href="https://substackcdn.com/image/fetch/$s_!RSmm!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fc668cc28-60fc-4cd9-b410-4f5ac81b0167_2816x1536.png"><img alt="" src="https://substackcdn.com/image/fetch/$s_!RSmm!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fc668cc28-60fc-4cd9-b410-4f5ac81b0167_2816x1536.png" /></a></p>
+<p><strong>GPU</strong></p>
+<p>The MI455X carries 432GB of HBM4 with 19.6 TB/s of memory bandwidth. FP4 throughput is estimated at around 40 PFLOPS based on AMD’s claims. NVIDIA Vera Rubin is HBM4-based within what’s publicly known, and on memory capacity and bandwidth alone, the MI455X is roughly 1.5x ahead by AMD’s numbers. Since many inference workloads are memory-bound, that number translates directly into real performance.</p>
+<p><strong>Rack system</strong></p>
+<p>Helios integrates 72 GPUs, a Venice CPU, and a Pensando Vulcano NIC into a double-wide rack. It weighs roughly 7,000 lbs and delivers 260 TB/s of UALink scale-up bandwidth. It goes head-to-head with NVIDIA NVL72, which bundles 72 Grace Blackwell GPUs over NVLink.</p>
+<p><strong>Software</strong></p>
+<p>ROCm 7.x officially supports PyTorch, JAX, vLLM, and SGLang. AMD extended official support all the way down to consumer GPUs. In the MLPerf Inference 6.0 results released on April 1, 2026, MI355X tied B200 on Llama 2 70B Offline, hit 97% on Server, and pulled ahead at 119% on Interactive. On GPT-OSS-120B, it posted 111% on Offline and 115% on Server, beating B200 outright in some scenarios. The areas where CUDA still dominates remain: TensorRT-LLM, FlashAttention 3, NIM containers, cuDNN library depth, debugging tools, community. It’s not a spec gap, it’s a 20-year ecosystem gap.</p>
+<p><strong>Interconnect</strong></p>
+<p>UALink is an open standard with AMD, Astera Labs, Cisco, Google, HPE, Intel, Meta, and Microsoft participating. NVLink is NVIDIA proprietary. Spec-level bandwidth is converging to similar numbers, and the real difference is in “who builds it.”</p>
+<p>Specs and inference benchmarks have caught up. Yet share hasn't moved. </p>
+<p><em><strong>The AI accelerator market is still NVIDIA in the 80% range and AMD hovering around 10%.</strong></em></p>
+<p>The gap closed on specs and the gap showing up in share are moving on different tracks. That disconnect is the central debate in the AMD story right now.</p>
+<p>Subscribed</p>
+<hr />
+<h2>3. Rumors and Open Questions in the Market</h2>
+<p><a href="https://substackcdn.com/image/fetch/$s_!iKW2!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F9c128806-a935-4e09-a176-1807fe8892fe_2816x1536.png"><img alt="" src="https://substackcdn.com/image/fetch/$s_!iKW2!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F9c128806-a935-4e09-a176-1807fe8892fe_2816x1536.png" /></a></p>
+<p><strong>Rumor 1: MI455X delay</strong></p>
+<p>In early March, Tom’s Hardware and a few other sources reported that MI455X shipments could slip. AMD officially pushed back with “Helios systems on target for 2H 2026.” It is a technically demanding launch with 2nm TSMC, HBM4 transition, and system-level integration all happening at once.</p>
+<p><strong>Rumor 2: NVIDIA Vera Rubin pulled forward</strong></p>
+<p>Since mid-March, there’s been chatter that Rubin could land earlier than expected. There’s no official confirmation. If true, AMD’s entry window narrows. If Rubin arrives in early Q3 2026 instead of H2 2026, it collides directly with the MI455X ramp.</p>
+<p><strong>Rumor 3: Microsoft CUDA-to-ROCm conversion toolkit</strong></p>
+<p>There are reports that Microsoft is developing an in-house toolkit to convert CUDA code to ROCm. No official source. The reading is that it’s aimed at cutting inference costs. It’s already public that Microsoft runs its own Maia chips alongside AMD. If they actually have infrastructure in place to migrate CUDA workloads to AMD on top of that, it matters a lot.</p>
+<p><strong>Rumor 4: Does the Oracle 50K MI450 deal fall under the OpenAI 6GW</strong></p>
+<p>Oracle has a separate large-scale infrastructure contract with OpenAI, and it’s never been officially clarified whether those 50K MI450s are part of the OpenAI 6GW or a separate deal. If they’re separate, AMD’s hyperscaler deal count grows by one. If they’re included, it reveals where the OpenAI 6GW is actually being absorbed.</p>
+<p><strong>Rumor 5: Investor speculation that Anthropic is next</strong></p>
+<p>Since mid-April, investor communities like Reddit’s r/AMD_Stock have been buzzing with “Anthropic could sign an AMD deal too.” No official source. Right now Anthropic runs on Google TPUs, AWS Trainium, NVIDIA GPUs, and Microsoft infrastructure. AMD isn’t on that list. But Anthropic’s run-rate revenue tripled from $9B at the end of 2025 to $30B+ in 2026, with valuations being floated at $800B. The thinking goes that after watching OpenAI and Meta each lock in compute with 6GW deals, Anthropic might be considering a similar structure. That’s the level of speculation.</p>
+<p><strong>Split interpretations on the warrants</strong></p>
+<p>Matt Britzman of Hargreaves Lansdown read it as “AMD handing over 10% of its equity twice tells you how hard it is to generate organic demand at this scale.” BofA’s Justin Post saw it as “a structural shift in how hyperscalers procure AI compute.” The same deal gets read as a bearish signal on one side and a structural bullish signal on the other. This split sits at the center of the current AMD story.</p>
+<hr />
+<p>Faced with all this news and rumor, the market keeps asking the same question. </p>
+<p>“So can AMD beat NVIDIA or not?” </p>
+<p>As I said at the top, we can’t answer that question. Because it’s the wrong one.</p>
+<p>So what’s the right question? </p>
+<p>What kind of game is Lisa Su actually setting up? </p>
+<p>The clues to the picture she’s drawing fall into four areas. </p>
+<p><strong>The 20% warrant structure, the Helios rack, ROCm positioning, and the CPU card</strong></p>
+<p>Let me walk through them one by one.</p>
+<p>Subscribed</p>
+<h2>4. What the 20% Warrant Really Means: Not a Discount, a Joint Investment</h2>
+<p>160 million shares to OpenAI, 160 million to Meta, 320 million total. That’s about 20% of the 1.63B shares outstanding. Exercise price: $0.01. </p>
+<p>Here’s why this isn’t a “weak organic demand” signal.</p>
+<p>The warrants only vest if three conditions all line up. First, actual GPU shipments have to happen. Second, the customer side has to hit technical and commercial milestones. Third, AMD stock has to clear the threshold for each tranche. The final tranche is $600. At today’s $277, that’s +116%.</p>
+<p>Compare it to a price discount and the intent becomes clear. Say AMD had used a “Meta-exclusive 20% discount” card instead of warrants. If the deal is worth tens of billions over multiple years, a 20% discount is billions of dollars in immediate revenue and margin loss. Five years of GAAP earnings take a direct hit. But no dilution. Would Wall Street like that? The story would be EPS getting carved up for five straight years. Could Jean Hu still declare it “accretive to non-GAAP EPS”? She couldn’t.</p>
+<p>The warrant structure is the opposite. No execution, no vesting. No shipment, no warrants beyond paper. Ship properly, revenue comes in. If the stock doesn’t move, the $600 tranche never opens. If the stock does reach $600, AMD’s market cap is closing in on $1T, and 20% dilution hits at that point. By then, earnings have already absorbed the dilution. The CFO’s “accretive” call comes straight out of that math.</p>
+<p><strong>The magic of this structure is the incentive alignment.</strong></p>
+<p><a href="https://substackcdn.com/image/fetch/$s_!_m5p!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F5484e366-5e5a-4ca2-869f-a2123c88ed29_2816x1536.png"><img alt="" src="https://substackcdn.com/image/fetch/$s_!_m5p!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F5484e366-5e5a-4ca2-869f-a2123c88ed29_2816x1536.png" /></a></p>
+<p>For Meta and OpenAI, AMD’s rising stock means their warrant value rises with it. AMD’s success becomes their own self-interest. Meta migrating Llama 5 onto ROCm and publishing a case study. OpenAI promoting a reference that GPT-5 inference runs on MI450. Both actions lift AMD’s stock and raise the value of their own shares at the same time.</p>
+<p>A structure where the customer becomes the seller’s marketer. That’s the design intent of the warrants.</p>
+<p>The warrant structure gives AMD one more practical edge. For AMD to catch NVIDIA, software ecosystem maturity is the key variable. That maturity only comes from running real workloads at the hundreds-of-thousands-of-GPUs level in real production. AMD doing that on its own dime would take years and billions of dollars. If Meta and OpenAI run their workloads at that scale, file ROCm bugs, and contribute kernel optimizations, that maturity curve can in theory compress dramatically.</p>
+<p>It’s not a discount, it’s <strong>the cost of compressing ecosystem maturation time</strong>.</p>
+<p>NVIDIA doesn’t hand out warrants like this. It doesn’t need to. Twenty years of accumulated CUDA ecosystem is already done. AMD is doing it because demand is weak? No. Because <strong>it has to buy time</strong>. The AI capex cycle peaks between 2026 and 2028. Falling behind in this cycle means being a permanent backup. So AMD is putting equity on the table.</p>
+<p>There’s one more side effect. If Meta and OpenAI each hold 10% of AMD stock, their incentive to go back to NVIDIA-only weakens structurally. A reverse-engineered lock-in. NVIDIA built software lock-in with CUDA; AMD is planting the seed of financial lock-in with equity.</p>
+<p><a href="https://damnang2.substack.com/p/can-amd-beat-nvidia?utm_source=substack&amp;utm_medium=email&amp;utm_content=share&amp;action=share&amp;token=eyJ1c2VyX2lkIjoyMzg3ODIwNzYsInBvc3RfaWQiOjE5NDQ5MzA2OCwiaWF0IjoxNzc4NjEwMDk4LCJleHAiOjE3ODEyMDIwOTgsImlzcyI6InB1Yi00NTg3MDcwIiwic3ViIjoicG9zdC1yZWFjdGlvbiJ9.LxcGjceD2vM6rk42jI-ZxaPxoNPnW9RSkvzXALZO1WA">Share</a></p>
+<hr />
+<h2>5. The Real Market Helios Is Aiming At</h2>
+<p>Many people see Helios as “AMD’s answer to NVL72.” </p>
+<p>On spec alone, that makes sense. 72 GPUs, double-wide rack, rack-level interconnect, integrated CPU, integrated NIC. Same tier. So analysis pieces write “Helios competes with NVL72.” </p>
+<p>That’s not wrong. It’s just that the two aim at different markets.</p>
+<p>The difference starts with <strong>who builds them</strong>.</p>
+<p>Only NVIDIA builds NVL72. OEMs can assemble, but the design and certification sit with NVIDIA. GPU, CPU, NIC, interconnect, software stack, all NVIDIA ecosystem. Vendor lock-in gets enforced at the system level.</p>
+<p>Helios is different. AMD provides a reference design, and OEMs like HPE, Supermicro, Dell, and Lenovo ship their own variants. HPE’s official Helios adoption in December 2025 was the starting signal for this model. UALink is an open consortium standard, so Astera Labs makes UALink switches, Marvell builds UALink retimers. The ecosystem is distributed.</p>
+<p>That’s why Helios isn’t a product going after the share NVL72 already has. <strong>It’s a product that creates a market for customers who can’t buy or don’t want to buy NVL72.</strong> Where is that market?</p>
+<p><a href="https://substackcdn.com/image/fetch/$s_!V1yX!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fa8a923c3-773c-40c5-b3ff-64162cd5ccf5_2816x1536.png"><img alt="" src="https://substackcdn.com/image/fetch/$s_!V1yX!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fa8a923c3-773c-40c5-b3ff-64162cd5ccf5_2816x1536.png" /></a></p>
+<p><strong>The sovereign AI market.</strong> Governments in Europe and Asia can’t politically accept “proprietary vendor lock-in.” They’re uncomfortable with tying national defense, science, and AI capabilities to the ecosystem of a single American private company. France’s Alice Recoque (the first exascale supercomputer) being built on MI430X, the EU’s insistence on open standards, the discomfort Middle Eastern and Asian nations feel about using DGX. Helios fits this market. On April 16, 2026, AMD and the French government signed a multi-year LOI covering France’s national AI strategy, Alice Recoque exascale participation, and AI innovation ecosystem buildout. It’s the first major public reference in the sovereign AI market.</p>
+<p><strong>Multi-vendor hyperscalers.</strong> Meta signs a major deal with AMD while maintaining a separate multi-year partnership with NVIDIA. Microsoft runs its own Maia while running AMD in parallel. Oracle deploys the first public AMD supercluster on MI450 while keeping NVIDIA infrastructure intact. They see single-vendor dependency as existential risk. The trauma of Meta waiting six months for H100 allocation during the 2024 shortage still shapes their thinking.</p>
+<p><strong>The ROCm-driven derivative market.</strong> When OpenAI, Meta, and Oracle move their stacks to ROCm through tens-of-billions-dollar contracts, AI startups that partner with them naturally start seeing ROCm as an option. AMD accelerates this derivative market through the warrant structure.</p>
+<p>The ZT Systems acquisition plays into this. AMD acquired ZT Systems for $4.9B in 2024, sold the manufacturing business to Sanmina, and kept only the design team of about 1,000 people. The purpose was clear. The ability to quickly design custom racks for hyperscalers and hand reference designs to OEM partners. Helios is the output.</p>
+<p>If NVIDIA NVL72 is “a turnkey system where NVIDIA builds everything,” Helios is an open system anyone can build on top of a standard AMD laid down. The two aren’t competing in the same market, they’re creating different markets.</p>
+<p>And that different market is growing fast. Sovereign AI investment is projected to scale into tens of billions of dollars by 2028, and multi-vendor policy is already standard across the Magnificent Seven. The market NVL72 dominates isn’t shrinking. A separate market Helios is targeting is growing alongside it.</p>
+<p><a href="https://damnang2.substack.com/p/can-amd-beat-nvidia?utm_source=substack&amp;utm_medium=email&amp;utm_content=share&amp;action=share&amp;token=eyJ1c2VyX2lkIjoyMzg3ODIwNzYsInBvc3RfaWQiOjE5NDQ5MzA2OCwiaWF0IjoxNzc4NjEwMDk4LCJleHAiOjE3ODEyMDIwOTgsImlzcyI6InB1Yi00NTg3MDcwIiwic3ViIjoicG9zdC1yZWFjdGlvbiJ9.LxcGjceD2vM6rk42jI-ZxaPxoNPnW9RSkvzXALZO1WA">Share</a></p>
+<hr />
+<h2>6. ROCm: Not Trying to Beat CUDA</h2>
+<p>There’s a misread of ROCm. “Can ROCm catch up to CUDA?” The question itself is wrong.</p>
+<p>AMD isn’t building ROCm to beat CUDA. AMD knows best that it can’t. CUDA has 20 years of accumulated libraries, developer mindshare, profiling tools, and community answers for every edge case. </p>
+<p>Every cuDNN update comes with hundreds of NVIDIA engineers hand-tuning kernels by hardware generation. For AMD to match that, it would have to scale headcount several times over.</p>
+<p>What AMD is targeting is specific. </p>
+<p><strong>“The workload market where PyTorch plus vLLM or SGLang is enough.”</strong></p>
+<p>That’s most of the inference market.</p>
+<p>According to Deloitte TMT Predictions 2026, roughly two-thirds of AI compute spending in 2026 goes to inference. </p>
+<p>In 2023 it was one-third. The ratio flipped in three years. And inference is not training.</p>
+<p><a href="https://substackcdn.com/image/fetch/$s_!vOST!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F3f819f27-8c01-4e7a-bbd9-44da8ec444ad_2816x1536.png"><img alt="" src="https://substackcdn.com/image/fetch/$s_!vOST!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F3f819f27-8c01-4e7a-bbd9-44da8ec444ad_2816x1536.png" /></a></p>
+<p>Training is CUDA’s sanctum. FlashAttention 3, TensorRT-LLM, custom CUDA kernels, cuDNN optimizations. It’s the domain where you squeeze every last drop of performance while building models, and for AMD to beat NVIDIA here it would need to close years of kernel optimization. AMD isn’t competing in this zone.</p>
+<p>Inference is different. Most inference workloads load the model in PyTorch and serve it through vLLM or SGLang. Custom CUDA kernels aren’t needed. That stack is already officially supported on ROCm 7.x. In the April 2026 MLPerf Inference 6.0 results, MI355X tying or beating B200 across multiple Llama 2 70B and GPT-OSS-120B scenarios happened in exactly this zone.</p>
+<p>The bottleneck in inference is memory. Large model prefill, long-context generation, MoE model serving. All memory-bound. The MI455X’s 432GB of HBM4 at 19.6 TB/s is decisively ahead of Vera Rubin here. That’s not a spec sheet number, it translates directly into real TCO differences. When Luma AI said at CES 2026 that “we run 60% of today’s inference workloads on AMD,” it wasn’t a throwaway remark. They moved because tokens-per-dollar works out.</p>
+<p>The Microsoft CUDA-to-ROCm toolkit rumor could matter here. If the rumor is real, it means Microsoft is building its own pipeline to migrate existing CUDA inference code to AMD. Moving some of the customer inference workloads running on Azure to AMD improves tokens-per-dollar. The customer doesn’t know. It happens quietly in the back. <em>That said, this is an unconfirmed rumor. Too early to build into the base case.</em></p>
+<p>One more trend worth flagging. AI coding agents are eroding the CUDA moat itself. Agents like Claude Code cut the time it takes to port CUDA code to ROCm significantly. ROCm downloads have grown close to 10x over the past year. A big piece of CUDA’s moat was “engineer-hours needed to migrate this,” and that time is getting compressed by AI.</p>
+<p>The picture AMD is drawing is clear. Don’t touch the training market where CUDA dominates. Take the inference market where CUDA is overkill. That market is two-thirds of AI compute and growing fast.</p>
+<p>It’s not about beating CUDA. AMD makes money in a world where CUDA and ROCm coexist. A positive-sum game, not zero-sum.</p>
+<p><a href="https://damnang2.substack.com/p/can-amd-beat-nvidia?utm_source=substack&amp;utm_medium=email&amp;utm_content=share&amp;action=share&amp;token=eyJ1c2VyX2lkIjoyMzg3ODIwNzYsInBvc3RfaWQiOjE5NDQ5MzA2OCwiaWF0IjoxNzc4NjEwMDk4LCJleHAiOjE3ODEyMDIwOTgsImlzcyI6InB1Yi00NTg3MDcwIiwic3ViIjoicG9zdC1yZWFjdGlvbiJ9.LxcGjceD2vM6rk42jI-ZxaPxoNPnW9RSkvzXALZO1WA">Share</a></p>
+<hr />
+<h2>7. The CPU Bottleneck in the Agentic AI Era: A Rare Card AMD Holds</h2>
+<p>Up to this point it’s been a GPU story. Going into 2026, there’s a quieter shift happening. <strong>The bottleneck in AI workloads is moving from GPU to CPU.</strong></p>
+<p><a href="https://damnang2.substack.com/p/why-the-cpu-is-the-bottleneck-in"> Semiconductor Insight</a>[</p>
+<h2>Why the CPU Is the Bottleneck in the Agentic AI Era</h2>
+<p>](https://damnang2.substack.com/p/why-the-cpu-is-the-bottleneck-in)</p>
+<p><a href="https://substack.com/profile/329991097-damnang">Damnang</a></p>
+<p>·</p>
+<p>Mar 22</p>
+<p><a href="https://damnang2.substack.com/p/why-the-cpu-is-the-bottleneck-in"><img alt="Why the CPU Is the Bottleneck in the Agentic AI Era " src="https://substackcdn.com/image/fetch/$s_!tExR!,w_1300,h_650,c_fill,f_auto,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fcdcc5139-f55f-482e-a269-066fde478dfc_900x360.jpeg" /></a></p>
+<p>The era of “just buy more GPUs” is ending.</p>
+<p><a href="https://damnang2.substack.com/p/why-the-cpu-is-the-bottleneck-in">Read full story</a></p>
+<p>This is the most underrated card in the AMD story. Many investors still see AMD as “an Instinct GPU company.” AMD is also the x86 vendor that hit 41.3% server CPU revenue share (Q4 2025, Mercury Research). Both of those are becoming critical in AI infrastructure at the same moment, and that moment is now.</p>
+<h3>Why AMD’s Position Is Special</h3>
+<p>Look at AMD’s position in this situation.</p>
+<p>AMD’s x86 server CPU revenue share is 41.3% (Mercury Research, Q4 2025), making it the only alternative to Intel with real scale. As recently as 2021, it sat in the teens. While Intel was nearly two years late launching Sapphire Rapids because of 10nm/Intel 7 delays, AMD pushed up with TSMC N7-based EPYC Milan/Genoa/Turin. That momentum continues today. Even if Intel 18A arrives in 2H 2026, resolving yield and ramping volume take time.</p>
+<p>EPYC Venice (Zen 6) is designed for agentic workloads. TSMC N2, 256 cores, 512 threads with SMT. Highest thread count in the industry. That’s exactly what agentic AI needs. Not single-core performance, but core count to run many parallel agents, large L3 cache, and plenty of PCIe lanes. AMD’s chiplet architecture from the start makes it natural to tune in this direction.</p>
+<p>AMD claims 5th-gen EPYC delivers 2.1x per-core performance and 2.26x performance-per-watt versus NVIDIA Grace Superchip. That’s AMD’s own benchmark and needs to be weighted as such, but multiple independent sources also show EPYC ahead of Grace on agentic orchestration workloads.</p>
+<p>Helios sits on top of this. NVL72 bundles Grace CPU with Blackwell GPU. Helios bundles Venice CPU with MI455X GPU. AMD is one of the few players pushing competitive x86 server CPUs, AI GPUs, and rack-scale designs all at once.</p>
+<p>NVIDIA is also full-stack, but its full stack is built on an Arm-based CPU design. NVIDIA designed Grace, but the ISA is licensed Arm. Intel has CPUs but no competitive AI GPU. AWS Graviton, Google Axion, and Microsoft Cobalt are all Arm-based and need time to be redesigned for agentic workloads. <strong>x86 plus proprietary AI GPU plus proprietary rack system</strong> as a combined hand, no one holds that right now except AMD.</p>
+<h3>The CPU Clause in the Meta Deal Proves This</h3>
+<p>Look at the Meta deal again. What’s on the surface is a GPU contract. One more clause sits explicitly in the document. Meta becomes the lead customer for the 6th-gen EPYC “Venice” and next-gen “Verano” processors.</p>
+<p>Not a side cross-sell. Meta builds its own CPUs too (Arm-based). Yet it enters as Venice/Verano lead customer. A natural read: as agentic workload volume scales, the x86 orchestration layer demand isn’t fully covered by in-house Arm chips, and that operational reality drove the call.</p>
+<p>The OpenAI deal and the Oracle deal follow the same pattern. They’re not just buying GPUs, CPUs come in as a set. Looking at these deals as GPU contracts alone undercounts CPU revenue upside. Every time AMD wins a GPU order, an EPYC order from the same customer follows. One deal, two revenue lines moving together.</p>
+<h3>What This Means From an Investment Perspective</h3>
+<p>Modeling AI infrastructure revenue on GPUs alone undervalues AMD’s upside. Between 2026 and 2028 as agentic AI goes mainstream, CPU TAM is likely to expand meaningfully. Multiple sources including TrendForce and 24/7 Wall St. point to CPU-to-GPU ratios moving up in the agentic era.</p>
+<p>AMD is positioned to capture two flows at once. GPU overflow benefit (Helios, MI455X, the 12GW deals) and CPU orchestration benefit (EPYC share expansion, Venice lead customer wins, reflected upside from Intel supply constraints). Both happen at the same customer at the same time. Every Helios 72-GPU rack Meta installs carries a Venice CPU. OpenAI’s 1GW infrastructure needs tens of thousands of EPYC sockets alongside GPUs.</p>
+<p>The timing when this card really kicks in is the 2H 2026 Venice launch paired with Helios deployment. The market isn’t yet treating these two as one story. AMD still gets classified as a GPU laggard. The moment that classification gets revised is the rerating point.</p>
+<p><a href="https://damnang2.substack.com/p/can-amd-beat-nvidia?utm_source=substack&amp;utm_medium=email&amp;utm_content=share&amp;action=share&amp;token=eyJ1c2VyX2lkIjoyMzg3ODIwNzYsInBvc3RfaWQiOjE5NDQ5MzA2OCwiaWF0IjoxNzc4NjEwMDk4LCJleHAiOjE3ODEyMDIwOTgsImlzcyI6InB1Yi00NTg3MDcwIiwic3ViIjoicG9zdC1yZWFjdGlvbiJ9.LxcGjceD2vM6rk42jI-ZxaPxoNPnW9RSkvzXALZO1WA">Share</a></p>
+<hr />
+<h2>8. If This Reading Is Right: Why I Like Lisa Su’s Strategy</h2>
+<p>That’s the decoding of AMD’s strategy. Now for “is this a good bet.”</p>
+<p>My take up front. I think Lisa Su’s strategy is correct. If it executes, AMD is one of the structurally undervalued vehicles in the current AI infrastructure cycle. </p>
+<p><a href="https://substackcdn.com/image/fetch/$s_!5zZU!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F5934daf5-f7f6-450f-948f-928ccabdc5e2_2816x1536.png"><img alt="" src="https://substackcdn.com/image/fetch/$s_!5zZU!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F5934daf5-f7f6-450f-948f-928ccabdc5e2_2816x1536.png" /></a></p>
+<p><strong>First, Lisa Su has played this game before.</strong></p>
+<p>In 2014, with AMD trading at $3 and on the edge of bankruptcy, she came in and didn’t say she’d catch Intel. She said she’d become a credible second source in the data center CPU market. It took 10 years. Server CPU revenue share went from single digits to 41.3%. She didn’t beat Intel. She <strong>redefined the game from one Intel monopolized into one the two of them share</strong>.</p>
+<p>What she’s trying against NVIDIA now is the same playbook. Doing again what she’s done once. That there’s a precedent matters.</p>
+<p><strong>Second, AMD knows what it’s good at and what it isn’t.</strong></p>
+<p>It can’t win on CUDA ecosystem depth. It can’t win on training kernel performance. So it doesn’t compete there. Instead it wins on memory capacity and bandwidth, binds the ecosystem with open standards, and competes on inference TCO. Set the board on your own strengths and route around the opponent’s. Basic strategy, yet many companies can’t execute it. If AMD had tried to copy NVIDIA and build a closed ecosystem, it wouldn’t get there in 10 years.</p>
+<p><strong>Third, the warrant structure is a card the market overreacts to.</strong></p>
+<p>Full dilution of 320 million shares only happens at a $600 stock price. From today’s $277 to $600 is a +116% move. At that point, market cap is closing in on $1T. At that level, 20% dilution isn’t a problem. The realistic base case is partial vesting of 50 to 80 million shares between 2027 and 2028, with EPS drag from dilution under 5%. Revenue growth (30%+ annually) absorbs it.</p>
+<p>The market overreacted to the warrants as an overhang right after the Meta deal. That panic reaction masks the real content, which is that this only triggers on execution. As time passes, this sinks in. Until it does, a discount stays open.</p>
+<p><strong>Fourth, the CPU plus GPU full stack is a rare card AMD holds in this game.</strong></p>
+<p>Once agentic AI goes mainstream, what a data center rack needs isn’t just GPUs. Orchestration CPUs, tool-execution CPUs, memory-expansion CPUs all grow. At that point, the company holding 41.3% x86 server CPU share plus proprietary AI GPU plus proprietary rack system at the same time is AMD. The Venice/Verano lead customer clause embedded in the Meta deal is the evidence. Every time AMD wins a GPU order, a CPU order from the same customer comes with it. The market still sees AMD as a GPU company. The gap in that perception closes somewhere between 2H 2026 and 1H 2027.</p>
+<p>Four pieces interlocking could reclassify AMD in the market’s eyes from “distant No. 2” to “indispensable second source.” That’s when the multiple rerating happens.</p>
+<hr />
+<h2>9. Structural Risks, and Getting Back to the Real Question</h2>
+<p>Back to the original question.</p>
+<p><strong>“Can AMD beat NVIDIA?”</strong></p>
+<p>I think this question has been wrong from the start. </p>
+<p>That’s also why Lisa Su refuses to answer it head-on. The moment you step into this question, AMD only gets evaluated inside the frame NVIDIA built. And in that frame, almost every comparison favors NVIDIA. CUDA, NVLink, developer ecosystem, brand, installed base, all of it.</p>
+<p>So what matters isn’t “can they win or not.” What matters more is seeing what board AMD is actually setting up right now, and whether that board can hold.</p>
+<p>In the end, this story comes down to three questions.</p>
+<p><strong>First, will the AI infrastructure market keep growing beyond what one company can absorb?</strong></p>
+<p>If the answer is yes, AMD doesn’t need to frontally take down NVIDIA’s existing territory. If the market itself is too big, the demand NVIDIA can’t soak up is enough for AMD to build a very large business. In that case, AMD isn’t just an alternative. It’s one of the essential suppliers absorbing exploding demand.</p>
+<p><strong>Second, are the markets where customers want to deliberately avoid NVIDIA-only, plus the markets NVIDIA structurally can’t fully cover, large enough?</strong></p>
+<p>This includes sovereign AI, hyperscalers that choose multi-vendor, the ROCm-based inference market, and the x86 CPU orchestration demand of the agentic AI era. If the answer here is yes, AMD isn’t just “the second GPU vendor.” It becomes the realistic default option in full-stack AI infrastructure.</p>
+<p><strong>Third, can AMD execute cleanly between 2H 2026 and 2027 without tripping?</strong></p>
+<p>MI455X, HBM4 supply, Helios racks, Venice, ROCm migration. In the end, strategy proves itself through execution. Even if the first two questions come up yes, a no on this last one collapses the whole picture.</p>
+<p>In short, the core view on AMD is this. AMD’s future doesn’t hinge on “can it beat NVIDIA.” It hinges on whether these three questions can all come up yes together.</p>
+<p>If all three answers are yes, AMD becomes a much bigger company than the market currently thinks. In that case, AMD isn’t just a company picking up what NVIDIA misses. It’s a company forming a separate axis of AI infrastructure. The double-digit share scenario Lisa Su has repeatedly mentioned becomes a realistic number from that point on.</p>
+<p>Flip any one of the three to no and the story changes. AMD falls back to “solid No. 2,” and a meaningful chunk of the rerating the market is pricing in goes away.</p>
+<h3>Structural Risks</h3>
+<p>The problem is that structural risks capable of flipping these three questions to no actually exist.</p>
+<p><strong>The first is the risk that the AI capex cycle itself rolls over.</strong></p>
+<p>The investment thesis on AMD rests on the market pie continuing to expand. After 2027, though, if hyperscaler AI spending cools, supply tightness eases, and NVIDIA can absorb most demand within its own capacity, the story changes. The overflow market AMD is counting on could shrink.</p>
+<p><strong>The second is the risk that custom ASICs absorb the overflow first.</strong></p>
+<p>Google has TPU, AWS has Trainium, Meta has MTIA, and Broadcom is rapidly growing its presence as a hyperscaler custom ASIC partner. If major customers lean more aggressively on custom silicon than on AMD as the alternative to commercial GPUs, the market AMD is banking on could be much narrower than expected. In that case, the OpenAI and Meta warrant deals might end up being exceptional cases rather than the start of a structural shift.</p>
+<p><strong>The third is HBM4 supply and product execution risk.</strong></p>
+<p>AMD’s scenario ultimately requires MI455X to land on time, at volume. It’s a high-difficulty launch that stacks process, packaging, memory, and system integration all at once. Throw HBM4 supply tightness on top, and the schedule can slip. If a six-month slip happens there, the issue isn’t just a delayed product. The meaning of the Meta and OpenAI deals themselves comes into question. The warrant structure is a strong incentive when things go right, but if execution stumbles, it flips into a long-term overhang.</p>
+<p><strong>The fourth is the risk that ROCm doesn’t produce enough public success stories.</strong></p>
+<p>A key premise of AMD’s strategy is that large customers running real workloads on top of ROCm pulls ecosystem maturity up with them. Using it internally and putting out a visible success story are different problems. If major names like Meta or OpenAI don’t clearly show their ROCm-based operational experience to the market, other customers lose the motivation to follow. The derivative market ends up opening later than expected.</p>
+<p>These four risks all converge on the same question. Is the picture AMD is drawing right now something that can really become structural, or does it rest on too many premises relative to the expectations already priced in?</p>
+<p>So the investor’s real decision point is simple. Not “can AMD beat NVIDIA,” but what probability you’d assign to each of the three questions coming up yes, and what probability you’d assign to the four risks that could knock those yeses down.</p>
+<p>The answers will start showing up in the numbers between 2H 2026 and 1H 2027. By the time you can judge from those numbers, the market may have already priced in a lot. What’s needed now isn’t the bystander’s question of “who wins,” it’s reading which structure is actually being built first.</p>
+<p>Lisa Su has already, once before, turned an AMD people thought was impossible into a completely different company. This time, she’s not using a simple slogan like “we’ll beat NVIDIA.” She’s betting on a bigger question.</p>
+<p>So the question left at the end is this one.</p>
+<p>It’s not can AMD beat NVIDIA. </p>
+<p><strong>Will the AI infrastructure market keep growing beyond what one company alone can hold?</strong></p>
+<p>That’s the question Lisa Su is actually betting on, and it’s the question investors ultimately have to answer too.</p>
+                </main>
+            </body>
+            </html>
+        

@@ -1,0 +1,191 @@
+
+            <!DOCTYPE html>
+            <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Markdown Content</title>
+                <link rel="stylesheet" href="assets/css/essay-styles.css">
+            </head>
+            <body>
+                <main class="markdown-content">
+                <h1>Is the Market Reading Rambus Right?</h1>
+<h2>The Memory IP Company With Its Eyes on Optics and Quantum</h2>
+<p><strong>Mar 24, 2026</strong></p>
+<p><strong>Likes:</strong> 77</p>
+<p><a href="https://substackcdn.com/image/fetch/$s_!mj6q!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fbd235946-516f-4c3f-b00b-2b61f3a456ed_2848x1504.png"><img alt="" src="https://substackcdn.com/image/fetch/$s_!mj6q!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fbd235946-516f-4c3f-b00b-2b61f3a456ed_2848x1504.png" /></a></p>
+<p>When people think AI semiconductors, the usual names come up. NVIDIA, AMD, Broadcom, Marvell. For memory, it’s Samsung, SK Hynix, Micron. Everyone knows those.</p>
+<p>But there’s a company that keeps showing up across multiple layers of this entire ecosystem. Every time NVIDIA builds an AI accelerator, every time Samsung ships DRAM, every time a server gets racked in a data center, this company’s chips or IP are somewhere in the stack. </p>
+<p>800 employees, $700M in revenue, 80% gross margin, 45% FCF margin. By any measure, this is a top-tier semiconductor business. The company is <strong>Rambus (NASDAQ: RMBS)</strong> , valued at roughly $10 billion.</p>
+<p>The market treats it as a “mid-cap semiconductor that sells DDR5 memory interface chips.” So when DRAM prices go up, Rambus gets dragged along with Samsung and SK Hynix. When DRAM prices fall, same thing. The market filed it under “memory sector” and moved on.</p>
+<p>But if you stay with this article, I think your view of this company might shift a bit.</p>
+<p>Line up the hottest keywords in AI infrastructure right now. </p>
+<p>HBM, optical interconnects, quantum security, custom ASICs…. </p>
+<p>Rambus has exposure to all of them. It’s inside the custom ASIC market with HBM4E Controller IP. It’s prepping for the next generation of memory interconnects with CXL 3.1 Controller IP. It’s staking a claim on post-quantum security with Quantum-Safe Cryptography and Root of Trust IP. </p>
+<p>And in 2024, it publicly demonstrated its own CXL Controller IP running over fiber optic cable.</p>
+<p>Then there’s something most people haven’t caught yet, something arguably more important than any of the above: a person who joined the company in February 2026. </p>
+<p>This is still speculation at this point, but when I started piecing together what’s been happening in Silicon Valley lately, the picture that emerged around Rambus started looking a lot more interesting than the market gives it credit for.</p>
+<p>This article walks through Rambus’s current business, its technology stack, its financial strength, what the market is missing, and what that one person’s arrival might signal about where this company is heading. Let’s start with the business itself.</p>
+<p>Damnang2’s Substack is a reader-supported publication. To receive new posts and support my work, consider becoming a free or paid subscriber.</p>
+<p>Subscribed</p>
+<hr />
+<h2>The Business Model: Three Pillars</h2>
+<p>Rambus runs on three revenue pillars. Understanding this structure explains why the company’s margins sit at the top of the semiconductor industry.</p>
+<p><a href="https://substackcdn.com/image/fetch/$s_!rvr3!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fb56a7f38-086e-4aa4-8fca-35e06632ebe3_2816x1536.png"><img alt="" src="https://substackcdn.com/image/fetch/$s_!rvr3!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fb56a7f38-086e-4aa4-8fca-35e06632ebe3_2816x1536.png" /></a></p>
+<p><strong>First, revenue from selling chips directly (Product Revenue).</strong> Rambus designs DDR5 RCDs and companion chips (PMICs, SPD Hubs, temperature sensors) and sells them to memory module manufacturers. It’s fabless, so manufacturing is outsourced. FY2025: $348M, up 41% year-over-year. About 49% of total revenue.</p>
+<p><strong>Second, revenue from patent royalties (Royalty/Licensing Revenue).</strong> Rambus holds 2,500+ patents covering the core mechanics of how DRAM communicates with a CPU. Samsung, SK Hynix, and Micron all pay royalties to use them. Near-zero cost of goods, margin approaching 100%. FY2025: roughly $266M, or 38% of total revenue.</p>
+<p><strong>Third, revenue from licensing design IP (Silicon IP Revenue).</strong> HBM Controller, PCIe Controller, CXL Controller, and security IP licensed to chip designers. About 13% of total revenue.</p>
+<p>This mix produces 80% gross margin and 45% FCF margin from 800 people generating $875K in revenue per head. Over 75% of Chip and Silicon IP revenue comes from data center and AI customers.</p>
+<p>Let’s go deeper on each pillar.</p>
+<h3>DDR5 RCD</h3>
+<p><a href="https://substackcdn.com/image/fetch/$s_!HVEF!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F9ff5f48a-9ede-4d6a-9ec4-dc4672f6cb11_2816x1536.png"><img alt="" src="https://substackcdn.com/image/fetch/$s_!HVEF!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F9ff5f48a-9ede-4d6a-9ec4-dc4672f6cb11_2816x1536.png" /></a></p>
+<h4>Without a Traffic Controller, the Highway Jams</h4>
+<p>Think of a highway toll plaza. When a CPU sends a command to memory, that signal has to reach all of the DRAM chips on a DIMM at the same time. A single DIMM might have 8 to 16 DRAM chips on it, and every one of them needs to receive the same command with the same timing. As speeds increase, electrical signals start reflecting, distorting, and falling out of sync. The RCD sits between the CPU and the DRAM chips. It receives the incoming signal, cleans it up, and redistributes it to each chip with precise timing.</p>
+<p>In the DDR4 era, speeds topped out around 3,200 MT/s, so the job was relatively straightforward. DDR5 split each channel into two sub-channels and pushed speeds from 4,800 all the way up to 8,000 MT/s. At those frequencies, you have to solve DFE (Decision Feedback Equalization), power integrity, and electromagnetic interference problems simultaneously. That requires serious analog and mixed-signal design expertise.</p>
+<h4>The Harder the Technology Gets, the Better Rambus Looks</h4>
+<p>Rambus was founded in 1990 and has spent 35 years doing one thing: high-speed signal integrity. Its DDR4 RCD market share was about 25%. By DDR5, as the technical difficulty jumped sharply, that share climbed to 45%. The harder the problem gets, the better positioned Rambus becomes.</p>
+<h4>A Three-Player Oligopoly</h4>
+<p>The two competitors are <strong>Montage Technology (China, 40-45%)</strong> and <strong>Renesas (Japan, 10-15%)</strong>. Three companies control over 95% of the market. Getting in requires simultaneous JEDEC standards participation, years of qualification cycles, and advanced high-speed analog capability. From design start to qualified production takes a minimum of three to five years. New entrants are essentially locked out.</p>
+<p>The DDR5 RCD TAM is roughly $800M. Factor in MRDIMM and companion chips, and the addressable market expands to around $2 billion.</p>
+<p>Subscribed</p>
+<h3>The Second Pillar: Patent Royalties — Recurring Revenue at Near-Zero Cost</h3>
+<h4>If You Make Memory, You Pay Rambus</h4>
+<p><a href="https://substackcdn.com/image/fetch/$s_!siU8!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fed204a7a-d56c-4f1a-affe-d0ed8cae16cd_2816x1536.png"><img alt="" src="https://substackcdn.com/image/fetch/$s_!siU8!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fed204a7a-d56c-4f1a-affe-d0ed8cae16cd_2816x1536.png" /></a></p>
+<p>Rambus’s 2,500+ patents cover the core technology behind how DRAM interfaces with a CPU. Samsung, SK Hynix, and Micron all have to use these patents to sell DRAM, and they pay royalties for that right.</p>
+<p>The defining characteristic of this business is that it costs almost nothing to run. Patents developed once generate money indefinitely, which is why gross margins approach 100%. Every quarter, $60-70M in licensing billings drops almost straight to the bottom line.</p>
+<p>Micron is locked into a long-term license through 2029. Samsung has a license agreement as well. These contracts run for multiple years, so once signed, they generate stable recurring revenue.</p>
+<p>There is a risk worth noting. The timing of contract renewals creates significant quarter-to-quarter variability. Revenue spikes in quarters when a new deal comes in, and flattens in quarters when it doesn’t. This lumpiness makes individual quarters hard to read. But the broader point stands: as AI deepens the world’s dependence on memory bandwidth, the strategic importance of memory interface technology keeps rising, and Rambus’s patent portfolio remains squarely in the middle of that.</p>
+<h3>The Third Pillar: Silicon IP — The Part the Market Is Getting Wrong</h3>
+<h4>Selling Blueprints, Like ARM</h4>
+<p>ARM Holdings licenses CPU blueprints to Qualcomm and Samsung for smartphones. Rambus does the same thing for memory interfaces and security, licensing design IP to chip companies. Customers embed the IP in their own chips, and when those chips go into production, they pay additional royalties.</p>
+<p>Silicon IP is about 13% of revenue, roughly $94M in FY2025. Still a small piece. But when you look at what’s inside this portfolio, the “memory chip company” label completely breaks down.</p>
+<p><a href="https://substackcdn.com/image/fetch/$s_!K1qA!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F7615c829-b056-4667-bffe-561e3847daa6_2816x1536.png"><img alt="" src="https://substackcdn.com/image/fetch/$s_!K1qA!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F7615c829-b056-4667-bffe-561e3847daa6_2816x1536.png" /></a></p>
+<h4>Interface IP: Every Protocol That Connects Memory to a Chip</h4>
+<p><strong>HBM Controller IP.</strong> Every AI accelerator needs a controller to manage the HBM attached to it. Companies without the in-house capability to design one license it from somewhere else. Rambus has secured <strong>100+ design wins</strong> for its HBM Controller IP. In March 2026, Rambus announced its HBM4E Controller IP: 16 Gbps per pin, 4.1 TB/s per device, developed in collaboration with Samsung Foundry. As custom ASICs, think Google TPU, Amazon Trainium, Meta MTIA, keep multiplying, the TAM for this IP keeps growing with them.</p>
+<p><strong>PCIe Controller IP.</strong> PCIe connects CPUs to GPUs, SSDs, and network cards. Rambus has Controller IP supporting up to the latest PCIe 7.0 generation.</p>
+<p><strong>CXL Controller IP.</strong> CXL (Compute Express Link) is the next-generation interconnect standard for tying together CPUs, GPUs, memory, and accelerators. It’s the key enabler for memory expansion, memory pooling, and disaggregated computing architectures. Rambus holds CXL 3.1 Controller IP and has been making aggressive moves in the CXL ecosystem since 2021, acquiring PLDA (CXL/PCIe digital IP), AnalogX (SerDes PHY), and Hardent (CXL SoC design) in succession.</p>
+<p>One thing worth flagging here. At FMS 2024 in August 2024, Rambus demonstrated <strong>“CXL 2.0 over Optics.”</strong> They took an endpoint device running their CXL Controller IP, connected it over Samtec Firefly optical cable, and ran CXL 2.0 at 16 GT/s over 4 lanes on a 10-meter fiber link. It passed compliance testing. Rambus stated in their official blog that “optical interconnect solutions are essential to address the low latency and high bandwidth needs of disaggregated composable infrastructure.” They proved publicly that their IP works not just over copper, but over optical interconnect as well. The significance of that demo will come up again later in this article.</p>
+<h4>Security IP: Why Does a Memory Company Have Post-Quantum Cryptography?</h4>
+<p>Rambus’s security IP portfolio runs deeper than you’d expect.</p>
+<p><strong>Root of Trust.</strong> A hardware security module that establishes a trusted foundation when a chip boots up. It’s embedded inside the chip itself, creating a trust anchor that software attacks can’t reach. Used in AI accelerators, ASICs, FPGAs, and SoCs.</p>
+<p><strong>Inline Memory Encryption (IME).</strong> Encrypts data as it’s written to memory and decrypts it on read, in real time, with no meaningful performance penalty. Allows full memory encryption in multi-tenant data center environments where multiple customers share the same physical server.</p>
+<p><strong>Integrity and Data Encryption (IDE).</strong> Encrypts data in transit across interconnects like PCIe and CXL. Protects data moving between chips and between servers.</p>
+<p><strong>And then Quantum Safe Cryptography.</strong> This is where it gets important. Today’s public-key cryptography systems, RSA, ECC and the like, become vulnerable once quantum computers reach practical scale. Rambus already has a <strong>Quantum Safe Engine</strong> and <strong>Quantum Safe Root of Trust</strong> ready to go. Embed this IP into the secure element of an ASIC, SoC, or FPGA, and you get hardware-level security that holds up in a post-quantum world.</p>
+<p>The exact breakdown of Security IP within Silicon IP revenue isn’t disclosed publicly. The full Silicon IP segment is 13% of revenue, split between Interface IP (HBM, CXL, PCIe) and Security IP, with Interface IP likely taking the larger share for now. But the potential market for Quantum-Safe security is projected at $20 billion by 2030.</p>
+<p>The answer to “why does a memory chip company have quantum cryptography” is that Rambus doesn’t define itself as a memory chip company. Its stated mission is making data “faster and safer.” Faster is the RCD, HBM Controller, and CXL Controller. Safer is Root of Trust, IME, IDE, and Quantum Safe Cryptography. There are very few companies in the semiconductor industry that can claim both sides of that portfolio.</p>
+<h4>Why Does Security IP Actually Matter?</h4>
+<blockquote>
+<p>In the AI era, data is constantly moving between CPUs, GPUs, memory, and across servers. Multi-tenant infrastructure, where multiple customers share the same physical hardware, is becoming the default. In that world, security is no longer a software problem alone. Data at rest in memory, data in transit between chips, and the trust foundation at boot time all need hardware-level protection. That’s what makes Root of Trust, Memory Encryption, and Interconnect Encryption increasingly critical. Add to that the coming quantum threat to current cryptographic standards, and Quantum Safe Cryptography starts looking less like future-proofing and more like a near-term requirement.</p>
+</blockquote>
+<p>Subscribed</p>
+<h2>Financials</h2>
+<p><a href="https://substackcdn.com/image/fetch/$s_!oRxt!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fae6cef72-ea11-4729-bddf-a761c7b82762_2336x1792.png"><img alt="" src="https://substackcdn.com/image/fetch/$s_!oRxt!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fae6cef72-ea11-4729-bddf-a761c7b82762_2336x1792.png" /></a></p>
+<h3>Margin Structure</h3>
+<p>Gross margin runs 79-81%, a blend of licensing (near 100%) and product (roughly 60%). As Product revenue grows as a share of the mix, gross margin drifts slightly lower, but it stays firmly around 80%.</p>
+<p>Non-GAAP operating margin sits at 38-40%. R&amp;D is 27% of revenue, but the high gross margin absorbs it without much pain.</p>
+<p>FCF margin: 45%. FY2025 FCF of $320.9M divided by $707.6M in revenue. Capex stays below $40M annually because there’s no factory to run. Since 2021, Rambus has returned 44% of cumulative FCF through share buybacks.</p>
+<p>Cash on hand: $762M. Plenty of firepower for M&amp;A or additional buybacks.</p>
+<p>Subscribed</p>
+<h2>Stock Analysis Part 1: HBM Is Flying — So Why Is Rambus Down 30%?</h2>
+<p>We’re in the middle of a memory supercycle. HBM prices are surging. Server DDR5 is up 50-70%. DRAM maker earnings are at all-time highs, with reports of Samsung pulling 60% margins on HBM. And yet Rambus is sitting 30% below its peak.</p>
+<p><a href="https://substackcdn.com/image/fetch/$s_!c0Uj!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F83f7f9b4-66be-4d95-854f-fcbd80319954_2816x1536.png"><img alt="" src="https://substackcdn.com/image/fetch/$s_!c0Uj!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F83f7f9b4-66be-4d95-854f-fcbd80319954_2816x1536.png" /></a></p>
+<p><strong>First, Rambus doesn’t sell HBM directly.</strong> The windfall from HBM price spikes goes to Samsung, SK Hynix, and Micron. Rambus’s HBM-related revenue is limited to Silicon IP licensing, which is 13% of total revenue.</p>
+<p><strong>Second, valuations got ahead of themselves.</strong> The stock went from $40 to $135 in 12 months, a 3x move. At over 60x P/E, any minor miss triggers selling. A slight Q3 shortfall sent it down 23% in a single day as traders locked in gains.</p>
+<p><strong>Third, bad news hit in clusters.</strong> Q1 guidance came in cautious due to OSAT supply chain issues, and CFO Desmond Lynch resigned unexpectedly to “pursue another opportunity.” Underlying results were record-breaking, but two simultaneous sources of uncertainty shook sentiment.</p>
+<p><strong>Fourth, the Korean memory crash.</strong> On March 3, 2026, geopolitical tensions in the Middle East sent the KOSPI down 7%. Samsung and SK Hynix took direct hits, and Rambus was dragged down 11% in a single day on pure sentiment, with no company-specific news whatsoever.</p>
+<p>My read: this 30% pullback reflects sentiment and timing, not any deterioration in the fundamentals.</p>
+<h2>Stock Analysis Part 2: What the Market Is Missing</h2>
+<p><a href="https://substackcdn.com/image/fetch/$s_!1Cn9!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F73e4b40d-dcf2-4b5c-9b7b-d1522d5cd371_2816x1536.png"><img alt="" src="https://substackcdn.com/image/fetch/$s_!1Cn9!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F73e4b40d-dcf2-4b5c-9b7b-d1522d5cd371_2816x1536.png" /></a></p>
+<h3>Rambus’s Unusual Position in the DRAM Supercycle</h3>
+<p>As of 2026, DRAM shortages have reached levels not seen before. Bloomberg has reported that companies including Tesla and Apple are experiencing production disruptions. Server DDR5 prices are up 50-70%. An estimated 70% of all memory chip output is being consumed by data centers.</p>
+<p><strong>When more DRAM ships, more RCDs ship with it. But Rambus doesn’t carry DRAM price risk.</strong> Whether a DRAM chip costs $5 or $15, the RCD that goes into the DIMM it lives on doesn’t change price. Samsung, SK Hynix, and Micron see their earnings swing wildly with the cycle. Rambus collects its toll above all that.</p>
+<p>The market still treats Rambus as a memory cycle stock and sells it whenever DRAM prices look like they’re rolling over. But the actual correlation is with DRAM unit volume, not DRAM price. The market is conflating the two, and that’s a meaningful distinction.</p>
+<h3>Growth That Decouples from Server Shipments</h3>
+<p>DDR4 gave each CPU 8 memory channels. AMD’s latest platform pushes that to 12, with next-generation architectures moving toward 16 or more. AI server DRAM content is 2-4x that of a standard server. Multiply channel count growth by DIMM density growth by DDR5 mix growth by companion chip attach rates, and Rambus chip volumes can compound at double digits even when overall server shipments grow in the low single digits. If MRDIMM starts scaling in volume, ASP per module goes up on top of that.</p>
+<h3>The DDR6 Transition</h3>
+<p>DDR6 brings four 24-bit sub-channels and speeds from 8,800 to 17,600 MT/s, with server market entry projected for 2027. Rambus went from 25% share in DDR4 to 45% in DDR5 as technical complexity increased. The same pattern is likely to repeat in DDR6. The harder the standard gets, the better Rambus competes for it.</p>
+<h2>6. Stock Analysis Part 3: What Would Make the Market Pay Attention</h2>
+<p>Good fundamentals only matter if the market decides to look. Let’s be honest about the conditions.</p>
+<h3>Why the Market Isn’t Looking Right Now</h3>
+<p><strong>It’s stuck in the “memory semiconductor” bucket.</strong> The stock moves with DRAM price headlines even though the actual correlation is with unit volume. Sector ETF rebalancing and algorithmic trading don’t make that distinction. Breaking out of that bucket likely requires Silicon IP revenue to cross 20% of total revenue, at which point the re-classification to “IP platform company” becomes hard to ignore.</p>
+<p><strong>Institutional ownership is 88-93%, but mostly passive.</strong> Vanguard, Geode, and similar index funds dominate the cap table. Active managers with genuine conviction are underrepresented. The result is a stock that overreacts to any single piece of news.</p>
+<h3>Conditions for Re-Rating, and How Likely Each Is</h3>
+<p><strong>Silicon IP crosses 20% of revenue.</strong> This is the most decisive inflection point. The trigger is HBM Controller IP design wins converting to production royalties. As custom ASICs ramp into volume manufacturing, royalties attach to each chip. <strong>Probability: high, but the timing is probably 2027.</strong> 100+ design wins are already locked in; revenue conversion is a matter of when, not if.</p>
+<p><strong>Tier-1 bank initiates coverage.</strong> Rambus presented at the Morgan Stanley TMT Conference in March 2026, a signal of interest. But going from conference invitation to formal coverage requires months of internal approval. <strong>Probability: moderate.</strong></p>
+<p><strong>AI semiconductor ETF inclusion.</strong> Crossing a $15B market cap gets Rambus into more indexes automatically. But getting from $10B to $15B requires 50% upside first, and that upside needs a catalyst to happen. Classic chicken-and-egg problem. <strong>Probability: low in the near term.</strong></p>
+<p><strong>A narrative-changing event.</strong> This is the most realistic wildcard, and the hardest to predict.</p>
+<p><a href="https://substackcdn.com/image/fetch/$s_!O7JV!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F7e2182a9-ac6a-4805-a6bb-58a4fea3e4b7_2848x1494.png"><img alt="" src="https://substackcdn.com/image/fetch/$s_!O7JV!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F7e2182a9-ac6a-4805-a6bb-58a4fea3e4b7_2848x1494.png" /></a></p>
+<h3>The Most Likely Path</h3>
+<p>There probably isn’t one dramatic catalyst. The most realistic scenario is gradual re-rating as the numbers accumulate quarter by quarter.</p>
+<ol>
+<li>
+<p>Q1 earnings (April/May 2026) confirm supply chain resolution </p>
+</li>
+<li>
+<p>Stock recovers toward $100 </p>
+</li>
+<li>
+<p>Second half 2026 brings early MRDIMM revenue and companion chip growth </p>
+</li>
+<li>
+<p>Growth reaccelerates </p>
+</li>
+<li>
+<p>2027 HBM IP royalties kick in at scale </p>
+</li>
+<li>
+<p>Silicon IP crosses 20% </p>
+</li>
+<li>
+<p><strong>Narrative shifts.</strong></p>
+</li>
+</ol>
+<h3>The Biggest Risk: The Market Might Never Look</h3>
+<p>This scenario is also on the table. Rambus stays trapped between $10B and $15B. Coverage doesn’t expand. The “memory semiconductor” label sticks. The company remains a mid-cap that trades on DRAM headlines indefinitely.</p>
+<p>The only thing that breaks that scenario is the company forcing the change itself: an M&amp;A deal that reshapes the portfolio, a named HBM IP customer, or a deliberate IR pivot that plants the “AI Memory &amp; Secure Interconnect Platform” flag. </p>
+<p>So, Victor Peng joining the board might be the first move in that direction.</p>
+<h2>7. Victor Peng, PsiQuantum, and What Comes Next for Rambus</h2>
+<p>Let’s come back to the question I opened with. Who is the person who joined this company in February 2026, and why does it matter?</p>
+<h3>The Timeline</h3>
+<p>In August 2024, Victor Peng retired from his role as AMD President.</p>
+<p><a href="https://substackcdn.com/image/fetch/$s_!mxNQ!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F16e09399-abce-4ea1-a0d3-07e63564e343_1312x1080.jpeg"><img alt="" src="https://substackcdn.com/image/fetch/$s_!mxNQ!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F16e09399-abce-4ea1-a0d3-07e63564e343_1312x1080.jpeg" /></a>Lisa Su(left) and Victor Peng(right). Photo taken by me.</p>
+<p>I was at AMD at the time and attended Victor’s retirement party. Even then, the question everyone in Silicon Valley was asking was where he’d end up next. Victor is the person who took Xilinx from “FPGA company” to “Adaptive Computing company” and sold it to AMD for $49 billion. Over 40 years, he’s worked across CPU, GPU, FPGA, and system-level architecture. He’s a heavyweight by any measure.</p>
+<p>On February 10, 2026, <strong>PsiQuantum named Victor Peng as Interim CEO.</strong></p>
+<p>PsiQuantum is building a quantum computer based on silicon photonics. It has raised over $1 billion in a Series E, counts NVIDIA NVentures as an investor, holds contracts with DARPA and the Air Force Research Lab, and has secured $940M from the Australian government and $500M+ from the state of Illinois. </p>
+<p>The company manufactures its Omega silicon photonic chipset at GlobalFoundries and is currently building what it describes as the world’s first commercial-scale quantum computing sites in Brisbane and Chicago.</p>
+<p>Two days later, on February 12, Victor joined <strong>Rambus’s board of directors.</strong></p>
+<h3>PsiQuantum and Rambus: Is There a Connection?</h3>
+<p>PsiQuantum isn’t building just a quantum computer.</p>
+<p>Its core technology, a BTO (Barium Titanate) optical switch, is designed for controlling photonic qubits in a quantum system. But PsiQuantum has explicitly said this technology has dual-use potential for “low-power, high-speed optical networking in next-generation AI supercomputers.” </p>
+<p>NVIDIA’s partnership with PsiQuantum covers “quantum computing AND next-generation silicon photonics for AI supercomputing.” Their primary customers are government and defense: DARPA, Air Force Research Lab.</p>
+<p>With that context in mind, Victor sitting on both sides of the table starts to mean something.</p>
+<h3>Speculation: PsiQuantum × Rambus</h3>
+<p>Everything that follows is speculation, assembled from what’s happening in Silicon Valley and my own reading of the situation. These are scenarios built from real facts, not fabrications, but I could easily be wrong on all of it. Still, I think they’re worth thinking through.</p>
+<p><a href="https://substackcdn.com/image/fetch/$s_!keD_!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe1019f2e-f7af-4bc1-a35f-4d356494b527_2816x1536.png"><img alt="" src="https://substackcdn.com/image/fetch/$s_!keD_!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe1019f2e-f7af-4bc1-a35f-4d356494b527_2816x1536.png" /></a></p>
+<p><strong>Scenario 1: PsiQuantum’s quantum computers run on Rambus security IP.</strong></p>
+<p>PsiQuantum’s customers are governments and defense agencies. Their top requirement is security. The control plane, data paths, and communication channels of a quantum computing system all need quantum-safe encryption and hardware root of trust. A defense system without that isn’t something anyone would approve.</p>
+<p>What does Rambus already have? A Quantum Safe Engine, Quantum Safe Root of Trust, Inline Memory Encryption, and Integrity and Data Encryption. A full-stack security IP portfolio designed for the post-quantum era.</p>
+<p>If PsiQuantum delivers quantum computers to government customers and sources the security IP from an external provider, Rambus is the most natural fit. The CEO of the quantum computer company sits on the board of the company that holds the quantum-safe security IP. It’s a clean picture.</p>
+<p><strong>Scenario 2: Rambus has already proven its IP runs on optical interconnects.</strong></p>
+<p>In August 2024 at FMS, Rambus demonstrated CXL 2.0 over Optics. They ran CXL 2.0 at 16 GT/s over four lanes on a 10-meter fiber link using their CXL Controller IP, and it passed compliance testing. They proved, in public, that their IP works on optical interconnects, not just copper.</p>
+<p>Now connect that to PsiQuantum. PsiQuantum’s BTO optical switch is also positioned for high-speed optical networking in AI supercomputers. NVIDIA announced its first CPO-based scale-out network switch at GTC 2025. The shift from copper to optical interconnects in data centers is already underway.</p>
+<p>If CXL becomes one of the protocols that runs over optical interconnects as that transition plays out, Rambus is the CXL Controller IP vendor that has already demonstrated it can work on fiber. Victor pushing silicon photonics for AI supercomputing at PsiQuantum while simultaneously discussing how to commercialize CXL over Optics at Rambus’s board meetings is not a stretch to imagine.</p>
+<p><strong>Scenario 3: Rambus supplies the memory interconnect infrastructure for quantum-classical hybrid computing (long-range)</strong></p>
+<p>This one is furthest out. But it’s not pure science fiction either. PsiQuantum and NVIDIA’s collaboration explicitly includes GPU-QPU integration. PsiQuantum has already integrated NVIDIA CUDA-Q into its Construct platform. As these hybrid architectures scale, the importance of the interconnect layer between QPUs and classical computing systems grows. CXL is a credible candidate to play a role there. Rambus already holds CXL Controller IP. Whether that converges with quantum infrastructure in any meaningful timeframe is genuinely unknown, but it’s not an incoherent direction.</p>
+<h3>What These Scenarios Have in Common</h3>
+<p>All three share the same underlying theme: <strong>Rambus’s footprint expands from “around the DDR5 DIMM”</strong> to <strong>“the memory, interconnect, and security boundaries of AI-era computing systems.”</strong></p>
+<p>Remember what Victor did at Xilinx. </p>
+<p>He redefined an “FPGA company” as an “Adaptive Computing company,” and four years later AMD paid $49 billion for it. </p>
+<p>Now look at Rambus: $10 billion market cap, with HBM Controller IP, CXL Controller IP, and Quantum-Safe Security IP already inside. Add a PsiQuantum angle on top of that, and the “AI Memory &amp; Secure Interconnect Platform” narrative starts to have real grounding.</p>
+<p>In February 2026, the CFO left abruptly. A permanent replacement hasn’t been named. In the same week, the person who orchestrated a $49 billion deal joined the board. The committee he sits on is the Compensation and Human Resources Committee, which has direct influence over executive personnel decisions. That same person is simultaneously CEO of a silicon photonics quantum computing company.</p>
+<p>Each of these individually could be coincidence. All of them at once is harder to explain away.</p>
+<p>This is speculation. I want to be clear about that. But the scenario where someone of Victor’s caliber joins a board and nothing happens is the one I find harder to believe.</p>
+<h2>Conclusion</h2>
+<p>Rambus sits in a gap between what the market thinks it is and what’s actually inside it. The market sees a DDR5 RCD company and trades it against memory cycle sentiment. But inside, there’s an HBM Controller IP that’s embedded across 100+ custom ASIC design wins, a Quantum-Safe Security stack that’s ready for a threat most of the industry hasn’t priced in yet, and a CXL Controller IP that’s already been demonstrated running on fiber optic cable.</p>
+<p>When that gap closes is anyone’s guess. It could narrow quarter by quarter as the numbers accumulate, or it could collapse in a single day when one piece of news reframes the whole story. What I’m fairly confident of is that when it does happen, there will be people looking back at what this company was trading at and finding the current valuation very difficult to make sense of.</p>
+<hr />
+<p><em>This article is not investment advice and does not constitute a recommendation to buy or sell any security. All investment decisions are the sole responsibility of the reader.</em></p>
+                </main>
+            </body>
+            </html>
+        

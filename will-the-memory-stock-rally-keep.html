@@ -1,0 +1,252 @@
+
+            <!DOCTYPE html>
+            <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Markdown Content</title>
+                <link rel="stylesheet" href="assets/css/essay-styles.css">
+            </head>
+            <body>
+                <main class="markdown-content">
+                <h1>Will the Memory Stock Rally Keep Going?</h1>
+<h2>Scenario Analysis Beyond the HBM War</h2>
+<p><strong>May 12, 2026</strong></p>
+<p><strong>Likes:</strong> 50</p>
+<p><a href="https://substackcdn.com/image/fetch/$s_!PbXf!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fc92717d0-4fe3-43e9-9670-b099226678f2_2880x1472.png"><img alt="" src="https://substackcdn.com/image/fetch/$s_!PbXf!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fc92717d0-4fe3-43e9-9670-b099226678f2_2880x1472.png" /></a></p>
+<p>SK hynix posted 72% operating margin in a single quarter. Micron is locking in 3-to-5-year supply agreements. Samsung had a quarter where conventional DRAM profitability exceeded HBM.</p>
+<p>Memory stocks have gone on a tear. And the market’s question is simple. Can this rally continue.</p>
+<p><a href="https://substackcdn.com/image/fetch/$s_!5Ktl!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fae34e65c-f47b-4644-9252-a9c76bfbfe8d_1672x941.png"><img alt="" src="https://substackcdn.com/image/fetch/$s_!5Ktl!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fae34e65c-f47b-4644-9252-a9c76bfbfe8d_1672x941.png" /></a></p>
+<p>Most analysis looks at total HBM demand. Demand goes up, stocks go up. Demand slows, stocks pull back. </p>
+<p>This article looks somewhere else. Not total HBM demand, but where HBM pricing power holds and where it starts to crack. What determines the next round of memory stock performance is not how much HBM gets sold, but at what price.</p>
+<p>The approach is to deep dive into HBM’s cost structure and wafer allocation economics, then analyze the strategies of both memory vendors and platform owners (NVIDIA and hyperscalers) through the lens of pricing power. From there, map the additional drivers that could sustain the memory stock rally and the conditions under which those drivers weaken, organized by time horizon.</p>
+<hr />
+<p><em>This article is not investment advice and does not recommend buying or selling any specific stock. All investment decisions and their consequences are the responsibility of the individual investor.</em></p>
+<p>Damnang’s Substack is a reader-supported publication. To receive new posts and support my work, consider becoming a free or paid subscriber.</p>
+<p>Subscribed</p>
+<h2>HBM Is Not Coming Off the Throne</h2>
+<p><a href="https://substackcdn.com/image/fetch/$s_!zfgy!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fd92da250-a723-42d0-b334-8c34470acc7b_1744x901.png"><img alt="" src="https://substackcdn.com/image/fetch/$s_!zfgy!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fd92da250-a723-42d0-b334-8c34470acc7b_1744x901.png" /></a></p>
+<p>HBM is still in shortage. And that shortage is unlikely to ease anytime soon.</p>
+<p>Most of the expensive training GPUs and high-end inference ASICs powering the AI era depend deeply on HBM-class memory. Training models get larger every year, and inference services are starting to handle longer contexts and more concurrent users. Both curves run on top of HBM.</p>
+<p>The numbers are visible. Combined 2026 capex for the Big Tech 4 (Google, Microsoft, Meta, Amazon) is projected at roughly $725B, up approximately 77% year over year, nearly 1.8x in a single year. Capex is capital expenditure: spending on building data centers, buying GPUs, and laying out networks. </p>
+<p>A large share of this goes to AI infrastructure, and on top of that, NVIDIA posted roughly $68B in quarterly revenue while guiding roughly $78B for the following quarter. That is about $10B of incremental growth in a single quarter. Running this system requires HBM.</p>
+<p>The supply side tells the same story. </p>
+<p>Micron disclosed on its March 2026 earnings call that it has strategic customer agreements and specific commitments across a multi-year horizon, and has entered its first 5-year SCA (Strategic Capacity Agreement). Separate multi-year supply agreements spanning 3 to 5 years with certain customers fall in the same context.</p>
+<p>Understanding why the 3-to-5-year figure matters requires knowing how memory semiconductors have historically traded. DRAM has always been a market where prices shift every quarter. </p>
+<p>A chip priced at $10 this quarter might be $7 next quarter, or $14. Prices moved on a near-spot basis, quarter by quarter, driven by supply and demand. HBM has moved to a different game: lock in 3-to-5-year contracts first, then secure volume. The fundamental transaction structure of the DRAM market has changed.</p>
+<p>So the starting point is this. HBM has not weakened. If anything, it has gotten too strong.</p>
+<p>Everyone knows the memory stock rally comes from here. The question is what happens next.</p>
+<hr />
+<h2>As the Throne Grows, So Does the Cost Problem</h2>
+<p><a href="https://substackcdn.com/image/fetch/$s_!4qr_!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F401b0c64-79a6-40b3-bcb9-9cc54b800d04_1744x901.png"><img alt="" src="https://substackcdn.com/image/fetch/$s_!4qr_!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F401b0c64-79a6-40b3-bcb9-9cc54b800d04_1744x901.png" /></a></p>
+<p>As HBM has gotten stronger, it has also become too expensive a component inside a single GPU.</p>
+<p>Epoch AI’s external BOM model estimates the unit cost of an NVIDIA B200/B300 at roughly $6,400. BOM (Bill of Materials) is the component cost sheet for building one product. Of that, the estimated cost of 192GB HBM3E is roughly $3,000. </p>
+<p>A simple division puts HBM at about 47% of one GPU’s cost. Add advanced packaging, and estimates put HBM plus packaging at roughly 66 to 70% of the GPU BOM.</p>
+<p>This is not NVIDIA internal accounting. It is an external model’s estimate. But the directional read is clear: HBM has become not just the GPU’s core performance component but also the central line item on the cost sheet. </p>
+<p>When a single component accounts for nearly half the finished product’s cost, the product maker will either find ways to use that component more efficiently or start substituting it with something else wherever possible. The relationship between GPU and HBM is at exactly this point.</p>
+<p>Hyperscalers face the same pressure. </p>
+<p>Some reports estimate that roughly 30% of hyperscaler 2026 capex will go to memory. Thirty percent of $725B is about $217B. The exact budget is not precise, but the scale is informative. The memory line item that was roughly 8% of capex two to three years ago has, by some estimates, climbed to 30%. That is roughly 3.75x.</p>
+<p>When memory is an 8% component of capex, the question hyperscalers ask is: “How many GPUs should we buy?”</p>
+<p>When memory climbs to a 30% line item, the question changes: “Which memory goes where?”</p>
+<p>NVIDIA is in the same position. When HBM accounts for roughly half of a single GPU’s cost, “how far should we push HBM?” becomes a question about GPU architecture itself.</p>
+<p><em>This cost problem does not stop at the buyer side.</em></p>
+<p>The fact that HBM has moved to the center of GPU BOM and hyperscaler capex is not automatically good news for memory vendors either. Memory vendors cannot make HBM infinitely. The same wafer can go to HBM, or it can go to conventional DRAM or LPDDR.</p>
+<p>A wafer is the silicon disc used to manufacture semiconductors. How many chips you can cut from one wafer is the fundamental unit of semiconductor economics. A memory vendor can use that same wafer for HBM or for regular DDR5. Same raw material, different products.</p>
+<p>The moment platform owners start asking “how far should we push HBM?” a different question arises on the memory vendor side.</p>
+<p>Is putting this wafer into HBM really the best business?</p>
+<p>From here, HBM shortage stops being a simple demand story and becomes a question of wafer allocation economics. HBM’s high price is a cost problem for buyers and a wafer allocation problem for sellers.</p>
+<h2>Expensive HBM Raises Questions for Memory Vendors Too</h2>
+<p><a href="https://substackcdn.com/image/fetch/$s_!Ga6X!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F32c1b4a4-e059-4b24-b705-5f44c25baf3b_1744x901.png"><img alt="" src="https://substackcdn.com/image/fetch/$s_!Ga6X!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F32c1b4a4-e059-4b24-b705-5f44c25baf3b_1744x901.png" /></a></p>
+<h3>An HBM Wafer Is Not a DDR5 Wafer</h3>
+<p>From a memory vendor’s perspective, producing one wafer of HBM is not the same as producing one wafer of conventional DRAM. HBM dies are larger, they must be stacked 12 layers high, yield degrades at each layer, and additional advanced packaging steps are required. The usable bits per wafer are far lower than conventional DRAM.</p>
+<p>Yield is the percentage of functional, usable chips from one wafer. If 100 chips are made and 60 work, yield is 60%. Because HBM stacks 12 layers, defects accumulate at each layer. Even if single-layer yield is 97%, stacking 12 layers drops it to 0.97 to the twelfth power, roughly 69%. In practice, the stacking process itself introduces additional defects.</p>
+<p>Industry estimates put HBM’s wafer consumption at 3 to 4x that of conventional DRAM. Yield for 12-Hi stacks is estimated at 50 to 60%. DDR5 runs above 90%.</p>
+<p>On top of this, conventional DRAM prices moved sharply.</p>
+<h3>DDR5 Repricing Shakes This Threshold</h3>
+<p>TrendForce initially projected Q1 conventional DRAM contract prices rising 55 to 60% QoQ in early January 2026, then revised upward to 90 to 95% QoQ in early February. QoQ is quarter-over-quarter change. </p>
+<p>Server DRAM was already projected at 60%+ growth in the January forecast.</p>
+<p>For context on how extraordinary these numbers are: in a typical strong memory upcycle, 13 to 18% quarterly increases are considered strong. This quarter hit 90%. This is not a normal upturn. It is a price shock that disrupts wafer allocation economics.</p>
+<p>During the same period, SK hynix recorded 72% operating margin, an all-time company high. The company identified the ASP (average selling price) driver as conventional DRAM, not HBM. On its 1Q26 earnings call, SK hynix explained that DRAM ASP rose mid-60% quarter over quarter, with supply-demand imbalance continuing and customers prioritizing procurement over price.</p>
+<p>Samsung’s Q1 2026 earnings call matters too. Reports indicate Samsung acknowledged that conventional DRAM profitability exceeded HBM in the short term. This sounds counterintuitive at first. HBM is classified as strategic, conventional DRAM as commodity, yet the commodity beat the strategic product’s margin in a given quarter.</p>
+<p><a href="https://substackcdn.com/image/fetch/$s_!7UT2!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fd9dd396e-3a8d-47a4-ad0b-1875a637e0e6_1744x901.png"><img alt="" src="https://substackcdn.com/image/fetch/$s_!7UT2!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fd9dd396e-3a8d-47a4-ad0b-1875a637e0e6_1744x901.png" /></a></p>
+<h3>The Real Question Is Not ASP but Profit per Wafer</h3>
+<p>From a memory vendor’s perspective, picking up one wafer presents two alternatives. It can go to HBM, or it can go to DDR5 or LPDDR. Putting it into HBM means receiving multi-year contract pricing. Putting it into DDR5 means receiving rapidly repricing spot-like pricing that adjusts every quarter.</p>
+<p>Normally, HBM is the far better business. ASP is much higher. But when bits per wafer are lower and yield is worse, HBM does not automatically win on a per-wafer revenue basis even with higher ASP.</p>
+<p>To understand wafer allocation, run through the formula once. This is not official segment margin. It is a sensitivity exercise.</p>
+<blockquote>
+<p>HBM wafer revenue = <em>ASP_HBM × HBM bits per wafer × HBM yield</em></p>
+<p>DDR5 wafer revenue = <em>ASP_DDR5 × DDR5 bits per wafer × DDR5 yield</em></p>
+</blockquote>
+<p>If HBM consumes 3 to 4x more wafer and HBM yield is 50 to 60% while DDR5 yield exceeds 90%, then HBM needs to carry an ASP roughly 4.5 to 7.6x higher than conventional DRAM to remain commercially attractive on a per-wafer basis. </p>
+<p>Market data suggests the ASP gap between HBM3E and server DDR5 has narrowed to 4 to 5x or less in certain quarters. This comparison is not a conclusion. It is a threshold.</p>
+<p>Why this threshold matters. </p>
+<p>HBM is already locked inside multi-year contracts, making it difficult to raise prices that same quarter. When you are delivering at a price set three years ago while DDR5 spot prices are jumping 90% in a single quarter, the opportunity cost of putting a wafer into HBM rises sharply. </p>
+<p>Samsung acknowledging in 1Q26 that conventional DRAM profitability exceeded HBM in the short term is not a signal of HBM weakness. It is a signal that even when the capability to produce HBM exists, the economic incentive to allocate wafers there can waver.</p>
+<p>HBM shortage operates on two axes. One is the engineering shortage. HBM is physically hard to produce in sufficient volume, and this can ease over time through capacity expansion and yield improvement. </p>
+<p>The other is the capital allocation shortage. Memory vendors asking every quarter whether this wafer should go to HBM or conventional DRAM. This one does not get solved by building more fabs. The economic incentive to put wafers into HBM must be maintained. </p>
+<p><strong>Both shortages are running simultaneously right now.</strong></p>
+<p>If you ask whether this rally can continue, the thing to watch is not total HBM demand. It is where HBM pricing power holds and where it cracks. </p>
+<p>This article calls the variable that determines that pricing power the <strong>captive ratio</strong> : </p>
+<p>‘the share of total AI memory demand that must remain inside HBM.’</p>
+<p>If this ratio stays high, memory vendors can hold prices. If it falls, HBM can sell in volume and still lose ground in price negotiations.</p>
+<p>Below, this article deep dives into the specific strategies on each side of this captive ratio. </p>
+<p>How NVIDIA is disaggregating inference to reduce HBM dependency, how hyperscalers are redefining the memory mix with custom silicon, and how memory vendors are fighting back. </p>
+<p>Finally, it maps how this balance of power shifts over time, and what that means for the trajectory of the memory stock rally.</p>
+<p>Damnang’s Substack is a reader-supported publication. To receive new posts and support my work, consider becoming a free or paid subscriber.</p>
+<p>Subscribed</p>
+<h2>The Key to Pricing Power: Which Workloads Cannot Leave HBM</h2>
+<p>The first step is identifying which workloads cannot leave HBM and which can migrate to alternative memory.</p>
+<h3>Training Cannot Leave HBM</h3>
+<p>Training is the process of building an AI model from scratch. Thousands or tens of thousands of GPUs are linked into a single cluster, and massive datasets are fed through the model over weeks or months. During this process, enormous volumes of data constantly shuttle between GPUs.</p>
+<p>The reason training is locked to HBM is straightforward. A single frontier training run consumes HBM capacity and NVLink interconnect simultaneously. </p>
+<p>The bottleneck is not just memory capacity but bandwidth and interconnect. The moment any portion is offloaded to a slower memory tier, training time increases, and longer training time directly translates into the cost of occupying the entire cluster for longer.</p>
+<p>For scale: Epoch AI estimates that frontier language model training compute has grown at roughly 4 to 5x annually since 2020. A separate cost model estimates frontier training costs have grown at roughly 2.4x annually since 2016. </p>
+<p>Each run is bigger and more expensive. These runs, operating at scales like 32K H100 clusters, lock together cluster, HBM, and interconnect as a single bundle, naturally linking to multi-year supply agreements.</p>
+<p>In training, platform owners have little room to freely disaggregate the memory hierarchy. This is the most solid floor supporting the memory stock rally.</p>
+<h3>Inference Is a Different Kind of Market</h3>
+<p>Inference is the stage where a trained model is deployed to serve actual users. When you ask ChatGPT a question and get an answer, that is inference. Unlike training, inference must serve many users simultaneously and guarantee fast responses to each.</p>
+<p>One McKinsey data center demand model projects AI inference data center demand growing from 20.9GW in 2025 to 93.3GW in 2030. </p>
+<p>That is 4.46x. </p>
+<p>Over the same period, AI training demand grows from 23.1GW to 62.2GW, or 2.69x. Training grows too. But inference’s deployment footprint expands faster. </p>
+<p><em><strong>Training goes deeper. Inference goes wider.</strong></em></p>
+<p>How inference goes wider matters. And this is what determines the next chapter for memory stocks.</p>
+<p>Inference is not a single task. It decomposes into multiple phases. When a user sends a long prompt, the model goes through two stages. </p>
+<p>The first, prefill, reads the entire input at once and builds an internal state. </p>
+<p>The second, decode, generates output one token (word fragment) at a time based on that state. When ChatGPT appears to type one character at a time, that is the decode phase.</p>
+<p>A critical piece of temporary memory here is the KV cache. This is the key/value memory the model holds to remember previous tokens, and it grows rapidly as conversation length (context) increases.</p>
+<p>A temperature concept for data makes the next explanation easier. Hot means the data must be retrieved instantly on every token. It is data needed right now to produce the current answer. Warm means it gets reused occasionally. Cold means it needs to be stored but is not needed on every single token.</p>
+<p>This temperature determines which memory tier each phase naturally maps to.</p>
+<p><a href="https://substackcdn.com/image/fetch/$s_!061p!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F617b6f0e-a4ea-4419-b4a2-18f2fecc1f55_1774x887.png"><img alt="" src="https://substackcdn.com/image/fetch/$s_!061p!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F617b6f0e-a4ea-4419-b4a2-18f2fecc1f55_1774x887.png" /></a></p>
+<p>The top two rows (training, hot decode) are locked to HBM. They are the <em><strong>captive zone</strong></em>.</p>
+<p>The bottom three (prefill, warm, cold) have potential to migrate to other memory tiers. These three rows are the <em><strong>negotiable zone.</strong></em></p>
+<p>Note, however, that NVIDIA has begun peeling off even the hot decode segment, previously classified as captive, via Groq 3 LPX. More on this below.</p>
+<p>Training cannot leave HBM. Hot decode is still strongly tied to HBM. But the remaining phases of inference, especially in the fastest-growing segment of the inference market, are negotiable. They can move to other memory tiers.</p>
+<p>For the memory stock rally to hold through the next round, the captive ratio is the key variable. </p>
+<p>Total HBM demand grows on both the training and inference sides. <strong>But if the negotiable zone expands on the inference side, marginal pricing power</strong> <strong>can weaken.</strong></p>
+<p>So who is actually trying to break open this negotiable zone, and what are they doing?</p>
+<h2>The Force Shaking the Rally: Platform Owners’ Disaggregation Strategy</h2>
+<p>The side bearing the most cost pressure is NVIDIA and the hyperscalers. </p>
+<p>I will refer to them collectively as platform owners: the parties with system design authority, meaning the power to decide which chip gets which memory and how it all gets packaged and sold.</p>
+<p>Their strategy boils down to one thing. They are not eliminating HBM. They are separating the places where HBM is truly necessary from those where it is not.</p>
+<p>The more this separation succeeds, the lower the HBM captive ratio falls. A lower captive ratio weakens memory vendors’ pricing power. Total HBM demand can keep growing while marginal pricing power shrinks.</p>
+<h3>NVIDIA: Disaggregating Inference Phase by Phase, and Memory Along With It</h3>
+<p><a href="https://substackcdn.com/image/fetch/$s_!PWx0!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F12bcfb76-66ff-4e60-ace7-b91b82078749_1744x901.png"><img alt="" src="https://substackcdn.com/image/fetch/$s_!PWx0!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F12bcfb76-66ff-4e60-ace7-b91b82078749_1744x901.png" /></a></p>
+<p>NVIDIA is the company showing this direction most clearly.</p>
+<p>On the surface, NVIDIA still says it needs more HBM. Jensen Huang repeatedly says AI factories require more memory. To this point, it looks like NVIDIA and memory vendors are on the same side.</p>
+<p>But platform behavior tells a different story. NVIDIA’s next-generation platform, Vera Rubin, enters its main ramp in 2026. This platform does not carry a single memory type.</p>
+<p>The tools NVIDIA is preparing can be grouped into four bundles.</p>
+<p>First, splitting prefill and decode onto different hardware (Dynamo software + heterogeneous rack). Instead of running both phases of inference (reading a long input in prefill, generating one token at a time in decode) on the same GPU, each phase gets hardware optimized for its own access pattern. The two phases use memory differently. Prefill needs to read large volumes quickly in a burst. Decode needs short but ultra-low-latency access. Running them together degrades each other’s efficiency.</p>
+<p>Second, placing a memory tier next to the GPU that is slower than HBM but far larger (Vera CPU + SOCAMM + NVLink-C2C). The Vera CPU attaches 1.5TB of LPDDR5X memory via SOCAMM modules, connected to the GPU through NVLink-C2C, a high-speed interface. SOCAMM is a high-capacity memory module that plugs directly into the GPU system board. It is slower than HBM but far larger in capacity and lower in price. It fills the warm memory slot, absorbing portions of KV cache and multi-model execution workloads.</p>
+<p>Third, deploying a decode-specific accelerator as a separate unit (Groq 3 LPX). After NVIDIA’s $20B acquisition of Groq in December 2025, this was announced at GTC 2026 as the seventh chip in the Vera Rubin platform, a rack-scale inference accelerator. It consists of 256 LPUs (Language Processing Units) with 128GB of on-chip SRAM and 40PB/s of aggregate bandwidth. </p>
+<p>The key: it runs on SRAM, not HBM. The Rubin GPU handles prefill and attention decode with HBM, while the Groq 3 LPU handles feed-forward layers with SRAM. This is the first time NVIDIA has put non-GPU inference hardware into its platform. It replaces the role previously assigned to Rubin CPX (a GDDR7-based context processor announced in September 2025), reflecting a roadmap update. </p>
+<p>This tool matters because it begins to peel off even the hot decode segment, previously classified as part of the captive zone, away from HBM.</p>
+<p>Fourth, pushing stale context to a flash-based storage tier (BlueField-4 + CMX). NVIDIA’s CMX (Context Memory Storage) ecosystem pushes cold context and infrequently reused prompt prefixes to flash-based tiers. Flash is the storage medium used in SSDs. It is far slower than HBM or DRAM, but its cost per capacity is vastly lower. It fills the cold memory slot.</p>
+<p>All of these tools begin shipping or ramping in earnest from 2026.</p>
+<p>HBM stays in place for the hottest phases. Everything else gets distributed to cheaper memory tiers or non-HBM hardware. The fact that Groq 3 LPX is starting to peel off decode means NVIDIA is trying to shrink the surface area where HBM is strictly necessary, pushing the boundary even within the captive zone.</p>
+<p>NVIDIA is not escaping from HBM. NVIDIA is shrinking the surface area where HBM is indispensable. A smaller surface area means a lower captive ratio for memory vendors.</p>
+<h3>Hyperscalers: Defining the Memory Mix Directly via Custom Silicon</h3>
+<p><a href="https://substackcdn.com/image/fetch/$s_!2bBi!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe6a51c00-b853-477c-8370-5b2edec49113_1536x1024.png"><img alt="" src="https://substackcdn.com/image/fetch/$s_!2bBi!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe6a51c00-b853-477c-8370-5b2edec49113_1536x1024.png" /></a></p>
+<p>The Big 4 hyperscalers play the same game through a different route.</p>
+<p>Google TPU, Amazon Trainium, Microsoft Maia, Meta MTIA. All four are custom silicon. Google TPU, Amazon Trainium, and Microsoft Maia continue to use HBM-class memory. Meta MTIA used an LPDDR5 tier in publicly disclosed v1/v2 configurations, with subsequent roadmap mentions exploring HBM-adjacent stacking.</p>
+<p>The structural point to watch is that these chips are redesigning the memory hierarchy itself with each generation. Google’s TPU 8i (inference-specific) tripled on-chip SRAM to 384MB versus the prior generation, aiming to place KV cache on SRAM rather than HBM. It does use 288GB of HBM3e, but the choice of HBM3e over HBM4 is itself a deliberate cost-yield tradeoff decision. The training chip, TPU 8t, was split into a separate chip. This mirrors NVIDIA’s move with Vera Rubin + Groq 3 LPX, splitting training and inference across different hardware.</p>
+<p>The goal is not to eliminate HBM usage. The core point is that hyperscalers are defining the memory mix to fit their own workloads. Instead of following NVIDIA’s prescribed memory hierarchy on top of NVIDIA-designed systems, they are claiming the authority to set the mix themselves.</p>
+<p>Why this matters: buying an NVIDIA GPU means buying the HBM allocation NVIDIA decided. One B200 comes with 192GB of HBM, fixed. Building custom silicon lets a hyperscaler decide, “our inference workload only needs 96GB of HBM, we will fill the rest with LPDDR.” Design authority over the memory mix shifts from NVIDIA to the hyperscaler.</p>
+<p>In Amazon’s 2025 Annual Report shareholder letter, Andy Jassy explained that Trainium can deliver several hundred basis points of inference operating margin advantage over external chips at scale. Several hundred basis points means a few percentage points. Custom silicon is not a tool for turning off HBM demand. It is a tool for defending inference margin.</p>
+<p>On Microsoft’s FY26 Q3 earnings call, the company guided CY2026 capex at roughly $190B, of which approximately $25B was attributed to higher component pricing. That is roughly 13% of the total. The capex increase is not solely from more capacity. Component price inflation itself is now on hyperscalers’ radar.</p>
+<p>Bain estimates that as AI data center capex approaches $500B annually, sustaining it requires roughly $2T in annual revenue. Dividing simply, capex-to-revenue of 25% becomes one pressure line. On 2026 guidance, a number of companies significantly exceed this pressure line, an observation repeated across multiple analyses. Capex has begun threatening unit economics, not just representing investment.</p>
+<p>This pressure drives custom silicon adoption. If HBM inside each NVIDIA GPU is too expensive, the natural response is to set your own memory mix on custom chips.</p>
+<h3>Software Squeezing More from the Same HBM</h3>
+<p><a href="https://substackcdn.com/image/fetch/$s_!DMuw!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F358adabc-f216-4b0f-886f-73858b4ea495_1672x941.png"><img alt="" src="https://substackcdn.com/image/fetch/$s_!DMuw!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F358adabc-f216-4b0f-886f-73858b4ea495_1672x941.png" /></a></p>
+<p>Where hardware cannot be swapped out immediately, software extracts more tokens from the same HBM.</p>
+<p>The goal is not to eliminate HBM demand. It is to serve more users, handle longer contexts, and generate more tokens from the same HBM allocation.</p>
+<p>Three directions.</p>
+<p>First, KV cache offloading. As context lengthens and concurrent users multiply, KV cache grows rapidly. Keeping it all in GPU HBM makes HBM capacity a direct bottleneck on service capacity. So systems tier the KV cache. The hottest portions stay in HBM. Cooler portions get pushed to CPU memory, LPDDR/SOCAMM, SSD, or flash-based tiers. NVIDIA Dynamo, vLLM’s PagedAttention family, and BlueField-4 CMX share this approach.</p>
+<p>Second, quantization. This reduces the precision of stored data. Lowering the bytes per token in KV cache lets the same HBM hold more context and more users. Data originally stored at 16-bit gets compressed to 8-bit or 4-bit. There can be a slight accuracy tradeoff, but with good design the difference is nearly imperceptible in production.</p>
+<p>Third, MoE expert offloading. MoE (Mixture-of-Experts) models contain multiple specialized expert networks. Only a subset of experts activates on each token. Keeping only active experts in HBM and parking inactive ones in CPU DRAM or a near-memory tier lets the same HBM run far larger models.</p>
+<p>The economics are simple.</p>
+<blockquote>
+<p>$/1M output tokens = GPU-hour cost × 1,000,000 / (sustained tokens/sec/GPU × 3,600)</p>
+</blockquote>
+<p>This is an identity converting GPU-hour cost to per-token cost. At the same GPU-hour cost, doubling sustained throughput halves the per-token cost exactly. Inference optimization cannot eliminate HBM demand. But it can expand the revenue capacity generated from each unit of HBM.</p>
+<p>What this means for the memory stock rally: even as HBM unit demand grows, if software optimization extracts more tokens from the same HBM, the marginal revenue generated by each additional HBM unit increases. </p>
+<p>That is good news for buyers. But it also means the urgency to purchase the next HBM unit decreases. Not immediately, but over the medium term, it affects price negotiations.</p>
+<h3>Summarizing Platform Owner Behavior</h3>
+<p>Where HBM is economically unavoidable, it stays. Everywhere else, the move is to shift to cheaper memory tiers or squeeze more from existing HBM. With Groq 3 LPX, this disaggregation is pushing not just into the negotiable zone but up against the boundary of the captive zone itself.</p>
+<p><strong>This is not HBM bearish.</strong></p>
+<p>It is the act of separating the captive zone from the negotiable zone. The speed at which this separation proceeds is what determines whether the memory stock rally sustains.</p>
+<p>An important caveat, though. These bypass tools are unproven. They must pass production SLO before they translate to real cost savings. </p>
+<p>SLO (Service-Level Objective) is the set of response time, accuracy, and reliability standards a service must meet. No matter how cheap a new memory tier or non-HBM hardware is, if it cannot guarantee the same response quality as HBM-based service, it does not enter production.</p>
+<p>If that verification fails, hot state moves back to HBM. In that scenario, the memory stock rally extends further. Verification results will start becoming visible to the market over 2026 and 2027.</p>
+<p>Is the memory vendor just watching this separation happen?</p>
+<h2>Memory Vendors Fight Back: Lock Them In or Expand the Territory</h2>
+<p><a href="https://substackcdn.com/image/fetch/$s_!g42e!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fc08030f3-59d6-48da-a477-4a48bcc661d6_1536x1024.png"><img alt="" src="https://substackcdn.com/image/fetch/$s_!g42e!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fc08030f3-59d6-48da-a477-4a48bcc661d6_1536x1024.png" /></a></p>
+<h3>The Lock-In Game: Custom HBM (cHBM)</h3>
+<p>The first card is custom HBM, or cHBM.</p>
+<p>Standard HBM carries similar specs across vendors, enabling second-sourcing. A buyer using SK hynix this year can switch to Micron next year. Good for buyers, but it exposes sellers to price competition.</p>
+<p>cHBM changes this structure. Customer-specific base dies, meaning the control and interface layer at the bottom of HBM stacks, are designed to specific customer requirements. cHBM built for one hyperscaler cannot be used by another. The architecture is deliberately incompatible, making it difficult for a locked-in customer to switch vendors.</p>
+<p>From the memory vendor’s perspective, the utility is clear. Pricing power goes up. Once you win the design, the customer finds it hard to switch.</p>
+<p>But it cuts both ways. When specs are driven by the customer’s requirements, the vendor is pulled along. Mask, validation, and qualification costs rise. For projects without sufficient volume, the economics do not work.</p>
+<p>cHBM is not a category for everyone. It is likely to narrow into a game reserved for top-tier customers with sufficient volume: NVIDIA, Google, Amazon, Microsoft, Meta.</p>
+<h3>The Territory Expansion Game: HBF and PIM</h3>
+<p>The second card is creating new categories adjacent to HBM.</p>
+<p>The leading candidate is HBF (High-Bandwidth Flash). SanDisk and SK hynix announced a standardization collaboration in August 2025, with prototypes targeted for 2026.</p>
+<p>There is a gap in the existing memory hierarchy. HBM sits at the top, fastest and most expensive. NVMe SSD sits at the bottom, slowest and cheapest. LPDDR and DDR5 fill the middle, but there has been no tier just below HBM offering near-HBM bandwidth with flash-like capacity and pricing. HBF is the attempt to fill that gap.</p>
+<p>SanDisk claims HBF can provide 8 to 16x the capacity of HBM at comparable cost. This is a vendor target, not a production adoption figure.</p>
+<p>The slot HBF is targeting is exactly where platform owners want to move cold and warm context. The area that NVIDIA’s BlueField-4 aims to hand off to storage partners overlaps with the area HBF is being built to serve from the vendor side.</p>
+<p>SK hynix is the number one player in HBM. If HBM could permanently absorb all of inference’s memory demand, SK hynix would have no reason to touch HBF. The fact that SK hynix is entering HBF standardization sends its own message: SK hynix itself has concluded that HBM alone cannot cover the full inference memory footprint. If that is the case, the play is to make sure SK hynix also sells whatever new category emerges next to HBM.</p>
+<p>PIM (Processing-in-Memory) runs in the same direction. By performing some computation directly inside memory, PIM reduces data movement between memory and processor. Instead of data traveling from memory to processor, being computed on, and returning to memory, PIM cuts that round trip, improving both speed and power efficiency. SK hynix’s AiM and Samsung’s HBM-PIM represent this approach. Still small as a production category, but the directional intent is the same: vendors moving from pure component supplier toward subsystem-level integration.</p>
+<h3>Summarizing Memory Vendor Strategy</h3>
+<p>To prevent HBM from commoditizing into a piece component, memory vendors lock in customers on one side and expand into new categories adjacent to HBM on the other.</p>
+<p>Platform owners are trying to disaggregate HBM. Memory vendors are trying to plant their own category in every fragment that breaks off. Two camps pulling in opposite directions.</p>
+<p>If this counterattack succeeds, the memory stock rally gains a new driver. Memory vendor revenue would flow from multiple categories, not just HBM alone. If it fails, memory remains a BOM line item under platform owner control, and pricing power shifts to buyers.</p>
+<blockquote>
+<p>_ <strong>Note: A bottleneck both sides must pass through</strong>_</p>
+<p>There is one variable that neither side can ignore. Whether memory vendors win or platform owners win, both must pass through this bottleneck. Advanced packaging. GPUs and high-end ASICs that use HBM are exposed to CoWoS-class advanced packaging capacity. </p>
+<p>CoWoS is TSMC’s technology for integrating GPU or ASIC with HBM inside a single package. According to benchmarks cited by Epoch AI, CoWoS capacity grew from roughly 13 to 16K wafers per month at end of 2023 to an estimated 65 to 75K wafers per month by end of 2025, roughly a 4 to 6x increase. </p>
+<p>Even so, major AI chip designers absorbed approximately 90% of CoWoS and HBM supply in 2025. Supply expanded roughly 5x, but demand booked 90% first. </p>
+<p>No matter how much HBM is produced, if packaging capacity to attach it to GPUs is insufficient, HBM shipments themselves are blocked. And even platform owners introducing new hardware must put those chips through advanced packaging too. This imposes a throughput ceiling on both sides.</p>
+</blockquote>
+<p><a href="https://damnang2.substack.com/p/will-the-memory-stock-rally-keep?utm_source=substack&amp;utm_medium=email&amp;utm_content=share&amp;action=share&amp;token=eyJ1c2VyX2lkIjoyMzg3ODIwNzYsInBvc3RfaWQiOjE5NzMwNDczOSwiaWF0IjoxNzc4NjEwMDUzLCJleHAiOjE3ODEyMDIwNTMsImlzcyI6InB1Yi00NTg3MDcwIiwic3ViIjoicG9zdC1yZWFjdGlvbiJ9.CS3diTZ5pHWJwaU0J-MDOM37IhWQDAme4qmPEo1F5rM">Share</a></p>
+<hr />
+<h2>My Scenario: Duration Matters More Than Peak Margin</h2>
+<p>SK hynix at 72% operating margin. Micron at 48%.</p>
+<p>Investors who have watched memory cycles for a long time see these numbers and almost reflexively think the same thing. Is this the peak.</p>
+<p>That suspicion is rational. In past DRAM cycles, peak margin was a danger signal. Strong profits led to capex increases, and a few quarters later, bit supply flooded in and prices collapsed. 2018 and 2021 both followed the same playbook.</p>
+<p>But I believe the conditions for margin collapse are different this cycle.</p>
+<p>In the past, supply came first. This time, the captive ratio comes first.</p>
+<p>The market still views HBM as a single product. I view HBM as a captive zone within the AI memory hierarchy. Viewing it as a product means you only watch demand. Viewing it as a captive zone means you watch pricing power. The condition for HBM pricing power to break is not excess HBM production. It is the share of AI workloads that must remain in HBM declining. As long as training and hot decode stay locked to HBM, memory vendors can hold prices. Conversely, if prefill, warm KV, and cold context migrate quickly to SOCAMM, flash, and HBF tiers, and if decode itself starts getting partially split off to SRAM-based accelerators, total HBM demand can grow while marginal pricing power weakens.</p>
+<p>So the core question I am watching this cycle is not whether this is peak margin. </p>
+<p><strong>It is how many quarters this margin can sustain.</strong></p>
+<h3>2026 Through Early 2027: The Window Where Captive Ratio Stays High</h3>
+<p>Synthesizing the analysis above, the captive ratio is very high at this point.</p>
+<p>Training cannot leave HBM. That does not change. Hot decode is still strongly tied to HBM. Groq 3 LPX has started to peel off a portion of decode, but with shipments targeted for Q3 2026, production-scale verification is still pending. </p>
+<p><em><strong>This forms the floor of the captive zone.</strong></em></p>
+<p>Workloads classified in the negotiable zone (prefill, warm KV, cold context) can theoretically migrate to other memory tiers. But the tools to execute that migration have not yet passed production SLO. While the tools are unverified, even the negotiable zone remains effectively locked to HBM.</p>
+<p>Three additional conditions layer on top. HBM is inside 3-to-5-year multi-year contracts, so pricing does not move on a quarterly spot basis. Conventional DRAM is being pulled into the AI server build-out, jumping 90 to 95% in a single quarter. </p>
+<p>The HBM4 generation transition is producing ASPs roughly 60 to 70% higher on a per-stack sticker price basis (per-GB increases may be lower after adjusting for capacity differences, so this should be read at the stack price level only).</p>
+<h3>Late 2026 Through 2027: The Verification Window</h3>
+<p>Groq 3 LPX is scheduled for Q3 2026 shipment, and SOCAMM and BlueField-4 will begin generating production data alongside the Vera Rubin ramp in the second half of 2026. From this point, the market starts to see whether platform owners’ bypass tools actually pass production SLO. </p>
+<p>By 2027, enough data accumulates for substantive judgment. Simultaneously, whether memory vendors can convert cHBM, HBF, and PIM into revenue becomes a deciding fork. The combination of these two variables splits into three scenarios.</p>
+<p><a href="https://substackcdn.com/image/fetch/$s_!INOO!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe2cb07f5-2115-4dd5-957c-2b8a2ece71cd_1916x821.png"><img alt="" src="https://substackcdn.com/image/fetch/$s_!INOO!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe2cb07f5-2115-4dd5-957c-2b8a2ece71cd_1916x821.png" /></a></p>
+<h3>My Base Case and View on the Stocks</h3>
+<p><em>My current base case sits between memory vendor advantage and equilibrium. This is less a firm conclusion and more a working thesis to be verified over the next several quarters.</em></p>
+<hr />
+<p>Does the rally continue? </p>
+<p>In the near term (2026 through 2027), I believe it does. </p>
+<p>The structure supporting current profits rests on three pillars. Conventional DRAM repricing is lifting overall memory vendor profitability. </p>
+<p>HBM pricing is locked inside multi-year contracts. The HBM4 generation transition is driving higher ASP. The captive ratio is the reason this structure does not collapse as quickly as past cycles. In the past, supply gluts broke the pricing structure within one or two quarters. </p>
+<p>This time, the tools to lower the captive ratio are not yet proven, making a collapse at the same speed difficult. For the rally to break in this window, an AI capex slowdown driven by a macro shock would be needed, and <em><strong>current guidance shows no such signal</strong></em>.</p>
+<p>Starting in the second half of 2026, verification data begins to emerge, and by 2027, the market can make substantive judgments. From that point, the rally does not stop. Rather, the basis for the rally changes. It transitions from a window where you are buying HBM shortage to one where you are verifying the memory hierarchy transition.</p>
+<h3>Three Signals to Verify This Thesis</h3>
+<p>The dashboard to check each quarter has three items.</p>
+<p>First, the pace of platform owner production adoption. The speed and scale at which the bypass tools discussed above are actually deployed in production directly reveals how fast the negotiable zone is expanding.</p>
+<p>Second, memory vendor progress on new categories. cHBM design wins, HBF sample shipments, and PIM prototype adoption indicate whether the vendor counterattack is actually converting to revenue.</p>
+<p>Third, changes in hyperscaler capex breakdown. Whether the memory share within capex keeps rising, whether custom silicon’s share is growing, and whether component price effects continue to appear in capex guidance.</p>
+<h2>Conclusion</h2>
+<p>What matters in this memory cycle is not peak margin itself. It is how many quarters this margin can hold.</p>
+<p>In the past, supply gluts answered that question. This time, the captive ratio answers it. And the tools to lower the captive ratio are still unproven.</p>
+<p>Whether these profits are the last flare of a traditional DRAM cycle, or the formation of a higher baseline within a new AI memory hierarchy. The answer to that question determines the next chapter for memory stocks.</p>
+                </main>
+            </body>
+            </html>
+        
